@@ -15,6 +15,7 @@ class Project extends Component{
     render(){
         return(
             <div className={'project'} style={{borderColor: this.state.borderColor}}>
+                <p style={{justifyContent:'center'}}>{this.props.data.name}</p>
                 <FontAwesomeIcon className={'icon'} icon={this.state.icon} onClick={this.changeState} />
             </div>
 
