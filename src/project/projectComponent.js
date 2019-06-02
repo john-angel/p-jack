@@ -6,13 +6,15 @@ import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons'
 class Project extends Component{
 
     state = {
-        icon: faPlay
+        icon: faPlay,
+        borderColor: 'black'
     }
-    changeState = () => this.state.icon === faPlay ? this.setState({icon:faStop}) : this.setState({icon:faPlay})
+    changeState = () => this.state.icon === faPlay ? this.setState({icon:faStop,borderColor:'red'}) :
+                                                    this.setState({icon:faPlay,borderColor:'black'})
     
     render(){
         return(
-            <div className={'project'}>
+            <div className={'project'} style={{borderColor: this.state.borderColor}}>
                 <FontAwesomeIcon className={'icon'} icon={this.state.icon} onClick={this.changeState} />
             </div>
 
