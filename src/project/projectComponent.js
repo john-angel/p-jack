@@ -9,8 +9,21 @@ class Project extends Component{
         icon: faPlay,
         borderColor: 'black'
     }
-    changeState = () => this.state.icon === faPlay ? this.setState({icon:faStop,borderColor:'red'}) :
-                                                    this.setState({icon:faPlay,borderColor:'black'})
+    start = () => {
+        this.setState({icon:faStop,borderColor:'red'})
+        this.props.onProjectStarted(this.props.data.id);
+    }
+
+    stop = () => this.setState({icon:faPlay,borderColor:'black'})
+    
+    changeState = () =>  this.state.icon === faPlay ? this.start() : this.stop();
+                                                    
+    componentDidUpdate(){
+        
+        if(this.state.icon === faStop && this.props.started === false){
+            this.stop();
+        }
+    }
     
     render(){
         return(
