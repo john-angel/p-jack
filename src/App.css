@@ -38,7 +38,7 @@
   align-items: center;
 }
 
-.project {
+.projectCircle {
   height: 160px;
   width: 160px;
   border-style: solid;
@@ -49,6 +49,24 @@
   justify-content:flex-end;
   align-items:center;
   padding-bottom:5px;
+  animation-duration: 2s;
+  /*animation-name:borderAnimate;*/
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.noBorderAnimation {
+  animation: none !important;
+}
+
+@keyframes borderAnimate{
+  from {
+    border-color: black
+  }
+  to {
+    border-color:red
+  }
 }
 
 .icon:hover{
