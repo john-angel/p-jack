@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import '../App.css';
-import {green,blue,yellow, orange} from '../utils/colors'
+import {green,blue,yellow, orange, gray} from '../utils/colors'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons'
 
@@ -13,20 +13,24 @@ class Project extends Component{
         
         this.state = {
             icon:faPlay,
-            borderColor: props.data.status === 'NotStarted' ? 'white' : props.data.status === 'OnTrack' ? green : 
+            backgroundColor: props.data.status === 'NotStarted' ? gray : props.data.status === 'OnTrack' ? green : 
                         props.data.status === 'Risk' ? yellow : props.data.status === 'Delayed' ? orange : blue,
             animation: 'paused',
             className:'projectCircle',
+            pjClassName: 'projectName',
             animationName:''
         }
     }
     
     start = () => {
-        this.setState({icon:faStop,borderColor:this.state.borderColor,animation:'running',className:'projectCircle',animationName:'borderAnimate'})
+        this.setState({icon:faStop,animation:'running',className:'projectCircle',
+        pjClassName:'projectName',animationName:'projectAnimation'})
         this.props.onProjectActive(this.props.data.id);
     }
 
-    stop = () => this.setState({icon:faPlay,borderColor:this.state.borderColor,animation:'paused',className:'projectCircle noBorderAnimation'})
+    stop = () => this.setState({icon:faPlay,animation:'paused',
+    className:'projectCircle noAnimation',
+    pjClassName:'projectName noAnimation',})
 
     changeState = () =>  this.state.icon === faPlay ? this.start() : this.stop();
                                                     
@@ -39,9 +43,9 @@ class Project extends Component{
     
     render(){
         return(
-            <div className={this.state.className} style={{backgroundColor: this.state.borderColor,animationPlayState:this.state.animation,
-            animationName:this.state.animationName}}>
-                <p style={{justifyContent:'center'}}>{this.props.data.name}</p>
+            <div className={this.state.className} style={{backgroundColor: this.state.backgroundColor}}>
+                <p className={this.state.pjClassName} style={{justifyContent:'center',animationPlayState:this.state.animation,
+            animationName:this.state.animationName}}>{this.props.data.name}</p>
                 <FontAwesomeIcon className={'icon'} icon={this.state.icon} onClick={this.changeState} />
             </div>
 
