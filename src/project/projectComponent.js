@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import '../App.css';
 import {green,blue,yellow, orange, gray} from '../utils/colors'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlay, faStop } from '@fortawesome/free-solid-svg-icons'
+import { faCheck, faPowerOff, faHistory, faTimes, faExclamation } from '@fortawesome/free-solid-svg-icons'
 
 class Project extends Component{
 
@@ -12,7 +12,8 @@ class Project extends Component{
         console.log('Project ',props.data.name, ' is', props.data.status);
         
         this.state = {
-            icon:faPlay,
+            iconStatus:  props.data.status === 'NotStarted' ? faPowerOff : props.data.status === 'OnTrack' ? faHistory : 
+            props.data.status === 'Risk' ? faExclamation : props.data.status === 'Delayed' ? faTimes : faCheck,
             backgroundColor: props.data.status === 'NotStarted' ? gray : props.data.status === 'OnTrack' ? green : 
                         props.data.status === 'Risk' ? yellow : props.data.status === 'Delayed' ? orange : blue,
             animation: 'paused',
@@ -22,26 +23,28 @@ class Project extends Component{
     }
     
     start = () => {
-        this.setState({icon:faStop,animation:'running',className:'projectCircle',animationName:'projectAnimation'})
+        this.setState({animation:'running',className:'projectCircle',animationName:'projectAnimation'})
         this.props.onProjectActive(this.props.data.id);
     }
 
-    stop = () => this.setState({icon:faPlay,animation:'paused',className:'projectCircle noAnimation'})
+    stop = () => this.setState({animation:'paused',className:'projectCircle noAnimation'})
 
-    changeState = () =>  this.state.icon === faPlay ? this.start() : this.stop();
+    changeState = () =>  this.state.animation === 'paused' ? this.start() : this.stop();
                                                     
     componentDidUpdate(){
         
-        if(this.state.icon === faStop && this.props.active === false){
+        if(this.state.animation === 'running' && this.props.active === false){
             this.stop();
         }
     }
+   
     render(){
         return(
             <div className={this.state.className} style={{backgroundColor: this.state.backgroundColor,
                 animationPlayState:this.state.animation, animationName:this.state.animationName}}>
-                <p style={{justifyContent:'center'}}>{this.props.data.name}</p>
-                <FontAwesomeIcon className={'icon'} icon={this.state.icon} onClick={this.changeState} />
+                <FontAwesomeIcon className={'iconStatus'} icon={this.state.iconStatus} style={{fontSize:'2em'}}
+                onClick={this.changeState}/>
+                <p>{this.props.data.name}</p>               
             </div>
         )        
     }

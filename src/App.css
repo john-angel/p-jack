@@ -70,3 +70,11 @@
 .icon:hover{
   color:red;
 }
+
+.iconStatus {
+  color: white
+}
+
+.iconStatus:hover {
+  color:red;
+}
