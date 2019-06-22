@@ -17,20 +17,16 @@ class Project extends Component{
                         props.data.status === 'Risk' ? yellow : props.data.status === 'Delayed' ? orange : blue,
             animation: 'paused',
             className:'projectCircle',
-            pjClassName: 'projectName',
             animationName:''
         }
     }
     
     start = () => {
-        this.setState({icon:faStop,animation:'running',className:'projectCircle',
-        pjClassName:'projectName',animationName:'projectAnimation'})
+        this.setState({icon:faStop,animation:'running',className:'projectCircle',animationName:'projectAnimation'})
         this.props.onProjectActive(this.props.data.id);
     }
 
-    stop = () => this.setState({icon:faPlay,animation:'paused',
-    className:'projectCircle noAnimation',
-    pjClassName:'projectName noAnimation',})
+    stop = () => this.setState({icon:faPlay,animation:'paused',className:'projectCircle noAnimation'})
 
     changeState = () =>  this.state.icon === faPlay ? this.start() : this.stop();
                                                     
@@ -40,15 +36,13 @@ class Project extends Component{
             this.stop();
         }
     }
-    
     render(){
         return(
-            <div className={this.state.className} style={{backgroundColor: this.state.backgroundColor}}>
-                <p className={this.state.pjClassName} style={{justifyContent:'center',animationPlayState:this.state.animation,
-            animationName:this.state.animationName}}>{this.props.data.name}</p>
+            <div className={this.state.className} style={{backgroundColor: this.state.backgroundColor,
+                animationPlayState:this.state.animation, animationName:this.state.animationName}}>
+                <p style={{justifyContent:'center'}}>{this.props.data.name}</p>
                 <FontAwesomeIcon className={'icon'} icon={this.state.icon} onClick={this.changeState} />
             </div>
-
         )        
     }
 }
