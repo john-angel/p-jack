@@ -38,7 +38,7 @@
   align-items: center;
 }
 
-.projectCircle {
+.projectContainer {
   height: 160px;
   width: 160px;
   border-radius: 50%;
@@ -48,33 +48,32 @@
   justify-content:flex-end;
   align-items:center;
   padding-bottom:5px;
+}
+
+.classPjStatus{
   animation-duration: 2s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
-  animation-direction: alternate  
+  animation-direction: alternate
 }
 
 .noAnimation {
   animation: none !important;
 }
 
-@keyframes projectAnimation{
+@keyframes statusAnimationRule{
   from {
-    color: black    
+    color: purple    
   }
   to {
-    color:red
+    color:white
   }
 }
 
-.icon:hover{
-  color:red;
+.iconPjStatus{
+  color:white;
+  font-size: 2em;
 }
-
-.iconStatus {
-  color: white
-}
-
-.iconStatus:hover {
+.iconPjStatus:hover {
   color:red;
 }

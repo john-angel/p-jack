@@ -2,4 +2,4 @@ export const green = '#4ABF84';
 export const blue = '#3F93EE';
 export const yellow = '#FDAE2A';
 export const orange = '#FC6921';
-export const gray = '#EDEBE7';
+export const gray = '#B3B3B3';

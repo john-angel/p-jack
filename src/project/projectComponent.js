@@ -12,22 +12,22 @@ class Project extends Component{
         console.log('Project ',props.data.name, ' is', props.data.status);
         
         this.state = {
-            iconStatus:  props.data.status === 'NotStarted' ? faPowerOff : props.data.status === 'OnTrack' ? faHistory : 
+            iconPjStatus:  props.data.status === 'NotStarted' ? faPowerOff : props.data.status === 'OnTrack' ? faHistory : 
             props.data.status === 'Risk' ? faExclamation : props.data.status === 'Delayed' ? faTimes : faCheck,
             backgroundColor: props.data.status === 'NotStarted' ? gray : props.data.status === 'OnTrack' ? green : 
                         props.data.status === 'Risk' ? yellow : props.data.status === 'Delayed' ? orange : blue,
             animation: 'paused',
-            className:'projectCircle',
-            animationName:''
+            classPjStatus:'classPjStatus',
+            animationRule:''
         }
     }
     
     start = () => {
-        this.setState({animation:'running',className:'projectCircle',animationName:'projectAnimation'})
+        this.setState({animation:'running',classPjStatus:'classPjStatus',animationRule:'statusAnimationRule'})
         this.props.onProjectActive(this.props.data.id);
     }
 
-    stop = () => this.setState({animation:'paused',className:'projectCircle noAnimation'})
+    stop = () => this.setState({animation:'paused',classPjStatus:'classPjStatus noAnimation'})
 
     changeState = () =>  this.state.animation === 'paused' ? this.start() : this.stop();
                                                     
@@ -40,11 +40,14 @@ class Project extends Component{
    
     render(){
         return(
-            <div className={this.state.className} style={{backgroundColor: this.state.backgroundColor,
-                animationPlayState:this.state.animation, animationName:this.state.animationName}}>
-                <FontAwesomeIcon className={'iconStatus'} icon={this.state.iconStatus} style={{fontSize:'2em'}}
+            <div className={'projectContainer'} style={{backgroundColor: this.state.backgroundColor}}>
+                <FontAwesomeIcon className={'iconPjStatus ' + this.state.classPjStatus} icon={this.state.iconPjStatus} style={{
+                animationPlayState:this.state.animation, animationName:this.state.animationRule}}
                 onClick={this.changeState}/>
-                <p>{this.props.data.name}</p>               
+                <p className={this.state.classPjStatus} style={{color:'white',animationPlayState:this.state.animation, 
+                    animationName:this.state.animationRule}}>
+                    {this.props.data.name}
+                </p>               
             </div>
         )        
     }
