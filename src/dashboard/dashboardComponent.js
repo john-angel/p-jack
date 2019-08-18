@@ -49,8 +49,52 @@ class Dashboard extends Component{
           plannedEnd: '2019-12-30',
           actualEnd: '',
           status:'Delayed'
+        },
+        {
+          id: 6,
+          name: 'Swimming',
+          description: 'Improve swimming skills',
+          start: '2019-06-01',
+          plannedEnd: '2019-12-30',
+          actualEnd: '',
+          status:'Complete'
+        },
+        {
+          id: 7,
+          name: 'Dancing',
+          description: 'Improve dancing skills',
+          start: '2019-06-01',
+          plannedEnd: '2019-12-30',
+          actualEnd: '',
+          status:'Risk'
+        },
+        {
+          id: 8,
+          name: 'Car',
+          description: 'Buy a car',
+          start: '2019-06-01',
+          plannedEnd: '2019-12-30',
+          actualEnd: '',
+          status:'NotStarted'
+        },
+        {
+          id: 9,
+          name: 'Cooking',
+          description: 'Improve cooking skills',
+          start: '2019-06-01',
+          plannedEnd: '2019-12-30',
+          actualEnd: '',
+          status:'OnTrack'
+        },
+        {
+          id: 10,
+          name: 'Writing',
+          description: 'Improve writing skills',
+          start: '2019-06-01',
+          plannedEnd: '2019-12-30',
+          actualEnd: '',
+          status:'Delayed'
         }
-
     ]
 
     state = {
@@ -63,7 +107,12 @@ class Dashboard extends Component{
 
     render(){
         return(
+          <React.Fragment>
+            <div className={'dashboardTitle'}>
+            <h1>Dashboard</h1>
+          </div>
             <div className={"projectsContainer"}>
+              
             {
                 this.projects.map(project => (
                   project.id === this.state.projectActive ?
@@ -71,7 +120,9 @@ class Dashboard extends Component{
                     <Project key={project.id} data={project} onProjectActive={this.onProjectActive} active={false} /> 
                 ))
             }             
-            </div>                     
+            </div>
+          </React.Fragment>
+                       
         )
     }
 }
