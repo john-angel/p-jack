@@ -17,8 +17,8 @@ h1 {
 }
 
 .projectContainer {
-  height: 160px;
-  width: 160px;
+  height: 100px;
+  width: 100px;
   border-radius: 50%;
   margin: 10px;
   display:flex;
@@ -54,4 +54,26 @@ h1 {
 }
 .iconPjStatus:hover {
   color:red;
+}
+
+.dashboardItemContainer{
+  width: 160px;
+  height: 160px;
+  margin: 10px;
+  border-style: solid;
+  border-color: #EFF0F0;
+  border-radius: 3%;
+}
+
+.dashboardItemContainerTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:160px;
+  height: 30px;
+  border-bottom-style: solid;
+  border-color: #EFF0F0;
+  background-color: #F4F5F5;
+  color:#6B7C8C;
+  font-size: 1em;
 }

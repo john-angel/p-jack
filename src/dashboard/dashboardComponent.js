@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import DashboardItemContainer from './dashboardItemContainer'
 import Project from '../project/projectComponent';
 
 class Dashboard extends Component{
@@ -112,12 +113,17 @@ class Dashboard extends Component{
             <h1>Dashboard</h1>
           </div>
             <div className={"projectsContainer"}>
-              
             {
                 this.projects.map(project => (
-                  project.id === this.state.projectActive ?
-                    <Project key={project.id} data={project} onProjectActive={this.onProjectActive} active={true} /> :
-                    <Project key={project.id} data={project} onProjectActive={this.onProjectActive} active={false} /> 
+                  
+                    
+                      project.id === this.state.projectActive ?
+                      <DashboardItemContainer key={project.id} title={project.name}>
+                        <Project key={project.id} data={project} onProjectActive={this.onProjectActive} active={true} /> 
+                      </DashboardItemContainer> :
+                      <DashboardItemContainer key={project.id} title={project.name}>
+                        <Project key={project.id} data={project} onProjectActive={this.onProjectActive} active={false} /> 
+                      </DashboardItemContainer>
                 ))
             }             
             </div>
