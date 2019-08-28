@@ -28,10 +28,8 @@ class Dashboard extends Component{
                     
                       project.id === this.state.projectActive ?
                       <DashboardItemContainer key={project.id} title={project.name}>
-                        <Project key={project.id} data={project} onProjectActive={this.onProjectActive} active={true} /> 
                       </DashboardItemContainer> :
                       <DashboardItemContainer key={project.id} title={project.name}>
-                        <Project key={project.id} data={project} onProjectActive={this.onProjectActive} active={false} /> 
                       </DashboardItemContainer>
                 ))
             }             

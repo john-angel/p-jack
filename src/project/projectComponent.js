@@ -47,7 +47,8 @@ class Project extends Component{
                 <p className={this.state.classPjStatus} style={{color:'white',animationPlayState:this.state.animation, 
                     animationName:this.state.animationRule}}>
                     {this.props.data.name}
-                </p>               
+                </p>
+                <p>{this.props.data.tasks.length} tasks</p>               
             </div>
         )        
     }

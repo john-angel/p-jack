@@ -6,7 +6,23 @@ let projects = [
       start: '2018-01-05',
       plannedEnd: '2019-05-30',
       actualEnd: '2019-05-15',
-      status:'Complete'
+      status:'Complete',
+      tasks:[
+        {
+          id:1,
+          projectId:1,//Rocket
+          name:'Design rocket',
+          status:'Complete',
+          comments:'Drawing made by hand'
+        },
+        {
+          id:2,
+          projectId:1,//Rocket
+          name:'Build rocket',
+          status:'Complete',
+          comments:'Rocket made on paper!'
+        }
+      ]
     },
     {
       id: 2,
@@ -15,7 +31,8 @@ let projects = [
       start: '2018-04-12',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'Risk'
+      status:'Risk',
+      tasks:[]
     },
     {
       id: 3,
@@ -24,7 +41,8 @@ let projects = [
       start: '2018-09-20',
       plannedEnd: '2019-04-30',
       actualEnd: '',
-      status:'NotStarted'
+      status:'NotStarted',
+      tasks:[]
     }
     ,
     {
@@ -34,7 +52,27 @@ let projects = [
       start: '2019-08-01',
       plannedEnd: '2019-11-30',
       actualEnd: '',
-      status:'OnTrack'
+      status:'OnTrack',
+      tasks:[
+        {
+          id:3,
+          name:'Build portfolio',
+          status:'OnTrack',
+          comments:'P-Jack development in progress'
+        },
+        {
+          id:4,
+          name:'Buy domain',
+          status:'Complete',
+          comments:'www.johnangel.dev bought'
+        },
+        {
+          id:5,
+          name:'Publish portfolio project on domain',
+          status:'OnTrack',
+          comments:'P-Jack source code published through Netlify'
+        }      
+      ]
     },
     {
       id: 5,
@@ -43,7 +81,21 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'Delayed'
+      status:'Delayed',
+      tasks:[
+        {
+          id: 6,
+          name: 'Copy cartoon',
+          status: 'Delayed',
+          comments: 'Copy a marvel character'
+        },
+        {
+          id: 7,
+          name: 'Draw cartoon',
+          status: 'Delayed',
+          comments: 'Draw a hero'
+        }
+      ]
     },
     {
       id: 6,
@@ -52,7 +104,8 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'Complete'
+      status:'Complete',
+      tasks:[]
     },
     {
       id: 7,
@@ -61,7 +114,8 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'Risk'
+      status:'Risk',
+      tasks:[]
     },
     {
       id: 8,
@@ -70,7 +124,8 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'NotStarted'
+      status:'NotStarted',
+      tasks:[]
     },
     {
       id: 9,
@@ -79,7 +134,8 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'OnTrack'
+      status:'OnTrack',
+      tasks:[]
     },
     {
       id: 10,
@@ -88,7 +144,8 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'Delayed'
+      status:'Delayed',
+      tasks:[]
     }
 ]
 
