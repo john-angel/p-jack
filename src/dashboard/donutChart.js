@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 
-class Chart extends Component{
+class DonutChart extends Component{
 
     componentDidMount(){
         window.google.charts.load("current", {packages:["corechart"]});
@@ -23,7 +23,7 @@ class Chart extends Component{
             legend: {alignment:'center'},
             pieSliceText: 'none',
             slices:[{color:'#7ED3B2'},{color:'#FF8080'},{color:'#CFCFCF'},{color:'#8AC6D1'},{color:'FFBA92'}],
-            chartArea: {left:3,top:0}
+            chartArea: {left:2,top:5}
         };
 
         var chart = new window.google.visualization.PieChart(document.getElementById(this.props.divId));
@@ -35,10 +35,10 @@ class Chart extends Component{
     render(){
         return (
             <React.Fragment>
-                <div id={this.props.divId} style={{width: '350px', height: '300px'}}></div>
+                <div id={this.props.divId} style={{width: '350px', height: '200px'}}></div>
             </React.Fragment>
         )
     }
 }
 
-export default Chart;
+export default DonutChart;
