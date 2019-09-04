@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import DashboardItemContainer from './dashboardItemContainer'
 import Project from '../project/projectComponent';
-import DonutChart from './donutChart';
+import TaskStatusChart from './taskStatusChart';
 import {projects} from '../project/testData';
 
 class Dashboard extends Component{
@@ -29,10 +29,10 @@ class Dashboard extends Component{
                     
                       project.id === this.state.projectActive ?
                       <DashboardItemContainer key={project.id} title={project.name}>
-                        <DonutChart divId={'donutChart'+project.id}></DonutChart>
+                        <TaskStatusChart divId={'taskStatusChart'+project.id}></TaskStatusChart>
                       </DashboardItemContainer> :
                       <DashboardItemContainer key={project.id} title={project.name}>
-                        <DonutChart divId={'donutChart'+project.id}></DonutChart>
+                        <TaskStatusChart divId={'taskStatusChart'+project.id}></TaskStatusChart>
                       </DashboardItemContainer>
                 ))
             }             
