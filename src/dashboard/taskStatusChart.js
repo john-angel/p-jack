@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 class TaskStatusChart extends Component{
 
     componentDidMount(){
-        window.google.charts.load("current", {packages:["corechart"]});
         window.google.charts.setOnLoadCallback(this.drawChart);
     }
 

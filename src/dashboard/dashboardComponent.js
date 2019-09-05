@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import DashboardItemContainer from './dashboardItemContainer'
 import Project from '../project/projectComponent';
 import TaskStatusChart from './taskStatusChart';
+import RevenueChart from './revenueChart';
 import {projects} from '../project/testData';
 
 class Dashboard extends Component{
@@ -30,9 +31,11 @@ class Dashboard extends Component{
                       project.id === this.state.projectActive ?
                       <DashboardItemContainer key={project.id} title={project.name}>
                         <TaskStatusChart divId={'taskStatusChart'+project.id}></TaskStatusChart>
+                        <RevenueChart divId={'revenueChart'+project.id}></RevenueChart>
                       </DashboardItemContainer> :
                       <DashboardItemContainer key={project.id} title={project.name}>
                         <TaskStatusChart divId={'taskStatusChart'+project.id}></TaskStatusChart>
+                        <RevenueChart divId={'revenueChart'+project.id}></RevenueChart>
                       </DashboardItemContainer>
                 ))
             }             
