@@ -40,7 +40,7 @@ class RevenueChart extends Component{
     render(){
         return(
             <React.Fragment>
-                    <div id={this.props.divId} style={{width: '350px', height: '200px'}}></div>
+                    <div id={this.props.divId} style={{width: '350px', height: '180px'}}></div>
             </React.Fragment>
         )
     }
