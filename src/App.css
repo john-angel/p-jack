@@ -92,5 +92,9 @@ h1 {
   margin-top: 22px;
   list-style: none;
   font-family: 'Arial';
-  font-size: 10px;
+  font-size: 0.75em;
+}
+
+.taskOverviewList li a{
+  text-decoration: none;
 }
