@@ -24,7 +24,7 @@ class RevenueChart extends Component{
                 },
                 textPosition: 'none'
             },
-            chartArea: {left:2, top:5}
+            chartArea: {left:2, top:5,width:'100%'}
         };
 
         let formatter = new window.google.visualization.NumberFormat({ prefix: '$' });
@@ -40,7 +40,7 @@ class RevenueChart extends Component{
     render(){
         return(
             <React.Fragment>
-                    <div id={this.props.divId} style={{width: '350px', height: '180px'}}></div>
+                    <div id={this.props.divId} style={{width: '200px', height: '180px'}}></div>
             </React.Fragment>
         )
     }

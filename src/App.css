@@ -98,3 +98,14 @@ h1 {
 .taskOverviewList li a{
   text-decoration: none;
 }
+
+.revenueInfoDashboard{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.revenueTotal{
+  margin-left: 30px;
+  text-decoration: none;
+}

@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import DashboardItemContainer from './dashboardItemContainer'
 import TaskStatusChart from './taskStatusChart';
 import RevenueChart from './revenueChart';
+import RevenueTotal from './revenueTotal'
 import {projects} from '../project/testData';
 import TaskOverview from './taskOverview';
 
@@ -33,15 +34,21 @@ class Dashboard extends Component{
                         <div className={'taskInfoDashboard'}>
                           <TaskStatusChart divId={'taskStatusChart' + project.id}></TaskStatusChart>
                           <TaskOverview divId={'taskOverview' + project.id}></TaskOverview>
-                        </div>                       
-                        <RevenueChart divId={'revenueChart'+project.id}></RevenueChart>
+                        </div>
+                        <div className={'revenueInfoDashboard'}>
+                          <RevenueChart divId={'revenueChart'+project.id}></RevenueChart>
+                          <RevenueTotal divId={'revenueTotal'+project.id}></RevenueTotal> 
+                        </div>
                       </DashboardItemContainer> :
                       <DashboardItemContainer key={project.id} title={project.name}>
                         <div className={'taskInfoDashboard'}>
                           <TaskStatusChart divId={'taskStatusChart'+project.id}></TaskStatusChart>
                           <TaskOverview divId={'taskOverview' + project.id}></TaskOverview>
                         </div>                        
-                        <RevenueChart divId={'revenueChart'+project.id}></RevenueChart>
+                        <div className={'revenueInfoDashboard'}>
+                          <RevenueChart divId={'revenueChart'+project.id}></RevenueChart>
+                          <RevenueTotal divId={'revenueTotal'+project.id}></RevenueTotal> 
+                        </div>
                       </DashboardItemContainer>
                 ))
             }             
