@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import NavigationBar from '../navigation/navigationBar';
 import DashboardItemContainer from './dashboardItemContainer'
 import TaskStatusChart from './taskStatusChart';
 import RevenueChart from './revenueChart';
@@ -21,9 +22,7 @@ class Dashboard extends Component{
     render(){
         return(
           <React.Fragment>
-            <div className={'dashboardTitle'}>
-            <h1>Dashboard</h1>
-          </div>
+            <NavigationBar></NavigationBar>            
             <div className={"projectsContainer"}>
             {
                 projects.map(project => (

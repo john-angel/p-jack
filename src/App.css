@@ -2,6 +2,23 @@ h1 {
   margin:0;
 }
 
+.navigationBar{
+  float: left;
+  background-color:#464756;
+}
+.navigationBar ul{
+  list-style-type: none;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.navigationBar li{
+  padding-bottom: 10px;
+}
+.navigationBar li a{
+  color:white;
+  text-decoration: none;
+}
+
 .projectsContainer {
   display: flex;
   flex-flow: row wrap;
