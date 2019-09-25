@@ -4,19 +4,29 @@ h1 {
 
 .navigationBar{
   float: left;
-  background-color:#464756;
+
 }
 .navigationBar ul{
   list-style-type: none;
-  padding-left: 10px;
-  padding-right: 10px;
+  margin: 0px;
+  padding: 10px 0px;  
+  background-color:#333333;  
 }
-.navigationBar li{
-  padding-bottom: 10px;
-}
+
 .navigationBar li a{
-  color:white;
+  color:#E3E1E1;
   text-decoration: none;
+  display: block;
+  padding-left: 10px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+
+}
+
+.navigationBar li a:hover{
+  background-color: #252526;
+  color:#E3E1E1;
 }
 
 .projectsContainer {
