@@ -1,16 +1,17 @@
-h1 {
-  margin:0;
-}
 
+.App{
+  display: flex;
+  flex-direction: row;
+}
 .navigationBar{
-  float: left;
-
+  background-color:#333333;
 }
+
 .navigationBar ul{
+
   list-style-type: none;
   margin: 0px;
   padding: 10px 0px;  
-  background-color:#333333;  
 }
 
 .navigationBar li a{

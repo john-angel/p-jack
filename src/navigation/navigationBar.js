@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class NavigationBar extends Component{
 
     render(){
-        return(
+        return(      
             <nav className='navigationBar'>
                 <ul>
                     <li><a href="/search">Search</a></li>
@@ -12,7 +12,7 @@ class NavigationBar extends Component{
                     <li><a href="/tasks">Tasks</a></li>
                     <li><a href="/revenue">Revenue</a></li>
                     <li><a href="/logout">Log out</a></li>
-                </ul>    
+                </ul>
             </nav>
         )
     }
