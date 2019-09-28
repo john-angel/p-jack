@@ -1,14 +1,16 @@
-
-.App{
-  display: flex;
-  flex-direction: row;
-}
 .navigationBar{
   background-color:#333333;
+  top:0;
+  left:0;
+  height:100%;
+  width:109px;  
+  position: fixed;
+  overflow-y: hidden;
+  z-index: 1;
+  box-sizing: border-box;
 }
 
 .navigationBar ul{
-
   list-style-type: none;
   margin: 0px;
   padding: 10px 0px;  
@@ -22,7 +24,6 @@
   padding-right: 20px;
   padding-top: 10px;
   padding-bottom: 10px;
-
 }
 
 .navigationBar li a:hover{
@@ -35,13 +36,8 @@
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-}
-
-.dashboardTitle{
-  background: #34ac38;
-  text-align: center;
-  color:white;
-  margin-bottom: 1em;
+  margin-left: 109px;
+  box-sizing: border-box;
 }
 
 .projectContainer {
