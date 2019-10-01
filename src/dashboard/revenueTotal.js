@@ -11,7 +11,9 @@ class RevenueTotal extends Component {
     render(){
         return(
             <React.Fragment>
-                <p><a className={'revenueTotal'} href='/revenue' type='text/html' style={{fontSize:'1.25em', color:'black'}}>{this.total}</a> in total</p> 
+                <p>
+                    <a className={'revenueTotal'}href='/revenue' type='text/html' style={{ fontSize: '1.25em', fontWeight: 'bold', color: 'black'}}>{this.total}</a>
+                </p> 
             </React.Fragment>
         )
     }
