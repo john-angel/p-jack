@@ -21,7 +21,7 @@ class TaskStatusChart extends Component{
             pieHole: 0.4,
             legend: {alignment:'center',position:'right'},
             pieSliceText: 'none',
-            slices:[{color:'#7ED3B2'},{color:'#FF8080'},{color:'#CFCFCF'},{color:'#8AC6D1'},{color:'FFBA92'}],
+            slices:[{color:'#7ED3B2'},{color:'#FF8080'},{color:'#CFCFCF'},{color:'#8AC6D1'},{color:'#FFBA92'}],
             chartArea: {left:2,top:5,width:'80%'}
         };
 
