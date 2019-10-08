@@ -8,14 +8,22 @@ class RevenueChart extends Component{
 
     drawChart = () => {
         let data = window.google.visualization.arrayToDataTable([
-            ['Q', 'Revenue',{type:'number', role:'annotation'}, { role: 'style' }],
-            ['Q1', 1500,1500, '#74BEC1'],            
-            ['Q2', 15200, 15200,'#74BEC1'],            
+            ['Q', 'Revenue',{type:'number', role:'annotation'}, { role: 'style' }],            
+            ['Q1', 1500,1500, '#8AC6D1'],            
+            ['Q2', 15200, 15200,'#7ED3B2'],            
             ['Q3', 0, 0,'#74BEC1'],
-            ['Q4', 5400, 5400,'#74BEC1']         
-         ]);
+            ['Q4', 5400, 5400,'#FFBA92']
+        ]);
 
         let options = {
+            
+            annotations: {
+                alwaysOutside: true,
+                textStyle: {
+                    color: '#000000'
+                }
+            },
+            
             bar: { groupWidth: "80%" },
             legend: { position: "none" },
             vAxis: {
