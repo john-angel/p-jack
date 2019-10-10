@@ -31,7 +31,7 @@ class Dashboard extends Component{
                       project.id === this.state.projectActive ?
                       <DashboardItemContainer key={project.id} title={project.name}>
                         <div className={'taskInfoDashboard'}>
-                          <TaskStatusChart divId={'taskStatusChart' + project.id}></TaskStatusChart>
+                          <TaskStatusChart divId={'taskStatusChart' + project.id} tasks={project.tasks}></TaskStatusChart>
                           <TaskOverview divId={'taskOverview' + project.id}></TaskOverview>
                         </div>
                         <div className={'revenueInfoDashboard'}>
@@ -41,7 +41,7 @@ class Dashboard extends Component{
                       </DashboardItemContainer> :
                       <DashboardItemContainer key={project.id} title={project.name}>
                         <div className={'taskInfoDashboard'}>
-                          <TaskStatusChart divId={'taskStatusChart'+project.id}></TaskStatusChart>
+                          <TaskStatusChart divId={'taskStatusChart'+project.id} tasks={project.tasks}></TaskStatusChart>
                           <TaskOverview divId={'taskOverview' + project.id}></TaskOverview>
                         </div>                        
                         <div className={'revenueInfoDashboard'}>
