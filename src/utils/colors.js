@@ -1,3 +1,11 @@
+export const notStartedColor = '#EBEBEB';
+export const onHoldColor = '#CFCFCF';
+export const onTrackColor = '#7ED3B2';
+export const delayedColor = '#FF8080';
+export const atRiskColor = '#FFBA92';
+export const completeColor = '#8AC6D1';
+
+
 export const green = '#4ABF84';
 export const blue = '#3F93EE';
 export const yellow = '#FDAE2A';
