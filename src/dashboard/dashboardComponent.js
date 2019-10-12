@@ -26,8 +26,6 @@ class Dashboard extends Component{
             <div className={"projectsContainer"}>
             {
                 projects.map(project => (
-                  
-                    
                       project.id === this.state.projectActive ?
                       <DashboardItemContainer key={project.id} title={project.name}>
                         <div className={'taskInfoDashboard'}>
@@ -35,7 +33,7 @@ class Dashboard extends Component{
                           <TaskOverview divId={'taskOverview' + project.id}></TaskOverview>
                         </div>
                         <div className={'revenueInfoDashboard'}>
-                          <RevenueChart divId={'revenueChart'+project.id}></RevenueChart>
+                          <RevenueChart divId={'revenueChart'+project.id} revenue={project.revenue}></RevenueChart>
                           <RevenueTotal divId={'revenueTotal'+project.id}></RevenueTotal> 
                         </div>
                       </DashboardItemContainer> :
@@ -45,7 +43,7 @@ class Dashboard extends Component{
                           <TaskOverview divId={'taskOverview' + project.id}></TaskOverview>
                         </div>                        
                         <div className={'revenueInfoDashboard'}>
-                          <RevenueChart divId={'revenueChart'+project.id}></RevenueChart>
+                          <RevenueChart divId={'revenueChart'+project.id} revenue={project.revenue}></RevenueChart>
                           <RevenueTotal divId={'revenueTotal'+project.id}></RevenueTotal> 
                         </div>
                       </DashboardItemContainer>

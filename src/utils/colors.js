@@ -1,3 +1,4 @@
+
 export const notStartedColor = '#EBEBEB';
 export const onHoldColor = '#CFCFCF';
 export const onTrackColor = '#7ED3B2';
@@ -11,3 +12,16 @@ export const blue = '#3F93EE';
 export const yellow = '#FDAE2A';
 export const orange = '#FC6921';
 export const gray = '#B3B3B3';
+
+const statusColorMap = {
+    notStartedStatus: notStartedColor,
+    onHoldStatus: onHoldColor,
+    onTrackStatus: onTrackColor,
+    delayedStatus: delayedColor,
+    atRiskStatus: atRiskColor,
+    completeStatus: completeColor
+};
+
+export function getColorFromStatus(status) {
+    return statusColorMap[status];    
+}

@@ -1,19 +1,17 @@
 import React, {Component} from 'react';
+import {getColorFromStatus} from '../utils/colors';
 
 class RevenueChart extends Component{
     
     componentDidMount(){
-        window.google.charts.setOnLoadCallback(this.drawChart);
+        if(this.props.revenue.length){
+            window.google.charts.setOnLoadCallback(this.drawChart);
+        }        
     }
 
     drawChart = () => {
-        let data = window.google.visualization.arrayToDataTable([
-            ['Q', 'Revenue',{type:'number', role:'annotation'}, { role: 'style' }],            
-            ['Q1', 1500,1500, '#8AC6D1'],            
-            ['Q2', 15200, 15200,'#7ED3B2'],            
-            ['Q3', 0, 0,'#74BEC1'],
-            ['Q4', 5400, 5400,'#FFBA92']
-        ]);
+
+        const dataTable = this.createDataTable();
 
         let options = {
             
@@ -37,12 +35,26 @@ class RevenueChart extends Component{
 
         let formatter = new window.google.visualization.NumberFormat({ prefix: '$' });
 
-        formatter.format(data, 1);
-        formatter.format(data, 2);
+        formatter.format(dataTable, 1);
+        formatter.format(dataTable, 2);
 
         let chart = new window.google.visualization.ColumnChart(document.getElementById(this.props.divId));
-        chart.draw(data, options);
-       
+        chart.draw(dataTable, options);       
+    }
+
+    createDataTable = () => {
+        let dataTable = new window.google.visualization.DataTable();
+
+        dataTable.addColumn('string','Date');
+        dataTable.addColumn('number','Revenue');
+        dataTable.addColumn({type:'number',role:'annotation'});
+        dataTable.addColumn({type:'string',role:'style'});
+
+        this.props.revenue.forEach(period => {
+            dataTable.addRow([period.date,period.amount,period.amount,getColorFromStatus(period.status)]);    
+        });
+
+        return dataTable;
     }
     
     render(){

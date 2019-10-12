@@ -1,3 +1,5 @@
+import {notStartedStatus, onHoldStatus, onTrackStatus, delayedStatus, atRiskStatus, completeStatus} from '../utils/status';
+
 let projects = [
     {
       id: 1,
@@ -7,6 +9,7 @@ let projects = [
       plannedEnd: '2019-05-30',
       actualEnd: '2019-05-15',
       status:'complete',
+      revenue:[],
       tasks:[
         {
           id:1,
@@ -32,7 +35,29 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status:'atRisk',
-      tasks:[]
+      tasks:[],
+      revenue:[
+        {
+          date:'Q1',
+          amount:1500,
+          status:atRiskStatus
+        },
+        {
+          date:'Q2',
+          amount:2300,
+          status:onTrackStatus
+        },
+        {
+          date:'Q3',
+          amount:3200,
+          status:completeStatus
+        },
+        {
+          date:'Q4',
+          amount:600,
+          status:delayedStatus
+        }
+      ],
     },
     {
       id: 3,
@@ -42,6 +67,7 @@ let projects = [
       plannedEnd: '2019-04-30',
       actualEnd: '',
       status:'notStarted',
+      revenue:[],
       tasks:[]
     }
     ,
@@ -53,6 +79,7 @@ let projects = [
       plannedEnd: '2019-11-30',
       actualEnd: '',
       status:'onTrack',
+      revenue:[],
       tasks:[
         {
           id:3,
@@ -100,6 +127,7 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status:'delayed',
+      revenue:[],
       tasks:[
         {
           id: 6,
@@ -123,6 +151,7 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status:'atRisk',
+      revenue:[],
       tasks:[
         {
           id: 8,
@@ -146,6 +175,7 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status:'atRisk',
+      revenue:[],
       tasks:[]
     },
     {
@@ -156,6 +186,7 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status:'notStarted',
+      revenue:[],
       tasks:[]
     },
     {
@@ -166,6 +197,7 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status:'onTrack',
+      revenue:[],
       tasks:[]
     },
     {
@@ -176,6 +208,7 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status:'delayed',
+      revenue:[],
       tasks:[]
     }
 ]
