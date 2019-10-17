@@ -34,7 +34,7 @@ class Dashboard extends Component{
                         </div>
                         <div className={'revenueInfoDashboard'}>
                           <RevenueChart divId={'revenueChart'+project.id} revenue={project.revenue}></RevenueChart>
-                          <RevenueTotal divId={'revenueTotal'+project.id}></RevenueTotal> 
+                          <RevenueTotal divId={'revenueTotal'+project.id} revenue={project.revenue}></RevenueTotal> 
                         </div>
                       </DashboardItemContainer> :
                       <DashboardItemContainer key={project.id} title={project.name}>
@@ -44,7 +44,7 @@ class Dashboard extends Component{
                         </div>                        
                         <div className={'revenueInfoDashboard'}>
                           <RevenueChart divId={'revenueChart'+project.id} revenue={project.revenue}></RevenueChart>
-                          <RevenueTotal divId={'revenueTotal'+project.id}></RevenueTotal> 
+                          <RevenueTotal divId={'revenueTotal'+project.id} revenue={project.revenue}></RevenueTotal> 
                         </div>
                       </DashboardItemContainer>
                 ))
