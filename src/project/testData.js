@@ -106,37 +106,51 @@ let projects = [
           id:3,
           name:'Build portfolio',
           status: onTrackStatus,
-          comments:'Jack development in progress'
+          comments:'Jack development in progress',
+          plannedEnd:'2010-10-30',
+          actualEnd:''
         },
         {
           id:4,
           name:'Buy domain',
           status: completeStatus,
-          comments:'www.johnangel.dev bought'
+          comments:'www.johnangel.dev bought',
+          plannedEnd:'2010-10-30',
+          actualEnd:'2010-10-30'
         },
         {
           id:5,
           name:'Publish portfolio project on domain',
           status: delayedStatus,
-          comments:'Jack app published through Netlify'
+          comments:'Jack app published through Netlify',
+          plannedEnd:'2019-10-05',
+          actualEnd:''
+
         },
         {
           id: 8,
           name: 'Update Linkedin profile',
           status:  onHoldStatus,
-          comments: 'Update profile following tips from Udacity and other sources'
+          comments: 'Update profile following tips from Udacity and other sources',
+          plannedEnd:'2010-10-28',
+          actualEnd:''
         },
         {
           id: 9,
           name: 'Make public Linv source code',
           status: atRiskStatus,
-          comments: 'Make public code on GitHub'
+          comments: 'Make public code on GitHub',
+          plannedEnd:'2010-10-20',
+          actualEnd:''
+
         },
         {
           id: 10,
           name: 'Setup blog',
           status: notStartedStatus,
-          comments: 'Setup blog on www.johnangel.dev'
+          comments: 'Setup blog on www.johnangel.dev',
+          plannedEnd:'',
+          actualEnd:''
         }          
       ]
     },
