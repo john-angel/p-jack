@@ -16,10 +16,7 @@ class RevenueChart extends Component{
         let options = {
             
             annotations: {
-                alwaysOutside: true,
-                textStyle: {
-                    color: '#000000'
-                }
+                alwaysOutside: true                
             },
             
             bar: { groupWidth: "80%" },

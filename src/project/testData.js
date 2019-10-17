@@ -8,21 +8,21 @@ let projects = [
       start: '2018-01-05',
       plannedEnd: '2019-05-30',
       actualEnd: '2019-05-15',
-      status:'complete',
+      status: completeStatus,
       revenue:[],
       tasks:[
         {
           id:1,
           projectId:1,
           name:'Design rocket',
-          status:'complete',
+          status: completeStatus,
           comments:'Drawing made by hand'
         },
         {
           id:2,
           projectId:1,
           name:'Build rocket',
-          status:'complete',
+          status: completeStatus,
           comments:'Rocket made on paper!'
         }
       ]
@@ -34,7 +34,7 @@ let projects = [
       start: '2018-04-12',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'atRisk',
+      status: atRiskStatus,
       tasks:[],
       revenue:[
         {
@@ -66,7 +66,7 @@ let projects = [
       start: '2018-09-20',
       plannedEnd: '2019-04-30',
       actualEnd: '',
-      status:'notStarted',
+      status: notStartedStatus,
       revenue:[],
       tasks:[]
     }
@@ -78,43 +78,64 @@ let projects = [
       start: '2019-08-01',
       plannedEnd: '2019-11-30',
       actualEnd: '',
-      status:'onTrack',
-      revenue:[],
+      status: onTrackStatus,
+      revenue:[
+        {
+          date:'Q1',
+          amount:500,
+          status:notStartedStatus
+        },
+        {
+          date:'Q2',
+          amount:20000,
+          status:onHoldStatus
+        },
+        {
+          date:'Q3',
+          amount:35000,
+          status:onTrackStatus
+        },
+        {
+          date:'Q4',
+          amount:600,
+          status:atRiskStatus
+        }        
+      ],
       tasks:[
         {
           id:3,
           name:'Build portfolio',
-          status:'onTrack',
+          status: onTrackStatus,
           comments:'Jack development in progress'
         },
         {
           id:4,
           name:'Buy domain',
-          status:'complete',
+          status: completeStatus,
           comments:'www.johnangel.dev bought'
         },
         {
           id:5,
           name:'Publish portfolio project on domain',
-          status:'delayed',
+          status: delayedStatus,
           comments:'Jack app published through Netlify'
         },
         {
           id: 8,
           name: 'Update Linkedin profile',
-          status: 'onHold',
+          status:  onHoldStatus,
           comments: 'Update profile following tips from Udacity and other sources'
         },
         {
           id: 9,
           name: 'Make public Linv source code',
-          status: 'atRisk',
+          status: atRiskStatus,
           comments: 'Make public code on GitHub'
         },
         {
           id: 10,
           name: 'Setup blog',
-          status: 'notStarted',
+          status: notStartedStatus,
           comments: 'Setup blog on www.johnangel.dev'
         }          
       ]
@@ -126,19 +147,19 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'delayed',
+      status: delayedStatus,
       revenue:[],
       tasks:[
         {
           id: 6,
           name: 'Copy cartoon',
-          status: 'delayed',
+          status: delayedStatus,
           comments: 'Copy a marvel character'
         },
         {
           id: 7,
           name: 'Draw cartoon',
-          status: 'delayed',
+          status: delayedStatus,
           comments: 'Draw a hero'
         }
       ]
@@ -150,19 +171,19 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'atRisk',
+      status: atRiskStatus,
       revenue:[],
       tasks:[
         {
           id: 8,
           name: 'Go to Gym',
-          status: 'atRisk',
+          status: atRiskStatus,
           comments: 'Follow a routine at least 3 times per week'
         },
         {
           id: 9,
           name: 'Swim',
-          status: 'delayed',
+          status: delayedStatus,
           comments: 'Go swimming once per week'
         }
       ]
@@ -174,7 +195,7 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'atRisk',
+      status: atRiskStatus,
       revenue:[],
       tasks:[]
     },
@@ -185,7 +206,7 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'notStarted',
+      status: notStartedStatus,
       revenue:[],
       tasks:[]
     },
@@ -196,7 +217,7 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'onTrack',
+      status: onTrackStatus,
       revenue:[],
       tasks:[]
     },
@@ -207,7 +228,7 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status:'delayed',
+      status: delayedStatus,
       revenue:[],
       tasks:[]
     }
