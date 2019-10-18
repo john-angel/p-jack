@@ -9,23 +9,7 @@ let projects = [
       plannedEnd: '2019-05-30',
       actualEnd: '2019-05-15',
       status: completeStatus,
-      revenue:[],
-      tasks:[
-        {
-          id:1,
-          projectId:1,
-          name:'Design rocket',
-          status: completeStatus,
-          comments:'Drawing made by hand'
-        },
-        {
-          id:2,
-          projectId:1,
-          name:'Build rocket',
-          status: completeStatus,
-          comments:'Rocket made on paper!'
-        }
-      ]
+      revenue:[]
     },
     {
       id: 2,
@@ -35,7 +19,6 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status: atRiskStatus,
-      tasks:[],
       revenue:[
         {
           date:'Q1',
@@ -67,10 +50,8 @@ let projects = [
       plannedEnd: '2019-04-30',
       actualEnd: '',
       status: notStartedStatus,
-      revenue:[],
-      tasks:[]
-    }
-    ,
+      revenue:[]
+    },
     {
       id: 4,
       name: 'Job',
@@ -100,58 +81,6 @@ let projects = [
           amount:600,
           status:atRiskStatus
         }        
-      ],
-      tasks:[
-        {
-          id:3,
-          name:'Build portfolio',
-          status: onTrackStatus,
-          comments:'Jack development in progress',
-          plannedEnd:'2010-10-30',
-          actualEnd:''
-        },
-        {
-          id:4,
-          name:'Buy domain',
-          status: completeStatus,
-          comments:'www.johnangel.dev bought',
-          plannedEnd:'2010-10-30',
-          actualEnd:'2010-10-30'
-        },
-        {
-          id:5,
-          name:'Publish portfolio project on domain',
-          status: delayedStatus,
-          comments:'Jack app published through Netlify',
-          plannedEnd:'2019-10-05',
-          actualEnd:''
-
-        },
-        {
-          id: 8,
-          name: 'Update Linkedin profile',
-          status:  onHoldStatus,
-          comments: 'Update profile following tips from Udacity and other sources',
-          plannedEnd:'2010-10-28',
-          actualEnd:''
-        },
-        {
-          id: 9,
-          name: 'Make public Linv source code',
-          status: atRiskStatus,
-          comments: 'Make public code on GitHub',
-          plannedEnd:'2010-10-20',
-          actualEnd:''
-
-        },
-        {
-          id: 10,
-          name: 'Setup blog',
-          status: notStartedStatus,
-          comments: 'Setup blog on www.johnangel.dev',
-          plannedEnd:'',
-          actualEnd:''
-        }          
       ]
     },
     {
@@ -162,21 +91,7 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status: delayedStatus,
-      revenue:[],
-      tasks:[
-        {
-          id: 6,
-          name: 'Copy cartoon',
-          status: delayedStatus,
-          comments: 'Copy a marvel character'
-        },
-        {
-          id: 7,
-          name: 'Draw cartoon',
-          status: delayedStatus,
-          comments: 'Draw a hero'
-        }
-      ]
+      revenue:[]
     },
     {
       id: 6,
@@ -186,21 +101,7 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status: atRiskStatus,
-      revenue:[],
-      tasks:[
-        {
-          id: 8,
-          name: 'Go to Gym',
-          status: atRiskStatus,
-          comments: 'Follow a routine at least 3 times per week'
-        },
-        {
-          id: 9,
-          name: 'Swim',
-          status: delayedStatus,
-          comments: 'Go swimming once per week'
-        }
-      ]
+      revenue:[]
     },
     {
       id: 7,
@@ -210,8 +111,7 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status: atRiskStatus,
-      revenue:[],
-      tasks:[]
+      revenue:[]
     },
     {
       id: 8,
@@ -221,8 +121,7 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status: notStartedStatus,
-      revenue:[],
-      tasks:[]
+      revenue:[]
     },
     {
       id: 9,
@@ -232,8 +131,7 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status: onTrackStatus,
-      revenue:[],
-      tasks:[]
+      revenue:[]
     },
     {
       id: 10,
@@ -243,9 +141,109 @@ let projects = [
       plannedEnd: '2019-12-30',
       actualEnd: '',
       status: delayedStatus,
-      revenue:[],
-      tasks:[]
+      revenue:[]
     }
 ]
 
-export {projects}
+let tasks = {
+  1: {
+    1: {
+      name: 'Design rocket',
+      status: completeStatus,
+      comments: 'Drawing made by hand',
+      plannedEnd:'2010-09-08',
+      actualEnd:'2010-09-08'
+    },
+    2: {
+      name: 'Build rocket',
+      status: completeStatus,
+      comments: 'Rocket made on paper!',
+      plannedEnd:'2010-10-01',
+      actualEnd:'2010-10-02'
+    }
+  },
+  4: {
+    3: {
+      name: 'Build portfolio',
+      status: onTrackStatus,
+      comments: 'Jack development in progress',
+      plannedEnd: '2010-10-30',
+      actualEnd: ''
+    },
+    4: {
+      name: 'Buy domain',
+      status: completeStatus,
+      comments: 'www.johnangel.dev bought',
+      plannedEnd: '2010-10-30',
+      actualEnd: '2010-10-30'
+    },
+    5: {
+      name: 'Publish portfolio project on domain',
+      status: delayedStatus,
+      comments: 'Jack app published through Netlify',
+      plannedEnd: '2019-10-05',
+      actualEnd: ''
+
+    },
+    6: {
+      name: 'Update Linkedin profile',
+      status: onHoldStatus,
+      comments: 'Update profile following tips from Udacity and other sources',
+      plannedEnd: '2010-10-28',
+      actualEnd: ''
+    },
+    7: {
+      name: 'Make public Linv source code',
+      status: atRiskStatus,
+      comments: 'Make public code on GitHub',
+      plannedEnd: '2010-10-20',
+      actualEnd: ''
+
+    },
+    10: {
+      name: 'Setup blog',
+      status: notStartedStatus,
+      comments: 'Setup blog on www.johnangel.dev',
+      plannedEnd: '',
+      actualEnd: ''
+    }
+  },
+  5: {
+    8: {
+      name: 'Copy cartoon',
+      status: delayedStatus,
+      comments: 'Copy a marvel character',
+      plannedEnd:'2010-09-30',
+      actualEnd:''
+    },
+    9: {
+      name: 'Draw cartoon',
+      status: delayedStatus,
+      comments: 'Draw a hero',
+      plannedEnd:'2010-10-16',
+      actualEnd:''
+    }
+  },
+  6: {
+    11: {
+      name: 'Go to Gym',
+      status: atRiskStatus,
+      comments: 'Follow a routine at least 3 times per week',
+      plannedEnd:'2010-11-30',
+      actualEnd:''
+    },
+    12: {
+      name: 'Swim',
+      status: delayedStatus,
+      comments: 'Go swimming once per week',
+      plannedEnd:'2010-10-05',
+      actualEnd:''
+    }
+  }
+
+}
+
+
+
+
+export {projects,tasks}

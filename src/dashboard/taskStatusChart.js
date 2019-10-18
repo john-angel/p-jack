@@ -8,7 +8,7 @@ class TaskStatusChart extends Component{
 
     componentDidMount(){
 
-        if(this.props.tasks.length){
+        if(typeof this.props.tasks !== 'undefined'){
             window.google.charts.setOnLoadCallback(this.drawChart);
         }
     }
@@ -35,7 +35,9 @@ class TaskStatusChart extends Component{
 
         let tasks = {notStarted:0, onHold:0, onTrack:0, delayed:0, atRisk:0, complete:0};
 
-        this.props.tasks.forEach(task => {
+        const tasksArray = Object.keys(this.props.tasks).map(projectId => this.props.tasks[projectId]);
+            
+        tasksArray.forEach(task => {
 
             switch (task.status) {
                 case notStartedStatus:
@@ -107,7 +109,7 @@ class TaskStatusChart extends Component{
             <React.Fragment>
                 <div id={this.props.divId} style={{display:'flex',alignItems:'center',justifyContent:'center',width: '270px', height: '180px'}}>
                     {
-                        !this.props.tasks.length ?
+                        typeof this.props.tasks === 'undefined' ?
                             <FontAwesomeIcon icon={faPlus} onClick={this.onAdd}></FontAwesomeIcon> :
                             null                       
                     }
