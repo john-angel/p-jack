@@ -30,7 +30,7 @@ class Dashboard extends Component{
                     <DashboardItemContainer key={project.id} title={project.name}>
                       <div className={'taskInfoDashboard'}>
                         <TaskStatusChart divId={'taskStatusChart' + project.id} tasks={tasks[project.id]}></TaskStatusChart>
-                        <TaskOverview divId={'taskOverview' + project.id}></TaskOverview>
+                        <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
                       </div>
                       <div className={'revenueInfoDashboard'}>
                         <RevenueChart divId={'revenueChart' + project.id} revenue={project.revenue}></RevenueChart>
@@ -40,7 +40,7 @@ class Dashboard extends Component{
                     <DashboardItemContainer key={project.id} title={project.name}>
                       <div className={'taskInfoDashboard'}>
                         <TaskStatusChart divId={'taskStatusChart'+project.id} tasks={tasks[project.id]}></TaskStatusChart>
-                        <TaskOverview divId={'taskOverview' + project.id}></TaskOverview>
+                        <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
                       </div>
                       <div className={'revenueInfoDashboard'}>
                         <RevenueChart divId={'revenueChart' + project.id} revenue={project.revenue}></RevenueChart>
