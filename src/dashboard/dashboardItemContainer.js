@@ -3,8 +3,7 @@ import '../App.css';
 
 class DashboardItemContainer extends Component {
     render(){
-        return (
-            
+        return (            
             <div className={'dashboardItemContainer'}>
                 <div className={'dashboardItemContainerTitle'}>
                     {this.props.title}

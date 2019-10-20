@@ -36,7 +36,7 @@ class Dashboard extends Component{
                         <RevenueChart divId={'revenueChart' + project.id} revenue={project.revenue}></RevenueChart>
                         <RevenueTotal divId={'revenueTotal' + project.id} revenue={project.revenue}></RevenueTotal>
                       </div>
-                  </DashboardItemContainer>:
+                    </DashboardItemContainer>:
                     <DashboardItemContainer key={project.id} title={project.name}>
                       <div className={'taskInfoDashboard'}>
                         <TaskStatusChart divId={'taskStatusChart'+project.id} tasks={tasks[project.id]}></TaskStatusChart>

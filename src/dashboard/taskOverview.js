@@ -50,15 +50,16 @@ class TaskOverview extends Component{
     
     render(){
         return (
+            typeof this.props.tasks !== 'undefined' ?
             <ul className={'taskOverviewList'}>
-
                 <li><a href='/tasks' type='text/html' style={{ fontSize: '1em', fontWeight:'bold', color: this.state.color }}>{this.state.task}</a></li>
                 {
                     this.state.tasksToComplete > 0 ?
                         <li><a href='/tasks' type='text/html' style={{ fontSize: '1.5em', color: 'black' }}>{this.state.tasksToComplete}</a> tasks to go</li> :
                         null
                 }
-            </ul>
+            </ul> :
+            null
         )
     }
 }

@@ -6,6 +6,7 @@ export const delayedColor = '#FF8080';
 export const atRiskColor = '#FFBA92';
 export const completeColor = '#8AC6D1';
 
+export const linkColor = '#3579F6';
 
 export const green = '#4ABF84';
 export const blue = '#3F93EE';

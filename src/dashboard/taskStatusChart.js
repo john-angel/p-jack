@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {notStartedColor, onHoldColor, onTrackColor, delayedColor, atRiskColor, completeColor} from '../utils/colors';
+import {notStartedColor, onHoldColor, onTrackColor, delayedColor, atRiskColor, completeColor, linkColor} from '../utils/colors';
 import {notStartedStatus, onHoldStatus, onTrackStatus, delayedStatus, atRiskStatus, completeStatus} from '../utils/status';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlus} from '@fortawesome/free-solid-svg-icons'
 
 class TaskStatusChart extends Component{
 
@@ -107,15 +105,15 @@ class TaskStatusChart extends Component{
     render(){
         return (
             <React.Fragment>
-                <div id={this.props.divId} style={{display:'flex',alignItems:'center',justifyContent:'center',width: '270px', height: '180px'}}>
-                    {
-                        typeof this.props.tasks === 'undefined' ?
-                            <FontAwesomeIcon icon={faPlus} onClick={this.onAdd}></FontAwesomeIcon> :
-                            null                       
-                    }
-                
-                </div>
+            {
+                typeof this.props.tasks === 'undefined' ?
+                <a href='/tasks' type='text/html' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '400px', height: '180px', textDecoration: 'none', color:linkColor}}>
+                    Let's add the first task
+                </a> :
+                <div id={this.props.divId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '270px', height: '180px' }}></div>
+            }
             </React.Fragment>
+             
         )
     }
 }
