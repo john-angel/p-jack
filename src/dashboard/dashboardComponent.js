@@ -4,7 +4,7 @@ import DashboardItemContainer from './dashboardItemContainer'
 import TaskStatusChart from './taskStatusChart';
 import RevenueChart from './revenueChart';
 import RevenueTotal from './revenueTotal'
-import {projects,tasks} from '../project/testData';
+import {projects,tasks,revenue} from '../project/testData';
 import TaskOverview from './taskOverview';
 
 class Dashboard extends Component{
@@ -33,8 +33,8 @@ class Dashboard extends Component{
                         <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
                       </div>
                       <div className={'revenueInfoDashboard'}>
-                        <RevenueChart divId={'revenueChart' + project.id} revenue={project.revenue}></RevenueChart>
-                        <RevenueTotal divId={'revenueTotal' + project.id} revenue={project.revenue}></RevenueTotal>
+                        <RevenueChart divId={'revenueChart' + project.id} revenue={revenue[project.id]}></RevenueChart>
+                        <RevenueTotal divId={'revenueTotal' + project.id} revenue={revenue[project.id]}></RevenueTotal>
                       </div>
                     </DashboardItemContainer>:
                     <DashboardItemContainer key={project.id} title={project.name}>
@@ -43,8 +43,8 @@ class Dashboard extends Component{
                         <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
                       </div>
                       <div className={'revenueInfoDashboard'}>
-                        <RevenueChart divId={'revenueChart' + project.id} revenue={project.revenue}></RevenueChart>
-                        <RevenueTotal divId={'revenueTotal' + project.id} revenue={project.revenue}></RevenueTotal>
+                        <RevenueChart divId={'revenueChart' + project.id} revenue={revenue[project.id]}></RevenueChart>
+                        <RevenueTotal divId={'revenueTotal' + project.id} revenue={revenue[project.id]}></RevenueTotal>
                       </div>
                     </DashboardItemContainer>
                 ))

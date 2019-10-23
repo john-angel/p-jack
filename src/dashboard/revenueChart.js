@@ -4,7 +4,7 @@ import {getColorFromStatus} from '../utils/colors';
 class RevenueChart extends Component{
     
     componentDidMount(){
-        if(this.props.revenue.length){
+        if(typeof this.props.revenue !== 'undefined'){
             window.google.charts.setOnLoadCallback(this.drawChart);
         }        
     }
@@ -47,7 +47,9 @@ class RevenueChart extends Component{
         dataTable.addColumn({type:'number',role:'annotation'});
         dataTable.addColumn({type:'string',role:'style'});
 
-        this.props.revenue.forEach(period => {
+        const revenueArray = Object.keys(this.props.revenue).map(projectId => this.props.revenue[projectId]);
+
+        revenueArray.forEach(period => {
             dataTable.addRow([period.date,period.amount,period.amount,getColorFromStatus(period.status)]);    
         });
 
@@ -57,7 +59,7 @@ class RevenueChart extends Component{
     render(){
         return(
             <React.Fragment>
-                    <div id={this.props.divId} style={{width: '200px', height: '180px'}}></div>
+                <div id={this.props.divId} style={{width: '200px', height: '180px'}}></div>
             </React.Fragment>
         )
     }

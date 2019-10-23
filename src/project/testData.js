@@ -8,8 +8,7 @@ let projects = [
       start: '2018-01-05',
       plannedEnd: '2019-05-30',
       actualEnd: '2019-05-15',
-      status: completeStatus,
-      revenue:[]
+      status: completeStatus
     },
     {
       id: 2,
@@ -18,29 +17,7 @@ let projects = [
       start: '2018-04-12',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status: atRiskStatus,
-      revenue:[
-        {
-          date:'Q1',
-          amount:1500,
-          status:atRiskStatus
-        },
-        {
-          date:'Q2',
-          amount:2300,
-          status:onTrackStatus
-        },
-        {
-          date:'Q3',
-          amount:3200,
-          status:completeStatus
-        },
-        {
-          date:'Q4',
-          amount:600,
-          status:delayedStatus
-        }
-      ],
+      status: atRiskStatus     
     },
     {
       id: 3,
@@ -49,8 +26,7 @@ let projects = [
       start: '2018-09-20',
       plannedEnd: '2019-04-30',
       actualEnd: '',
-      status: notStartedStatus,
-      revenue:[]
+      status: notStartedStatus
     },
     {
       id: 4,
@@ -59,29 +35,7 @@ let projects = [
       start: '2019-08-01',
       plannedEnd: '2019-11-30',
       actualEnd: '',
-      status: onTrackStatus,
-      revenue:[
-        {
-          date:'Q1',
-          amount:500,
-          status:notStartedStatus
-        },
-        {
-          date:'Q2',
-          amount:20000,
-          status:onHoldStatus
-        },
-        {
-          date:'Q3',
-          amount:35000,
-          status:onTrackStatus
-        },
-        {
-          date:'Q4',
-          amount:600,
-          status:atRiskStatus
-        }        
-      ]
+      status: onTrackStatus
     },
     {
       id: 5,
@@ -90,8 +44,7 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status: delayedStatus,
-      revenue:[]
+      status: delayedStatus
     },
     {
       id: 6,
@@ -100,8 +53,7 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status: atRiskStatus,
-      revenue:[]
+      status: atRiskStatus
     },
     {
       id: 7,
@@ -110,8 +62,7 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status: atRiskStatus,
-      revenue:[]
+      status: atRiskStatus
     },
     {
       id: 8,
@@ -120,8 +71,7 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status: notStartedStatus,
-      revenue:[]
+      status: notStartedStatus
     },
     {
       id: 9,
@@ -130,8 +80,7 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status: onTrackStatus,
-      revenue:[]
+      status: onTrackStatus
     },
     {
       id: 10,
@@ -140,8 +89,7 @@ let projects = [
       start: '2019-06-01',
       plannedEnd: '2019-12-30',
       actualEnd: '',
-      status: delayedStatus,
-      revenue:[]
+      status: delayedStatus
     }
 ]
 
@@ -240,10 +188,53 @@ let tasks = {
       actualEnd:''
     }
   }
-
 }
 
+let revenue = {
+  2: {
+      Q1:{
+        date:'Q1',
+        amount:1500,
+        status:atRiskStatus
+      },
+    Q2: {
+      date: 'Q2',
+      amount: 2300,
+      status: onTrackStatus
+    },
+    Q3: {
+      date: 'Q3',
+      amount: 3200,
+      status: completeStatus
+    },
+    Q4: {
+      date: 'Q4',
+      amount: 600,
+      status: delayedStatus
+    }
+  },
+  4: {
+    Q1: {
+      date: 'Q1',
+      amount: 500,
+      status: notStartedStatus
+    },
+    Q2: {
+      date: 'Q2',
+      amount: 20000,
+      status: onHoldStatus
+    },
+    Q3: {
+      date: 'Q3',
+      amount: 35000,
+      status: onTrackStatus
+    },
+    Q4: {
+      date: 'Q4',
+      amount: 600,
+      status: atRiskStatus
+    }
+  }   
+}
 
-
-
-export {projects,tasks}
+export {projects,tasks,revenue}

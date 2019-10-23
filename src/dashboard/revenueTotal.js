@@ -9,9 +9,14 @@ class RevenueTotal extends Component {
 
     componentDidMount(){
         let amount = 0;
-        this.props.revenue.forEach(period => {
-            amount+= period.amount;    
-        });
+        
+        if(typeof this.props.revenue !== 'undefined'){
+            const revenueArray = Object.keys(this.props.revenue).map(projectId => this.props.revenue[projectId]);
+            revenueArray.forEach(period => {
+                amount+= period.amount;    
+            })
+        }
+
         this.setState(() => ({revenue: Number(amount).toLocaleString('en',{ style: 'currency', currency: 'USD', useGrouping: true ,minimumFractionDigits:0,
             maximumFractionDigits:0})}))
     }
