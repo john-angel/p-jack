@@ -24,9 +24,12 @@ class RevenueTotal extends Component {
     render(){
         return(
             <React.Fragment>
-                <p>
-                    <a className={'revenueTotal'}href='/revenue' type='text/html' style={{ fontSize: '1.25em', fontWeight: 'bold', color: 'black'}}>{this.state.revenue}</a>
-                </p> 
+            {
+                typeof this.props.revenue !== 'undefined' ?
+                    <a className={'revenueTotal'}href='/revenue' type='text/html' style={{ fontSize: '1.25em', fontWeight: 'bold', color: 'black'}}>{this.state.revenue}</a>                
+                :
+                null
+            }                
             </React.Fragment>
         )
     }

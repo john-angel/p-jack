@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getColorFromStatus} from '../utils/colors';
+import {linkColor,getColorFromStatus} from '../utils/colors';
 
 class RevenueChart extends Component{
     
@@ -27,7 +27,7 @@ class RevenueChart extends Component{
                 },
                 textPosition: 'none'
             },
-            chartArea: {left:2, top:5,width:'100%'}
+            chartArea: {left:2, top:5, width:'100%'}
         };
 
         let formatter = new window.google.visualization.NumberFormat({ prefix: '$' });
@@ -59,7 +59,14 @@ class RevenueChart extends Component{
     render(){
         return(
             <React.Fragment>
-                <div id={this.props.divId} style={{width: '200px', height: '180px'}}></div>
+            {
+                typeof this.props.revenue === 'undefined' ?
+                    <a href='/tasks' type='text/html' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '400px', height: '180px', textDecoration: 'none', color: linkColor }}>
+                            Do you want to add some revenue?
+                    </a> :
+                    <div id={this.props.divId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '200px', height: '180px'}}></div>
+
+            }
             </React.Fragment>
         )
     }
