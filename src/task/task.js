@@ -10,7 +10,7 @@ class Task extends Component {
                 <div className={'tasksContainer'}>
                     {
                         this.tasks.map(task =>
-                            <p className={'taskItem'} contentEditable={'true'} >{task}</p>
+                            <textarea className={'taskItem'} maxLength={'100'} rows={'2'}>{task}</textarea>
                         )
                     }
                 </div>

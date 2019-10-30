@@ -134,16 +134,16 @@
   display: grid;
   margin:20px;
   grid-template-columns: 400px;
-  grid-auto-rows: 50px; 
+  grid-auto-rows: 3em;
+  align-items: center;
 }
 
 .taskItem{ 
-  display: grid;
+  display:grid;
   align-items: center;
   border-style:none none solid none;  
   border-width: thin; 
   border-color: #E5E5E5;
-  height: 50px;
-  
-
+  resize: none;
+  font-size: 1em;
 }
