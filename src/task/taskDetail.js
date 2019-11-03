@@ -4,10 +4,11 @@ class TaskDetail extends Component{
     render(){
         return(
             <div>
-                <p>Task name</p>
-                <p>Task planned end</p>
-                <p>Task actual end</p>
-                <p>Task status</p>
+                <p>{this.props.data.name}</p>
+                <p>{this.props.data.plannedEnd}</p>
+                <p>{this.props.data.actualEnd}</p>
+                <p>{this.props.data.status}</p>
+                <p>{this.props.data.comments}</p>
             </div>
         )
     }

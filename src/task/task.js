@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import TaskDetail from './taskDetail';
 
 class Task extends Component {
 
@@ -9,9 +8,8 @@ class Task extends Component {
     }
 
     handleClick = (event) => {
-        console.log('Display detail for task with id', this.props.data.id);
+        this.props.onSelected(this.props.data);
     }
-
       
     handleChange = (event) => {
         event.persist();
