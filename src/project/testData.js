@@ -96,6 +96,7 @@ let projects = [
 let tasks = {
   1: {
     1: {
+      id:'1',
       name: 'Design rocket',
       status: completeStatus,
       comments: 'Drawing made by hand',
@@ -103,6 +104,7 @@ let tasks = {
       actualEnd:'2010-09-08'
     },
     2: {
+      id:'2',
       name: 'Build rocket',
       status: completeStatus,
       comments: 'Rocket made on paper!',
@@ -112,6 +114,7 @@ let tasks = {
   },
   4: {
     3: {
+      id:'3',
       name: 'Build portfolio',
       status: onTrackStatus,
       comments: 'Jack development in progress',
@@ -119,6 +122,7 @@ let tasks = {
       actualEnd: ''
     },
     4: {
+      id:'4',
       name: 'Buy domain',
       status: completeStatus,
       comments: 'www.johnangel.dev bought',
@@ -126,6 +130,7 @@ let tasks = {
       actualEnd: '2010-10-30'
     },
     5: {
+      id:'5',
       name: 'Publish portfolio project on domain',
       status: delayedStatus,
       comments: 'Jack app published through Netlify',
@@ -134,6 +139,7 @@ let tasks = {
 
     },
     6: {
+      id:'6',
       name: 'Update Linkedin profile',
       status: onHoldStatus,
       comments: 'Update profile following tips from Udacity and other sources',
@@ -141,6 +147,7 @@ let tasks = {
       actualEnd: ''
     },
     7: {
+      id:'7',
       name: 'Make public Linv source code',
       status: atRiskStatus,
       comments: 'Make public code on GitHub',
@@ -149,6 +156,7 @@ let tasks = {
 
     },
     10: {
+      id:'10',
       name: 'Setup blog',
       status: notStartedStatus,
       comments: 'Setup blog on www.johnangel.dev',
@@ -158,6 +166,7 @@ let tasks = {
   },
   5: {
     8: {
+      id:'8',
       name: 'Copy cartoon',
       status: delayedStatus,
       comments: 'Copy a marvel character',
@@ -165,6 +174,7 @@ let tasks = {
       actualEnd:''
     },
     9: {
+      id:'9',
       name: 'Draw cartoon',
       status: delayedStatus,
       comments: 'Draw a hero',
@@ -174,6 +184,7 @@ let tasks = {
   },
   6: {
     11: {
+      id:'11',
       name: 'Go to Gym',
       status: atRiskStatus,
       comments: 'Follow a routine at least 3 times per week',
@@ -181,6 +192,7 @@ let tasks = {
       actualEnd:''
     },
     12: {
+      id:'12',
       name: 'Swim',
       status: delayedStatus,
       comments: 'Go swimming once per week',

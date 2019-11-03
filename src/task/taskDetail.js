@@ -4,10 +4,10 @@ class TaskDetail extends Component{
     render(){
         return(
             <div>
-                <p>Name</p>
-                <p>Planned end</p>
-                <p>Actual end</p>
-                <p>Status</p>
+                <p>Task name</p>
+                <p>Task planned end</p>
+                <p>Task actual end</p>
+                <p>Task status</p>
             </div>
         )
     }
