@@ -4,7 +4,7 @@ import DashboardItemContainer from './dashboardItemContainer'
 import TaskStatusChart from './taskStatusChart';
 import RevenueChart from './revenueChart';
 import RevenueTotal from './revenueTotal'
-import {projects,tasks,revenue} from '../project/testData';
+import {projects,tasks,revenue} from '../utils/testData';
 import TaskOverview from './taskOverview';
 
 class Dashboard extends Component{
