@@ -1,15 +1,30 @@
 import React,{Component} from 'react';
+import {projects} from '../utils/testData'
 
 class ProjectDetail extends Component{
+
+    constructor(props){
+        super(props);
+        
+        this.state = {
+            name: projects[this.props.id].name,
+            description: projects[this.props.id].description,
+            start: projects[this.props.id].start,
+            plannedEnd: projects[this.props.id].plannedEnd,
+            actualEnd: projects[this.props.id].actualEnd,
+            status: projects[this.props.id].status
+        };
+    }
+
     render(){
         return(
             <div>
-                <p>Name</p>
-                <p>Description</p>
-                <p>Start</p>
-                <p>Planned end</p>
-                <p>Actual end</p>
-                <p>Status</p>
+                <p>{this.state.name}</p>
+                <p>{this.state.description}</p>
+                <p>{this.state.start}</p>
+                <p>{this.state.plannedEnd}</p>
+                <p>{this.state.actualEnd}</p>
+                <p>{this.state.status}</p>
             </div>
         )
     }

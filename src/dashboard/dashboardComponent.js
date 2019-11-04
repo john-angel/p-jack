@@ -9,11 +9,16 @@ import TaskOverview from './taskOverview';
 
 class Dashboard extends Component{
 
-    
-
-    state = {
-      projectActive: 0
+    constructor(props){
+      super(props);
+      
+      this.state = {
+        projects: Object.keys(projects).map(item => projects[item]),
+        projectActive: 0
+      }
     }
+
+   
     //TODO: Check how Observer pattern is implemented.
     onProjectActive = (id) => {
       this.setState({projectActive:id})
@@ -25,7 +30,7 @@ class Dashboard extends Component{
             <NavigationBar></NavigationBar>            
             <div className={"projectsContainer"}>
             {
-                projects.map(project => (                
+                this.state.projects.map(project => (                
                   project.id === this.state.projectActive ?
                     <DashboardItemContainer key={project.id} title={project.name}>
                       <div className={'taskInfoDashboard'}>

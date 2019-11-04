@@ -7,7 +7,7 @@ class Project extends Component{
     render(){
         return(
             <div className={'project'}>
-                <ProjectDetail>
+                <ProjectDetail id={this.props.id}>
                 </ProjectDetail>
                 <TaskContainer projectId={this.props.id}></TaskContainer>                
             </div>       

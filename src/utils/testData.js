@@ -1,97 +1,97 @@
 import {notStartedStatus, onHoldStatus, onTrackStatus, delayedStatus, atRiskStatus, completeStatus} from './status';
 
-let projects = [
-    {
-      id: 1,
-      name: 'Rocket',
-      description: 'Rocket to Mars',
-      start: '2018-01-05',
-      plannedEnd: '2019-05-30',
-      actualEnd: '2019-05-15',
-      status: completeStatus
-    },
-    {
-      id: 2,
-      name: 'House',
-      description: 'House in the country side',
-      start: '2018-04-12',
-      plannedEnd: '2019-12-30',
-      actualEnd: '',
-      status: atRiskStatus     
-    },
-    {
-      id: 3,
-      name: 'Book',
-      description: 'Book for children',
-      start: '2018-09-20',
-      plannedEnd: '2019-04-30',
-      actualEnd: '',
-      status: notStartedStatus
-    },
-    {
-      id: 4,
-      name: 'Job',
-      description: 'Front End developer job',
-      start: '2019-08-01',
-      plannedEnd: '2019-11-30',
-      actualEnd: '',
-      status: onTrackStatus
-    },
-    {
-      id: 5,
-      name: 'Drawing',
-      description: 'Improve drawing skills',
-      start: '2019-06-01',
-      plannedEnd: '2019-12-30',
-      actualEnd: '',
-      status: delayedStatus
-    },
-    {
-      id: 6,
-      name: 'Exercise',
-      description: 'Establish a work out routine',
-      start: '2019-06-01',
-      plannedEnd: '2019-12-30',
-      actualEnd: '',
-      status: atRiskStatus
-    },
-    {
-      id: 7,
-      name: 'Dancing',
-      description: 'Improve dancing skills',
-      start: '2019-06-01',
-      plannedEnd: '2019-12-30',
-      actualEnd: '',
-      status: atRiskStatus
-    },
-    {
-      id: 8,
-      name: 'Car',
-      description: 'Buy a car',
-      start: '2019-06-01',
-      plannedEnd: '2019-12-30',
-      actualEnd: '',
-      status: notStartedStatus
-    },
-    {
-      id: 9,
-      name: 'Cooking',
-      description: 'Improve cooking skills',
-      start: '2019-06-01',
-      plannedEnd: '2019-12-30',
-      actualEnd: '',
-      status: onTrackStatus
-    },
-    {
-      id: 10,
-      name: 'Writing',
-      description: 'Improve writing skills',
-      start: '2019-06-01',
-      plannedEnd: '2019-12-30',
-      actualEnd: '',
-      status: delayedStatus
-    }
-]
+let projects = {
+  1: {
+    id: 1,
+    name: 'Rocket',
+    description: 'Rocket to Mars',
+    start: '2018-01-05',
+    plannedEnd: '2019-05-30',
+    actualEnd: '2019-05-15',
+    status: completeStatus
+  },
+  2: {
+    id: 2,
+    name: 'House',
+    description: 'House in the country side',
+    start: '2018-04-12',
+    plannedEnd: '2019-12-30',
+    actualEnd: '',
+    status: atRiskStatus
+  },
+  3: {
+    id: 3,
+    name: 'Book',
+    description: 'Book for children',
+    start: '2018-09-20',
+    plannedEnd: '2019-04-30',
+    actualEnd: '',
+    status: notStartedStatus
+  },
+  4: {
+    id: 4,
+    name: 'Job',
+    description: 'Front End developer job',
+    start: '2019-08-01',
+    plannedEnd: '2019-11-30',
+    actualEnd: '',
+    status: onTrackStatus
+  },
+  5: {
+    id: 5,
+    name: 'Drawing',
+    description: 'Improve drawing skills',
+    start: '2019-06-01',
+    plannedEnd: '2019-12-30',
+    actualEnd: '',
+    status: delayedStatus
+  },
+  6: {
+    id: 6,
+    name: 'Exercise',
+    description: 'Establish a work out routine',
+    start: '2019-06-01',
+    plannedEnd: '2019-12-30',
+    actualEnd: '',
+    status: atRiskStatus
+  },
+  7: {
+    id: 7,
+    name: 'Dancing',
+    description: 'Improve dancing skills',
+    start: '2019-06-01',
+    plannedEnd: '2019-12-30',
+    actualEnd: '',
+    status: atRiskStatus
+  },
+  8: {
+    id: 8,
+    name: 'Car',
+    description: 'Buy a car',
+    start: '2019-06-01',
+    plannedEnd: '2019-12-30',
+    actualEnd: '',
+    status: notStartedStatus
+  },
+  9: {
+    id: 9,
+    name: 'Cooking',
+    description: 'Improve cooking skills',
+    start: '2019-06-01',
+    plannedEnd: '2019-12-30',
+    actualEnd: '',
+    status: onTrackStatus
+  },
+  10: {
+    id: 10,
+    name: 'Writing',
+    description: 'Improve writing skills',
+    start: '2019-06-01',
+    plannedEnd: '2019-12-30',
+    actualEnd: '',
+    status: delayedStatus
+  }
+}
 
 let tasks = {
   1: {
