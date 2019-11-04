@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {projects} from '../utils/testData'
+import {getTextFromStatus} from '../utils/status'
 
 class ProjectDetail extends Component{
 
@@ -12,7 +13,7 @@ class ProjectDetail extends Component{
             start: projects[this.props.id].start,
             plannedEnd: projects[this.props.id].plannedEnd,
             actualEnd: projects[this.props.id].actualEnd,
-            status: projects[this.props.id].status
+            status: getTextFromStatus(projects[this.props.id].status)
         };
     }
 
