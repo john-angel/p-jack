@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {getTextFromStatus} from '../utils/status';
 
 class TaskDetail extends Component{
     render(){
@@ -7,7 +8,7 @@ class TaskDetail extends Component{
                 <p>{this.props.data.name}</p>
                 <p>{this.props.data.plannedEnd}</p>
                 <p>{this.props.data.actualEnd}</p>
-                <p>{this.props.data.status}</p>
+                <p>{getTextFromStatus(this.props.data.status)}</p>
                 <p>{this.props.data.comments}</p>
             </div>
         )
