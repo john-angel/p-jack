@@ -8,12 +8,12 @@ class ProjectDetail extends Component{
         super(props);
         
         this.state = {
-            name: projects[this.props.id].name,
-            description: projects[this.props.id].description,
-            start: projects[this.props.id].start,
-            plannedEnd: projects[this.props.id].plannedEnd,
-            actualEnd: projects[this.props.id].actualEnd,
-            status: getTextFromStatus(projects[this.props.id].status)
+            name: projects[this.props.projectId].name,
+            description: projects[this.props.projectId].description,
+            start: projects[this.props.projectId].start,
+            plannedEnd: projects[this.props.projectId].plannedEnd,
+            actualEnd: projects[this.props.projectId].actualEnd,
+            status: getTextFromStatus(projects[this.props.projectId].status)
         };
     }
 
