@@ -19,6 +19,10 @@ class TaskContainer extends Component {
         this.setState({displayDetail:true,taskDetail:task});
     }
 
+    onDetailClosed = () => {
+        this.setState({displayDetail:false})
+    }
+
     render(){
         return(
             <React.Fragment>
@@ -32,7 +36,7 @@ class TaskContainer extends Component {
             }
             </div>
             {  
-                this.state.displayDetail ? <TaskDetail data={this.state.taskDetail}></TaskDetail> : null
+                this.state.displayDetail ? <TaskDetail data={this.state.taskDetail} onClose={this.onDetailClosed}></TaskDetail> : null
             }            
             </React.Fragment>           
         )
