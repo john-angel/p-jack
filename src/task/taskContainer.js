@@ -22,19 +22,19 @@ class TaskContainer extends Component {
     render(){
         return(
             <React.Fragment>
-            <div className={'tasksContainer'}>
+            <div className={'taskGrid'}>
             {
+                
                 this.state.taskItems.map(item =>
                     <Task key={item.id} data={item} onSelected={this.onTaskSelected}></Task>
                 )
+                
             }
             </div>
-            {
+            {  
                 this.state.displayDetail ? <TaskDetail data={this.state.taskDetail}></TaskDetail> : null
-            }
-            
-            </React.Fragment>
-           
+            }            
+            </React.Fragment>           
         )
     }
 }

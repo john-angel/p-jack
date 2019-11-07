@@ -4,7 +4,7 @@ import {getTextFromStatus} from '../utils/status';
 class TaskDetail extends Component{
     render(){
         return(
-            <div>
+            <div className={'taskDetail'}>
                 <p>{this.props.data.name}</p>
                 <p>{this.props.data.plannedEnd}</p>
                 <p>{this.props.data.actualEnd}</p>

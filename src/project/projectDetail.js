@@ -19,7 +19,7 @@ class ProjectDetail extends Component{
 
     render(){
         return(
-            <div>
+            <div className={'projectDetail'}>
                 <p>{this.state.name}</p>
                 <p>{this.state.description}</p>
                 <p>{this.state.start}</p>

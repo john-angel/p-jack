@@ -18,7 +18,7 @@ class Task extends Component {
 
     render(){
         return (
-            <React.Fragment>
+            <React.Fragment>                
                 <textarea className={'taskItem'} maxLength={'100'} rows={'2'} value={this.state.name} onClick={this.handleClick} onChange={this.handleChange}></textarea>                
             </React.Fragment>
         )
