@@ -26,7 +26,7 @@ class TaskContainer extends Component {
     render(){
         return(
             <React.Fragment>
-            <div className={'taskGrid'}>
+            <div className={'taskGrid'} style={{width:this.displayDetail ? '50%' : '80%'}}>
             {
                 
                 this.state.taskItems.map(item =>

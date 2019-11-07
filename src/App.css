@@ -139,7 +139,6 @@
   display: grid;
   grid-auto-rows: 3em;
   align-items: center;
-  width:50%;
 }
 
 .taskDetail {
