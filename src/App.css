@@ -149,7 +149,12 @@
 
 .taskDetail {
   width:30%;
-  margin-left: 20px;
+  height: 100vh;
+  padding-left: 20px;
+  background-color: #161F2C;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9em;
+  color:white;
 }
 
 .taskItem{ 
