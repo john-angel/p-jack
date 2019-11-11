@@ -6,6 +6,10 @@ export const delayedColor = '#FF8080';
 export const atRiskColor = '#FFBA92';
 export const completeColor = '#8AC6D1';
 
+export const projectDiagramColor = '#FF8080';
+export const projectInfoColor = '#8AC6D1';
+export const projectDateColor = '#7ED3B2';
+
 export const linkColor = '#3579F6';
 
 export const green = '#4ABF84';
