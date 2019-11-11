@@ -143,6 +143,8 @@
   display: grid;
   grid-auto-rows: 3em;
   align-items: center;
+  height: 100vh;
+  background-color: #333333;
 }
 
 .taskDetail {
@@ -153,9 +155,12 @@
 .taskItem{ 
   display:grid;
   align-items: center;
-  border-style:none none solid none;  
+  border-style:none none dotted none;  
   border-width: thin; 
   border-color: #E5E5E5;
   resize: none;
-  font-size: 1em;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9em;
+  background-color: #333333;
+  color:white;
 }
