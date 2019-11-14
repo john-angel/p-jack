@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
 
 class NavigationBar extends Component{
 
@@ -6,12 +7,12 @@ class NavigationBar extends Component{
         return( 
             <nav className='navigationBar'>
                 <ul>
-                    <li><a href="/search">Search</a></li>
-                    <li><a href="/add">Add</a></li>
-                    <li><a href="/dashboard">Dashboard</a></li>
-                    <li><a href="/tasks">Tasks</a></li>
-                    <li><a href="/revenue">Revenue</a></li>
-                    <li><a href="/logout">Log out</a></li>
+                    <li><NavLink to="/search">Search</NavLink></li>
+                    <li><NavLink to="/add">Add</NavLink></li>
+                    <li><NavLink to="/dashboard">Dashboard</NavLink></li>
+                    <li><NavLink to="/tasks">Tasks</NavLink></li>
+                    <li><NavLink to="/revenue">Revenue</NavLink></li>
+                    <li><NavLink to="/logout">Log out</NavLink></li>
                 </ul>
             </nav>
         )
