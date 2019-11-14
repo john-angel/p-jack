@@ -133,6 +133,8 @@
 .projectDetail{
   width: 20%;
   height: 100vh;
+  padding-left: 5px;
+  padding-right: 5px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 0.9em;
   background-color: #161F2C;
