@@ -10,7 +10,7 @@ class ProjectDetail extends Component{
 
     constructor(props){
         super(props);
-        
+              
         this.state = {
             name: projects[this.props.projectId].name,
             description: projects[this.props.projectId].description,

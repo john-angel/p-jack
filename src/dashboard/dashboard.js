@@ -24,7 +24,7 @@ class Dashboard extends Component{
                 this.state.projects.map(project => (
                     <DashboardItem key={project.id} title={project.name}>
                       <div className={'taskInfoDashboard'}>
-                        <TaskStatusChart divId={'taskStatusChart' + project.id} tasks={tasks[project.id]}></TaskStatusChart>
+                        <TaskStatusChart divId={'taskStatusChart' + project.id} projectId={project.id} tasks={tasks[project.id]}></TaskStatusChart>
                         <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
                       </div>
                       <div className={'revenueInfoDashboard'}>

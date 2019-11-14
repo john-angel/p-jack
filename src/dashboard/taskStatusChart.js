@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom'
 import {notStartedColor, onHoldColor, onTrackColor, delayedColor, atRiskColor, completeColor, linkColor} from '../utils/colors';
 import {notStartedStatus, onHoldStatus, onTrackStatus, delayedStatus, atRiskStatus, completeStatus} from '../utils/status';
 
@@ -26,7 +27,8 @@ class TaskStatusChart extends Component{
         };
 
         const chart = new window.google.visualization.PieChart(document.getElementById(this.props.divId));
-        chart.draw(dataTable, options);        
+        chart.draw(dataTable, options);
+               
     }
 
     getTasksAmount = () => {
@@ -99,6 +101,13 @@ class TaskStatusChart extends Component{
 
         return {dataTable,slices};
     }
+
+    onSelect = (event) => {
+        console.log('Chart selected:', this.props.projectId);
+        this.props.history.push({
+            pathname:`/project/${this.props.projectId}`                       
+        })
+    }
     
     onAdd = () => console.log('onAdd'); 
 
@@ -110,7 +119,7 @@ class TaskStatusChart extends Component{
                 <a href='/tasks' type='text/html' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '400px', height: '180px', textDecoration: 'none', color:linkColor}}>
                     Let's add the first task
                 </a> :
-                <div id={this.props.divId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '270px', height: '180px'}}></div>
+                <div id={this.props.divId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '270px', height: '180px'}} onClick={this.onSelect}></div>
             }
             </React.Fragment>
              
@@ -118,4 +127,4 @@ class TaskStatusChart extends Component{
     }
 }
 
-export default TaskStatusChart;
+export default withRouter(TaskStatusChart);

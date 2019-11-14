@@ -7,6 +7,7 @@ class TaskContainer extends Component {
     
     constructor(props){
         super(props);
+        
         let taskObj = tasks[this.props.projectId];
         this.state = {
             taskItems: Object.keys(taskObj).map(task => taskObj[task]),
