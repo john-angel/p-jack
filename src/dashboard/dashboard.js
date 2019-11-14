@@ -13,36 +13,18 @@ class Dashboard extends Component{
       
       this.state = {
         projects: Object.keys(projects).map(item => projects[item]),
-        projectActive: 0
       }
-    }
+    }  
    
-    //TODO: Check how Observer pattern is implemented.
-    onProjectActive = (id) => {
-      this.setState({projectActive:id})
-    }
-
-    
     render(){
         return(
           <React.Fragment>
             <div className={"projectsContainer"}>
             {
-                this.state.projects.map(project => (                
-                  project.id === this.state.projectActive ?
+                this.state.projects.map(project => (
                     <DashboardItem key={project.id} title={project.name}>
                       <div className={'taskInfoDashboard'}>
                         <TaskStatusChart divId={'taskStatusChart' + project.id} tasks={tasks[project.id]}></TaskStatusChart>
-                        <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
-                      </div>
-                      <div className={'revenueInfoDashboard'}>
-                        <RevenueChart divId={'revenueChart' + project.id} revenue={revenue[project.id]}></RevenueChart>
-                        <RevenueTotal divId={'revenueTotal' + project.id} revenue={revenue[project.id]}></RevenueTotal>
-                      </div>
-                    </DashboardItem>:
-                    <DashboardItem key={project.id} title={project.name}>
-                      <div className={'taskInfoDashboard'}>
-                        <TaskStatusChart divId={'taskStatusChart'+project.id} tasks={tasks[project.id]}></TaskStatusChart>
                         <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
                       </div>
                       <div className={'revenueInfoDashboard'}>
@@ -53,8 +35,7 @@ class Dashboard extends Component{
                 ))                
             }             
             </div>
-          </React.Fragment>
-                       
+          </React.Fragment>                       
         )
     }
 }
