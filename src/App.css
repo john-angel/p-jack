@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 .App{
   display: flex;
   flex-direction: row;
@@ -7,9 +10,6 @@
 .navigationBar{
   background-color:#000000;
   width:109px;
-  overflow-y: hidden;
-  z-index: 1;
-  box-sizing: border-box;
 }
 
 .navigationBar ul{
@@ -36,11 +36,9 @@
 .projectsContainer {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
-  margin-left: 109px;
-  box-sizing: border-box;
-}
+  justify-content: flex-start;
+  align-items: flex-start;
+ }
 
 
 .classPjStatus{
@@ -71,7 +69,7 @@
   color:red;
 }
 
-.dashboardItemContainer{
+.dashboardItem{
   width: 400px;
   height: 400px;
   margin: 10px;
@@ -80,11 +78,11 @@
   border-radius: 3%;
 }
 
-.dashboardItemContainerTitle{
+.dashboardItemTitle{
   display: flex;
   justify-content: center;
   align-items: center;
-  width:400px;
+  width:100%;
   height: 25px;
   border-bottom-style: solid;
   border-color: #EFF0F0;
@@ -99,7 +97,7 @@
 }
 
 .taskOverviewList{
-  display:'flex';
+  display: flex;
   justify-content: center;
   flex-direction:'column';  
   align-items: flex-start;

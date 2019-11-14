@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import '../App.css';
 
-class DashboardItemContainer extends Component {
+class DashboardItem extends Component {
     render(){
         return (            
-            <div className={'dashboardItemContainer'}>
-                <div className={'dashboardItemContainerTitle'}>
+            <div className={'dashboardItem'}>
+                <div className={'dashboardItemTitle'}>
                     {this.props.title}
                 </div>
                 {this.props.children}
@@ -14,4 +14,4 @@ class DashboardItemContainer extends Component {
     }
 }
 
-export default DashboardItemContainer;
+export default DashboardItem;

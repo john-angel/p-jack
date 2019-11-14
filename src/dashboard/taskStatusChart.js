@@ -110,7 +110,7 @@ class TaskStatusChart extends Component{
                 <a href='/tasks' type='text/html' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '400px', height: '180px', textDecoration: 'none', color:linkColor}}>
                     Let's add the first task
                 </a> :
-                <div id={this.props.divId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '270px', height: '180px' }}></div>
+                <div id={this.props.divId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '270px', height: '180px'}}></div>
             }
             </React.Fragment>
              

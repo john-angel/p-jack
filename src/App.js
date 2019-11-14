@@ -1,14 +1,20 @@
 import React from 'react';
 import './App.css';
-import Dashboard from  './dashboard/dashboardComponent';
-import Project from './project/project';
-
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
+import NavigationBar from './navigation/navigationBar';
+import Dashboard from  './dashboard/dashboard';
 
 function App() {
   return (
-    <div className="App">
-        <Project id={'4'}></Project>
-    </div>
+    <Router>
+      <div className="App">
+        <NavigationBar></NavigationBar>
+        <Switch>
+          <Route path='/dashboard' component={Dashboard}></Route>
+          <Route exact path='/' component={Dashboard}></Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 

@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import NavigationBar from '../navigation/navigationBar';
-import DashboardItemContainer from './dashboardItemContainer'
+import DashboardItem from './dashboardItem'
 import TaskStatusChart from './taskStatusChart';
 import RevenueChart from './revenueChart';
 import RevenueTotal from './revenueTotal'
@@ -17,22 +16,21 @@ class Dashboard extends Component{
         projectActive: 0
       }
     }
-
    
     //TODO: Check how Observer pattern is implemented.
     onProjectActive = (id) => {
       this.setState({projectActive:id})
     }
 
+    
     render(){
         return(
           <React.Fragment>
-            <NavigationBar></NavigationBar>            
             <div className={"projectsContainer"}>
             {
                 this.state.projects.map(project => (                
                   project.id === this.state.projectActive ?
-                    <DashboardItemContainer key={project.id} title={project.name}>
+                    <DashboardItem key={project.id} title={project.name}>
                       <div className={'taskInfoDashboard'}>
                         <TaskStatusChart divId={'taskStatusChart' + project.id} tasks={tasks[project.id]}></TaskStatusChart>
                         <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
@@ -41,8 +39,8 @@ class Dashboard extends Component{
                         <RevenueChart divId={'revenueChart' + project.id} revenue={revenue[project.id]}></RevenueChart>
                         <RevenueTotal divId={'revenueTotal' + project.id} revenue={revenue[project.id]}></RevenueTotal>
                       </div>
-                    </DashboardItemContainer>:
-                    <DashboardItemContainer key={project.id} title={project.name}>
+                    </DashboardItem>:
+                    <DashboardItem key={project.id} title={project.name}>
                       <div className={'taskInfoDashboard'}>
                         <TaskStatusChart divId={'taskStatusChart'+project.id} tasks={tasks[project.id]}></TaskStatusChart>
                         <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
@@ -51,8 +49,8 @@ class Dashboard extends Component{
                         <RevenueChart divId={'revenueChart' + project.id} revenue={revenue[project.id]}></RevenueChart>
                         <RevenueTotal divId={'revenueTotal' + project.id} revenue={revenue[project.id]}></RevenueTotal>
                       </div>
-                    </DashboardItemContainer>
-                ))
+                    </DashboardItem>
+                ))                
             }             
             </div>
           </React.Fragment>
