@@ -97,12 +97,9 @@
 }
 
 .taskOverviewList{
-  display: flex;
-  justify-content: center;
-  flex-direction:'column';  
-  align-items: flex-start;
-  padding-left: 0px;
-  margin-top: 22px;
+  padding:0;
+  margin:0;
+  width:130px;
   list-style: none;
   font-family: 'Arial';
   font-size: 0.75em;

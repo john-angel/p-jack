@@ -6,8 +6,7 @@ import {notStartedStatus, onHoldStatus, onTrackStatus, delayedStatus, atRiskStat
 class TaskStatusChart extends Component{
 
     componentDidMount(){
-
-        if(typeof this.props.tasks !== 'undefined'){
+        if (typeof this.props.tasks !== 'undefined') {
             window.google.charts.setOnLoadCallback(this.drawChart);
         }
     }
