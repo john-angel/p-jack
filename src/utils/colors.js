@@ -10,7 +10,7 @@ export const projectDiagramColor = '#FF8080';
 export const projectInfoColor = '#8AC6D1';
 export const projectDateColor = '#7ED3B2';
 
-export const linkColor = '#3579F6';
+export const linkColor = '#55ADDA';
 
 export const green = '#4ABF84';
 export const blue = '#3F93EE';

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {notStartedStatus,onHoldStatus,onTrackStatus,delayedStatus,atRiskStatus} from '../utils/status';
-import {getColorFromStatus} from '../utils/colors';
+import {getColorFromStatus, linkColor} from '../utils/colors';
 
 class TaskOverview extends Component{
 
@@ -56,7 +56,7 @@ class TaskOverview extends Component{
                     <li ><a href='/tasks' type='text/html' style={{ fontSize: '1em', fontWeight: 'bold', color: this.state.color }}>{this.state.task}</a></li>
                     {
                         this.state.tasksToComplete > 0 ?
-                            <li style={{color:'white'}}><a href='/tasks' type='text/html' style={{ fontSize: '1.5em'}}>{this.state.tasksToComplete}</a> tasks to go</li> :
+                            <li style={{color:linkColor}}><a href='/tasks' type='text/html' style={{ fontSize: '1.5em',color:linkColor}}>{this.state.tasksToComplete}</a> tasks to go</li> :
                             null
                     }
                 </ul> :
