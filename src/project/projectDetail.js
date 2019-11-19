@@ -25,17 +25,20 @@ class ProjectDetail extends Component{
     render(){
         return(
             <div className={'projectDetail'}>
-                <p><FontAwesomeIcon icon={faProjectDiagram} style={{fontSize:'1em', color:projectDiagramColor}}></FontAwesomeIcon> {this.state.name}</p>
-                <p><FontAwesomeIcon icon={faInfoCircle} style={{fontSize:'0.8em', color:projectInfoColor}}></FontAwesomeIcon> {this.state.description}</p>
-                <details>
-                    <summary><FontAwesomeIcon icon={faCalendarAlt} style={{fontSize:'1em', color:projectDateColor}}></FontAwesomeIcon> Dates</summary>
-                    <p>Start: {this.state.start}</p>
-                    <p>Planned finish: {this.state.plannedEnd}</p>
-                    {
-                        this.state.actualEnd.length ? <p>Actual finish: {this.state.actualEnd}</p> : null
-                    }
-                </details>               
-                <p><FontAwesomeIcon icon={faCircle} style={{fontSize:'0.8em', color:this.state.statusColor}}></FontAwesomeIcon> {this.state.status}</p>
+                <p style={{ fontSize: '2em' }}><FontAwesomeIcon icon={faProjectDiagram} style={{ fontSize: '1em', color: projectDiagramColor }}></FontAwesomeIcon> {this.state.name}</p>
+                <div className={'projectDetailData'}>
+                    <p><FontAwesomeIcon icon={faInfoCircle} style={{ fontSize: '0.8em', color: projectInfoColor }}></FontAwesomeIcon> {this.state.description}</p>
+                    <details>
+                        <summary><FontAwesomeIcon icon={faCalendarAlt} style={{ fontSize: '1em', color: projectDateColor }}></FontAwesomeIcon> Dates</summary>
+                        <p>Start: {this.state.start}</p>
+                        <p>Planned finish: {this.state.plannedEnd}</p>
+                        {
+                            this.state.actualEnd.length ? <p>Actual finish: {this.state.actualEnd}</p> : null
+                        }
+                    </details>
+                    <p><FontAwesomeIcon icon={faCircle} style={{ fontSize: '0.8em', color: this.state.statusColor }}></FontAwesomeIcon> {this.state.status}</p>
+                </div>
+                
             </div>
         )
     }
