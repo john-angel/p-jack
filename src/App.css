@@ -148,7 +148,9 @@ body{
   grid-auto-rows: 3em;
   align-items: center;
   height: 100vh;
-  margin: 5px 5px 10px 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
   background-color: #1F2B3D;
 }
 

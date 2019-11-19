@@ -27,7 +27,7 @@ class TaskContainer extends Component {
     render(){
         return(
             <div className={'taskContainer'}>
-                <div className={'taskGrid'} style={{ width: this.displayDetail ? '50%' : '100%' }}>
+                <div className={'taskGrid'} style={this.displayDetail ? { width: '50%', marginRight: '5px'} : {width: '100%', marginRight: '10px'}}>
                     {
 
                         this.state.taskItems.map(item =>
