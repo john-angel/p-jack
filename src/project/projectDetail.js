@@ -20,6 +20,12 @@ class ProjectDetail extends Component{
             status: getTextFromStatus(projects[this.props.projectId].status),
             statusColor: getColorFromStatus(projects[this.props.projectId].status)
         };
+
+    }
+
+    onChange = (event) => {
+        event.persist();
+        this.setState({description:event.target.value})
     }
 
     render(){
@@ -29,7 +35,7 @@ class ProjectDetail extends Component{
                 <section id={'projectInfo'}>
                     <section id={'projectDescription'}>
                         <FontAwesomeIcon icon={faInfoCircle} style={{fontSize: '1.2em', color: projectInfoColor, marginRight:'2px'}}></FontAwesomeIcon>
-                        <textarea maxLength={'100'} rows={'2'} value={this.state.description}></textarea>
+                        <textarea maxLength={'100'} rows={'2'} value={this.state.description} onChange={this.onChange}></textarea>
                     </section>
                     <details>
                         <summary><FontAwesomeIcon icon={faCalendarAlt} style={{fontSize: '1em', color: projectDateColor, marginRight: '4px'}}></FontAwesomeIcon>Dates</summary>
