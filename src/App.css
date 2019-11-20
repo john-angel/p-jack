@@ -129,7 +129,7 @@ body{
   width:100%;
 }
 
-.projectDetail{
+#projectDetail{
   margin: 10px 10px 5px 5px;
   padding-left: 20px;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -137,10 +137,23 @@ body{
   color:white;
 }
 
-.projectDetailData {
+#projectInfo {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+#projectDescription {
+  display: flex;
+  align-items: flex-start;
+}
+
+#projectDescription textarea {
+  border-style:none;  
+  resize: none;
+  font-size: 1em;
+  color: white;
+  background-color: #161F2C;
 }
 
 .taskContainer{

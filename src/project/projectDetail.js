@@ -23,23 +23,29 @@ class ProjectDetail extends Component{
     }
 
     render(){
-        return(
-            <div className={'projectDetail'}>
-                <p style={{ fontSize: '2em' }}><FontAwesomeIcon icon={faProjectDiagram} style={{ fontSize: '1em', color: projectDiagramColor }}></FontAwesomeIcon> {this.state.name}</p>
-                <div className={'projectDetailData'}>
-                    <p><FontAwesomeIcon icon={faInfoCircle} style={{ fontSize: '0.8em', color: projectInfoColor }}></FontAwesomeIcon> {this.state.description}</p>
+        return (
+            <div id={'projectDetail'}>
+                <h1 style={{ fontWeight:'normal'}}><FontAwesomeIcon icon={faProjectDiagram} style={{ color: projectDiagramColor }}></FontAwesomeIcon> {this.state.name}</h1>
+                <section id={'projectInfo'}>
+                    <section id={'projectDescription'}>
+                        <FontAwesomeIcon icon={faInfoCircle} style={{fontSize: '1.2em', color: projectInfoColor, marginRight:'2px'}}></FontAwesomeIcon>
+                        <textarea maxLength={'100'} rows={'2'} value={this.state.description}></textarea>
+                    </section>
                     <details>
-                        <summary><FontAwesomeIcon icon={faCalendarAlt} style={{ fontSize: '1em', color: projectDateColor }}></FontAwesomeIcon> Dates</summary>
+                        <summary><FontAwesomeIcon icon={faCalendarAlt} style={{fontSize: '1em', color: projectDateColor, marginRight: '4px'}}></FontAwesomeIcon>Dates</summary>
                         <p>Start: {this.state.start}</p>
-                        <p>Planned finish: {this.state.plannedEnd}</p>
+                        <p>Due: {this.state.plannedEnd}</p>
                         {
                             this.state.actualEnd.length ? <p>Actual finish: {this.state.actualEnd}</p> : null
                         }
                     </details>
-                    <p><FontAwesomeIcon icon={faCircle} style={{ fontSize: '0.8em', color: this.state.statusColor }}></FontAwesomeIcon> {this.state.status}</p>
-                </div>
-                
+                    <section id={'projectStatus'}>
+                        <FontAwesomeIcon icon={faCircle} style={{ fontSize: '0.8em', color: this.state.statusColor, marginRight: '4px'}}></FontAwesomeIcon>
+                            {this.state.status}
+                    </section>
+                </section>
             </div>
+
         )
     }
 }
