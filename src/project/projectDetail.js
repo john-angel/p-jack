@@ -32,13 +32,11 @@ class ProjectDetail extends Component{
         return (
             <div id={'projectDetail'}>
                 <h1 style={{ fontWeight:'normal'}}><FontAwesomeIcon icon={faProjectDiagram} style={{ color: projectDiagramColor }}></FontAwesomeIcon> {this.state.name}</h1>
-                <section id={'projectInfo'}>
-                    <section id={'projectDescription'}>
-                        <FontAwesomeIcon icon={faInfoCircle} style={{fontSize: '1.2em', color: projectInfoColor, marginRight:'2px'}}></FontAwesomeIcon>
-                        <textarea maxLength={'100'} rows={'2'} value={this.state.description} onChange={this.onChange}></textarea>
-                    </section>
-                    <details>
-                        <summary><FontAwesomeIcon icon={faCalendarAlt} style={{fontSize: '1em', color: projectDateColor, marginRight: '4px'}}></FontAwesomeIcon>Dates</summary>
+                <div id={'projectInfo'}>
+                    <FontAwesomeIcon id={'pjDescriptionIcon'} icon={faInfoCircle} style={{ fontSize: '1.2em', color: projectInfoColor}}></FontAwesomeIcon>
+                    <textarea id={'pjDescriptionText'} maxLength={'125'} rows={'2'} value={this.state.description} onChange={this.onChange}></textarea>
+                    <details id={'projectDate'}>
+                        <summary><FontAwesomeIcon icon={faCalendarAlt} style={{ fontSize: '1em', color: projectDateColor, marginRight: '4px' }}></FontAwesomeIcon>Dates</summary>
                         <p>Start: {this.state.start}</p>
                         <p>Due: {this.state.plannedEnd}</p>
                         {
@@ -49,7 +47,7 @@ class ProjectDetail extends Component{
                         <FontAwesomeIcon icon={faCircle} style={{ fontSize: '0.8em', color: this.state.statusColor, marginRight: '4px'}}></FontAwesomeIcon>
                             {this.state.status}
                     </section>
-                </section>
+                </div>
             </div>
 
         )
