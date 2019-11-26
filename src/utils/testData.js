@@ -6,8 +6,7 @@ let projects = {
     name: 'Rocket',
     description: 'Rocket to Mars',
     start: '2018-01-05',
-    plannedEnd: '2019-05-30',
-    actualEnd: '2019-05-15',
+    due: '2019-05-30',
     status: completeStatus
   },
   2: {
@@ -15,8 +14,7 @@ let projects = {
     name: 'House',
     description: 'House in the country side',
     start: '2018-04-12',
-    plannedEnd: '2019-12-30',
-    actualEnd: '',
+    due: '2019-12-30',
     status: atRiskStatus
   },
   3: {
@@ -24,8 +22,7 @@ let projects = {
     name: 'Book',
     description: 'Book for children',
     start: '2018-09-20',
-    plannedEnd: '2019-04-30',
-    actualEnd: '',
+    due: '2019-04-30',
     status: notStartedStatus
   },
   4: {
@@ -33,8 +30,7 @@ let projects = {
     name: 'Job',
     description: 'Front End developer job',
     start: '2019-08-01',
-    plannedEnd: '2019-11-30',
-    actualEnd: '',
+    due: '2019-11-30',
     status: onTrackStatus
   },
   5: {
@@ -42,8 +38,7 @@ let projects = {
     name: 'Drawing',
     description: 'Improve drawing skills',
     start: '2019-06-01',
-    plannedEnd: '2019-12-30',
-    actualEnd: '',
+    due: '2019-12-30',
     status: delayedStatus
   },
   6: {
@@ -51,8 +46,7 @@ let projects = {
     name: 'Exercise',
     description: 'Establish a work out routine',
     start: '2019-06-01',
-    plannedEnd: '2019-12-30',
-    actualEnd: '',
+    due: '2019-12-30',
     status: atRiskStatus
   },
   7: {
@@ -60,8 +54,7 @@ let projects = {
     name: 'Dancing',
     description: 'Improve dancing skills',
     start: '2019-06-01',
-    plannedEnd: '2019-12-30',
-    actualEnd: '',
+    due: '2019-12-30',
     status: atRiskStatus
   },
   8: {
@@ -69,8 +62,7 @@ let projects = {
     name: 'Car',
     description: 'Buy a car',
     start: '2019-06-01',
-    plannedEnd: '2019-12-30',
-    actualEnd: '',
+    due: '2019-12-30',
     status: notStartedStatus
   },
   9: {
@@ -78,8 +70,7 @@ let projects = {
     name: 'Cooking',
     description: 'Improve cooking skills',
     start: '2019-06-01',
-    plannedEnd: '2019-12-30',
-    actualEnd: '',
+    due: '2019-12-30',
     status: onTrackStatus
   },
   10: {
@@ -87,8 +78,7 @@ let projects = {
     name: 'Writing',
     description: 'Improve writing skills',
     start: '2019-06-01',
-    plannedEnd: '2019-12-30',
-    actualEnd: '',
+    due: '2019-12-30',
     status: delayedStatus
   }
 }
@@ -100,16 +90,14 @@ let tasks = {
       name: 'Design rocket',
       status: completeStatus,
       comments: 'Drawing made by hand',
-      plannedEnd:'2010-09-08',
-      actualEnd:'2010-09-08'
+      due:'2010-09-08'
     },
     2: {
       id:'2',
       name: 'Build rocket',
       status: completeStatus,
       comments: 'Rocket made on paper!',
-      plannedEnd:'2010-10-01',
-      actualEnd:'2010-10-02'
+      due:'2010-10-01'
     }
   },
   4: {
@@ -118,50 +106,42 @@ let tasks = {
       name: 'Build portfolio',
       status: onTrackStatus,
       comments: 'Jack development in progress',
-      plannedEnd: '2010-10-30',
-      actualEnd: ''
+      due: '2010-10-30'
     },
     4: {
       id:'4',
       name: 'Buy domain',
       status: completeStatus,
       comments: 'www.johnangel.dev bought',
-      plannedEnd: '2010-10-30',
-      actualEnd: '2010-10-30'
+      due: '2010-10-30'
     },
     5: {
       id:'5',
       name: 'Publish portfolio project on domain',
       status: delayedStatus,
       comments: 'Jack app published through Netlify',
-      plannedEnd: '2019-10-05',
-      actualEnd: ''
-
+      due: '2019-10-05'
     },
     6: {
       id:'6',
       name: 'Update Linkedin profile',
       status: onHoldStatus,
       comments: 'Update profile following tips from Udacity and other sources',
-      plannedEnd: '2010-10-28',
-      actualEnd: ''
+      due: '2010-10-28'
     },
     7: {
       id:'7',
       name: 'Make public Linv source code',
       status: atRiskStatus,
       comments: 'Make public code on GitHub',
-      plannedEnd: '2010-10-20',
-      actualEnd: ''
-
+      due: '2010-10-20'
     },
     10: {
       id:'10',
       name: 'Setup blog',
       status: notStartedStatus,
       comments: 'Setup blog on www.johnangel.dev',
-      plannedEnd: '',
-      actualEnd: ''
+      due: ''
     }
   },
   5: {
@@ -170,16 +150,14 @@ let tasks = {
       name: 'Copy cartoon',
       status: delayedStatus,
       comments: 'Copy a marvel character',
-      plannedEnd:'2010-09-30',
-      actualEnd:''
+      due:'2010-09-30'
     },
     9: {
       id:'9',
       name: 'Draw cartoon',
       status: delayedStatus,
       comments: 'Draw a hero',
-      plannedEnd:'2010-10-16',
-      actualEnd:''
+      due:'2010-10-16'
     }
   },
   6: {
@@ -188,16 +166,14 @@ let tasks = {
       name: 'Go to Gym',
       status: atRiskStatus,
       comments: 'Follow a routine at least 3 times per week',
-      plannedEnd:'2010-11-30',
-      actualEnd:''
+      due:'2010-11-30'
     },
     12: {
       id:'12',
       name: 'Swim',
       status: delayedStatus,
       comments: 'Go swimming once per week',
-      plannedEnd:'2010-10-05',
-      actualEnd:''
+      due:'2010-10-05'
     }
   }
 }

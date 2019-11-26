@@ -15,8 +15,7 @@ class ProjectDetail extends Component{
             name: projects[this.props.projectId].name,
             description: projects[this.props.projectId].description,
             start: projects[this.props.projectId].start,
-            plannedEnd: projects[this.props.projectId].plannedEnd,
-            actualEnd: projects[this.props.projectId].actualEnd,
+            due: projects[this.props.projectId].due,           
             status: getTextFromStatus(projects[this.props.projectId].status),
             statusColor: getColorFromStatus(projects[this.props.projectId].status)
         };
@@ -28,6 +27,16 @@ class ProjectDetail extends Component{
         this.setState({description:event.target.value})
     }
 
+    onStartDateChange = (event) => {
+        event.persist();
+        this.setState({start:event.target.value});
+    }
+
+    onDueDateChange = (event) => {
+        event.persist();
+        this.setState({due:event.target.value});        
+    }
+
     render(){
         return (
             <div id={'projectDetail'}>
@@ -37,11 +46,8 @@ class ProjectDetail extends Component{
                     <textarea id={'pjDescriptionText'} maxLength={'125'} rows={'2'} value={this.state.description} onChange={this.onChange}></textarea>
                     <details id={'projectDate'}>
                         <summary><FontAwesomeIcon icon={faCalendarAlt} style={{ fontSize: '1em', color: projectDateColor, marginRight: '4px' }}></FontAwesomeIcon>Dates</summary>
-                        <p>Start: {this.state.start}</p>
-                        <p>Due: {this.state.plannedEnd}</p>
-                        {
-                            this.state.actualEnd.length ? <p>Actual finish: {this.state.actualEnd}</p> : null
-                        }
+                        <p><label htmlFor={'startDate'}>Start: </label><input type={'date'} id={'startDate'} value={this.state.start} name={'startDate'} onChange={this.onStartDateChange}></input></p>
+                        <p><label htmlFor={'dueDate'}>Due: </label><input type={'date'} id={'dueDate'} value={this.state.due} name={'dueDate'} onChange={this.onDueDateChange}></input></p>                        
                     </details>
                     <section id={'projectStatus'}>
                         <FontAwesomeIcon icon={faCircle} style={{ fontSize: '0.8em', color: this.state.statusColor, marginRight: '4px'}}></FontAwesomeIcon>
