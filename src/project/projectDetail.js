@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faProjectDiagram,faInfoCircle,faCircle } from '@fortawesome/free-solid-svg-icons'
 import { faCalendarAlt} from '@fortawesome/free-regular-svg-icons'
 import {projects} from '../utils/testData'
-import {getTextFromStatus} from '../utils/status'
+import {notStartedStatus,onHoldStatus,onTrackStatus,delayedStatus,atRiskStatus,completeStatus,getTextFromStatus} from '../utils/status'
 import {getColorFromStatus,projectDiagramColor,projectInfoColor,projectDateColor} from '../utils/colors'
 
 class ProjectDetail extends Component{
@@ -16,7 +16,7 @@ class ProjectDetail extends Component{
             description: projects[this.props.projectId].description,
             start: projects[this.props.projectId].start,
             due: projects[this.props.projectId].due,           
-            status: getTextFromStatus(projects[this.props.projectId].status),
+            status: projects[this.props.projectId].status,
             statusColor: getColorFromStatus(projects[this.props.projectId].status)
         };
 
@@ -37,6 +37,14 @@ class ProjectDetail extends Component{
         this.setState({due:event.target.value});        
     }
 
+    onStatusChange = (event) => {
+        event.persist();
+        this.setState({
+            status:event.target.value,
+            statusColor:getColorFromStatus(event.target.value)
+        });
+    }
+    
     render(){
         return (
             <div id={'projectDetail'}>
@@ -51,7 +59,14 @@ class ProjectDetail extends Component{
                     </details>
                     <section id={'projectStatus'}>
                         <FontAwesomeIcon icon={faCircle} style={{ fontSize: '0.8em', color: this.state.statusColor, marginRight: '4px'}}></FontAwesomeIcon>
-                            {this.state.status}
+                        <select id={'statusDataList'} value={this.state.status} onChange={this.onStatusChange}>
+                            <option value={notStartedStatus}>{getTextFromStatus(notStartedStatus)}</option>
+                            <option value={onHoldStatus}>{getTextFromStatus(onHoldStatus)}</option>
+                            <option value={onTrackStatus}>{getTextFromStatus(onTrackStatus)}</option>
+                            <option value={delayedStatus}>{getTextFromStatus(delayedStatus)}</option>
+                            <option value={atRiskStatus}>{getTextFromStatus(atRiskStatus)}</option>
+                            <option value={completeStatus}>{getTextFromStatus(completeStatus)}</option>
+                        </select>
                     </section>
                 </div>
             </div>
