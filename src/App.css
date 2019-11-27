@@ -201,10 +201,22 @@ body{
   margin-top: 5px;
   margin-bottom: 10px;
   margin-left: 5px;
-  background-color: #1F2B3D;
+  background-color: #161F2C;
 }
 
-.taskItem{ 
+.taskItem{
+  display:grid;
+  grid-template-columns: 1.2em auto;
+  column-gap: 10px;
+
+}
+
+.taskCheckIcon {
+  font-size: '1.2em';
+  color: white;
+}
+
+.taskDescription{ 
   display:grid;
   align-items: center;
   border-style:none none dotted none;  
@@ -213,9 +225,8 @@ body{
   resize: none;
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 0.9em;
-  background-color: #1F2B3D;
+  background-color: #161F2C;
   color:white;
-  padding-left: 20px;
 }
 
 .taskDetail {
