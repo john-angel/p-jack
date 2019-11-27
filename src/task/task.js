@@ -14,16 +14,15 @@ class Task extends Component {
         };
     }
 
-    onCheckIconClick = (event) => {
-        console.log('onCheckIconClick');
+    onCheckIconClick = () => {        
         this.setState({icon:this.state.icon === faCircle ? faCheckCircle : faCircle})
     }
 
-    handleClick = (event) => {
+    onTaskDescriptionClick = () => {
         this.props.onSelected(this.props.data);
     }
       
-    handleChange = (event) => {
+    onTaskDescriptionChange = (event) => {
         event.persist();
         this.setState({name:event.target.value})
     }
@@ -32,7 +31,7 @@ class Task extends Component {
         return (
             <div className={'taskItem'}>
                 <FontAwesomeIcon className={'taskCheckIcon'} icon={this.state.icon} onClick={this.onCheckIconClick}></FontAwesomeIcon>
-                <textarea className={'taskDescription'} maxLength={'100'} rows={'2'} value={this.state.name} onClick={this.handleClick} onChange={this.handleChange}></textarea>                
+                <textarea className={'taskDescription'} maxLength={'100'} rows={'2'} value={this.state.name} onClick={this.onTaskDescriptionClick} onChange={this.onTaskDescriptionChange}></textarea>                
             </div>
                            
         )
