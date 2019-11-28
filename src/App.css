@@ -214,6 +214,7 @@ body{
 .taskCheckIcon {
   font-size: '1.2em';
   color: white;
+  margin-left: 5px;
 }
 
 .taskDescription{ 
