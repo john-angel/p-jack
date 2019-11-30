@@ -238,19 +238,44 @@ body{
   height: 100vh;
   margin: 5px 10px 10px 5px;
   padding-left: 20px;
-  background-color: #F5F5F5;
- 
+  background-color: #F5F5F5; 
   font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 0.9em;
-  color:black;
+  color:#878789;
+}
+
+.taskDetailItem{
+  display:grid;
+  grid-template-columns: 1.2em auto;
+  margin-top:5px;
+  column-gap: 5px;
+  background-color:white;
+}
+
+.taskDetailIcon {
+  margin-top: 3px;
+  font-size: '1.2em';
+  color: #7B47BB;
+  margin-left: 5px;
+}
+
+.taskDetail textarea{
+  display:grid;
+  align-items: center;
+  border-style:none;  
+  resize: none;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9em;
+  color:#878789;
 }
 
 .taskDetail p{
   align-self: center;
-  background-color:#FFFFFF;
-  color:#878789;
+  background-color:white;
   height: 100%;
+  font-size: 0.9em;
 }
+
 
 #closeDetailIcon {
   justify-self: right;
