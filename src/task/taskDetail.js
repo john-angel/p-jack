@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faCalendarAlt,  } from '@fortawesome/free-regular-svg-icons';
+import { faCircle, faCalendarAlt, faStickyNote } from '@fortawesome/free-regular-svg-icons';
 import { faCheckCircle, faChevronRight, faCircle as faSolidCircle} from '@fortawesome/free-solid-svg-icons'
 import {getTextFromStatus} from '../utils/status';
 
@@ -39,7 +39,11 @@ class TaskDetail extends Component{
                     <FontAwesomeIcon className={'taskDetailIcon'} icon={faSolidCircle}></FontAwesomeIcon>
                     <p>{getTextFromStatus(this.props.data.status)}</p>
                 </div>
-                <p>{this.props.data.comments}</p>
+                <div className={'taskDetailItem'}>
+                    <FontAwesomeIcon className={'taskDetailIcon'} icon={faStickyNote}></FontAwesomeIcon>
+                    <textarea>{this.props.data.comments}</textarea>
+                </div>
+               
                 <FontAwesomeIcon id={'closeDetailIcon'} icon={faChevronRight} style={{fontSize:'1em'}} onClick={this.onClose}></FontAwesomeIcon>
             </div>
         )
