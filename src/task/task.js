@@ -2,24 +2,20 @@ import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-regular-svg-icons';
 import { faCheckCircle} from '@fortawesome/free-solid-svg-icons';
+import {completeStatus} from '../utils/status';
 
 class Task extends Component {
 
     constructor(props){
         super(props);
-
+       
         this.state = {
-            name: this.props.data.name,
-            textDecoration: 'none',
-            icon: faCircle
+            name: this.props.data.name
         };
     }
 
-    onCheckIconClick = () => {        
-        this.setState({
-            icon: this.state.icon === faCircle ? faCheckCircle : faCircle,
-            textDecoration: this.state.textDecoration === 'none' ? 'line-through' : 'none'
-        })
+    onCheckIconClick = () => {  
+        this.props.onTaskMarked(this.props.data);        
     }
 
     onTaskDescriptionClick = () => {
@@ -32,10 +28,12 @@ class Task extends Component {
     }
 
     render(){
+        let statusIcon = this.props.data.status === completeStatus ? faCheckCircle : faCircle;
+        let descriptionDecoration = this.props.data.status === completeStatus ? 'line-through' : 'none' ;
         return (
             <div className={'taskItem'}>
-                <FontAwesomeIcon className={'taskCheckIcon'} icon={this.state.icon} onClick={this.onCheckIconClick}></FontAwesomeIcon>
-                <textarea className={'taskDescription'} maxLength={'100'} rows={'2'} value={this.state.name} style={{textDecoration:this.state.textDecoration}} onClick={this.onTaskDescriptionClick} onChange={this.onTaskDescriptionChange}></textarea>                
+                <FontAwesomeIcon className={'taskCheckIcon'} icon={statusIcon} onClick={this.onCheckIconClick}></FontAwesomeIcon>
+                <textarea className={'taskDescription'} maxLength={'100'} rows={'2'} value={this.state.name} style={{textDecoration:descriptionDecoration}} onClick={this.onTaskDescriptionClick} onChange={this.onTaskDescriptionChange}></textarea>                
             </div>
                            
         )
