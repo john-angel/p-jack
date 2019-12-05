@@ -20,24 +20,27 @@ class TaskContainer extends Component {
 
     onTaskMarked = (taskDetail) => {
 
+        let newItems = [...this.state.taskItems];
+
         this.setState((state) => {
 
             let status;
-            const newItems = state.taskItems.map(item => {
+            newItems = newItems.map(item => {
                 if(item.id === taskDetail.id){
-                    if(item.status === completeStatus){
-                        item.status = notStartedStatus;
+                    let newItem = Object.assign({},item)
+                    if(newItem.status === completeStatus){
+                        newItem.status = notStartedStatus;
                     }else{
-                        item.status = completeStatus;
+                        newItem.status = completeStatus;
                     } 
-                    status = item.status;                                                       
+                    status = newItem.status;
+                    return newItem;
                 }
-
-                return item;
+                return item;                
             })
 
             let newDetail = Object.assign({},state.detail);
-            //TODO:Update the other properties
+            //TODO:Update the other properties    
             newDetail.status = status;
             
             return {

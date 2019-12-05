@@ -6,8 +6,9 @@ import {completeStatus,getTextFromStatus} from '../utils/status';
 
 class TaskDetail extends Component{
 
-    onCheckIconClick = () => {        
-        this.props.onTaskMarked(this.props.data);       
+    onCheckIconClick = () => {
+        //TODO:Clone props.data and pass it with the new values for due date, comments, status and name.        
+        this.props.onTaskMarked(this.props.data);     
     }
     
     onClose = () => this.props.onClose()
