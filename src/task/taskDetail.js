@@ -6,21 +6,47 @@ import {completeStatus,getTextFromStatus} from '../utils/status';
 
 class TaskDetail extends Component{
 
+    constructor(props){
+        super(props);
+        this.state = {
+            name:this.props.data.name,
+            comments:this.props.data.comments
+        };
+    }
+
     onCheckIconClick = () => {
         //TODO:Clone props.data and pass it with the new values for due date, comments, status and name.        
         this.props.onTaskMarked(this.props.data);     
     }
-    
+
+    onNameChange = (event) => {
+        event.persist();
+        this.setState({name:event.target.value});
+        //TODO:Unify details change in one event passing the task object updated.
+        //this.props.onDescriptionChange(event.target.value);
+    }
+
+    onCommentsChange = (event) => {
+        event.persist();
+        this.setState({comments:event.target.value});
+        //TODO:Unify details change in one event passing the task object updated.        
+    }
+
+    onFocus = (event) => {
+        event.persist();
+        console.log('onFocus', event);
+    }
+
     onClose = () => this.props.onClose()
 
     render(){
         let statusIcon = this.props.data.status === completeStatus ? faCheckCircle : faCircle;
-        let descriptionDecoration = this.props.data.status === completeStatus ? 'line-through' : 'none' ;
+        let nameDecoration = this.props.data.status === completeStatus ? 'line-through' : 'none' ;
         return(
             <div className={'taskDetail'}>
                 <div className={'taskDetailItem'}>
                     <FontAwesomeIcon className={'taskDetailIcon'} icon={statusIcon} onClick={this.onCheckIconClick}></FontAwesomeIcon>
-                    <textarea style={{textDecoration:descriptionDecoration}} value={this.props.data.name}></textarea>
+                    <textarea id={'taskName'} style={{textDecoration:nameDecoration}} value={this.state.name} onChange={this.onNameChange} onFocus={this.onFocus}></textarea>
                 </div>
                 <div className={'taskDetailItem'}>
                     <FontAwesomeIcon className={'taskDetailIcon'} icon={faCalendarAlt}></FontAwesomeIcon>
@@ -32,7 +58,7 @@ class TaskDetail extends Component{
                 </div>
                 <div className={'taskDetailItem'}>
                     <FontAwesomeIcon className={'taskDetailIcon'} icon={faStickyNote}></FontAwesomeIcon>
-                    <textarea value={this.props.data.comments}></textarea>
+                    <textarea id={'taskComments'} value={this.state.comments} onChange={this.onCommentsChange} onFocus={this.onFocus}></textarea>
                 </div>               
                 <FontAwesomeIcon id={'closeDetailIcon'} icon={faChevronRight} style={{fontSize:'1em'}} onClick={this.onClose}></FontAwesomeIcon>
             </div>

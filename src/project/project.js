@@ -34,5 +34,4 @@ class Project extends Component{
         )
     }
 }
-
 export default withRouter(Project);
