@@ -66,7 +66,7 @@ class TaskContainer extends Component {
                 <div className={'taskGrid'} style={this.displayDetail ? { width: '50%', marginRight: '5px'} : {width: '100%', marginRight: '10px'}}>
                     {
                         this.state.taskItems.map(item =>
-                            <Task key={item.id} data={item} onSelected={this.onTaskSelected} onTaskMarked={this.onTaskMarked}></Task>
+                            <Task key={item.id} data={item} onSelected={this.onTaskSelected} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange}></Task>
                         )
                     }
                 </div>
