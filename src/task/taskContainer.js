@@ -30,6 +30,8 @@ class TaskContainer extends Component {
 
     onNameChange = (id,name) => this.updateProperty(id,'name',name)
 
+    onDueDateChange = (id,date) => this.updateProperty(id,'due',date)
+
     onCommentsChange = (id,comments) => this.updateProperty(id,'comments',comments)
 
     updateProperty = (id,property,value) => {
@@ -71,7 +73,7 @@ class TaskContainer extends Component {
                     }
                 </div>
                 {
-                    this.state.displayDetail ? <TaskDetail data={this.state.detail} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange} onCommentsChange={this.onCommentsChange} onDataChange={this.onDataChange} onClose={this.onDetailClosed}></TaskDetail> : null
+                    this.state.displayDetail ? <TaskDetail data={this.state.detail} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange} onDueDateChange={this.onDueDateChange} onCommentsChange={this.onCommentsChange} onDataChange={this.onDataChange} onClose={this.onDetailClosed}></TaskDetail> : null
                 }
             </div>           
         )

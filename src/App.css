@@ -276,6 +276,19 @@ body{
   font-size: 0.9em;
 }
 
+.dueDateDetail {
+  border: none;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9em;
+  color:#878789;
+}
+
+.dueDateDetail::-webkit-inner-spin-button, .dueDateDetail::-webkit-outer-spin-button, .dueDateDetail::-webkit-clear-button{
+  -webkit-appearance: none;
+   margin:0;
+   padding:0
+}
+
 
 #closeDetailIcon {
   justify-self: right;

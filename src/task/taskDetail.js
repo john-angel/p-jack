@@ -18,6 +18,11 @@ class TaskDetail extends Component{
         
     }
 
+    onDueDateChange = (event) => {
+        event.persist();
+        this.props.onDueDateChange(this.props.data.id,event.target.value);   
+    }
+
     onCommentsChange = (event) => {
         event.persist();
         this.props.onCommentsChange(this.props.data.id,event.target.value);
@@ -43,7 +48,7 @@ class TaskDetail extends Component{
                 </div>
                 <div className={'taskDetailItem'}>
                     <FontAwesomeIcon className={'taskDetailIcon'} icon={faCalendarAlt}></FontAwesomeIcon>
-                    <p>{this.props.data.due}</p>
+                    <p><input type={'date'} className={'dueDateDetail'} value={this.props.data.due} name={'dueDate'} onChange={this.onDueDateChange}></input></p>
                 </div>
                 <div className={'taskDetailItem'}>
                     <FontAwesomeIcon className={'taskDetailIcon'} icon={faSolidCircle}></FontAwesomeIcon>
