@@ -15,7 +15,7 @@ class Task extends Component {
     }
 
     onCheckIconClick = () => {  
-        this.props.onTaskMarked(this.props.data);        
+        this.props.onTaskMarked(this.props.data.id);        
     }
 
     onTaskDescriptionClick = () => {
@@ -28,6 +28,7 @@ class Task extends Component {
     }
 
     render(){
+               
         let statusIcon = this.props.data.status === completeStatus ? faCheckCircle : faCircle;
         let descriptionDecoration = this.props.data.status === completeStatus ? 'line-through' : 'none' ;
         return (

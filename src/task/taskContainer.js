@@ -18,45 +18,44 @@ class TaskContainer extends Component {
         };
     }
 
-    onTaskMarked = (taskDetail) => {
-
-        let newItems = [...this.state.taskItems];
-
-        this.setState((state) => {
-
-            let status;
-            newItems = newItems.map(item => {
-                if(item.id === taskDetail.id){
-                    let newItem = Object.assign({},item)
-                    if(newItem.status === completeStatus){
-                        newItem.status = notStartedStatus;
-                    }else{
-                        newItem.status = completeStatus;
-                    } 
-                    status = newItem.status;
-                    return newItem;
-                }
-                return item;                
-            })
-
-            let newDetail = Object.assign({},state.detail);
-            //TODO:Update the other properties    
-            newDetail.status = status;
-            
-            return {
-                taskItems: newItems,
-                detail: newDetail
-            };
-        })          
-    }
-
     onTaskSelected = (task) => {
+
         this.setState({
             displayDetail: true,
             detail: task
         });
     }
 
+    onTaskMarked = (id) => this.state.detail.status === completeStatus ? this.updateProperty(id,'status',notStartedStatus) : this.updateProperty(id,'status',completeStatus)
+
+    onNameChange = (id,name) => this.updateProperty(id,'name',name)
+
+    onCommentsChange = (id,comments) => this.updateProperty(id,'comments',comments)
+
+    updateProperty = (id,property,value) => {
+
+        let newItem;
+        let newItems = [...this.state.taskItems];
+
+        newItems = newItems.map(item => {
+            if (item.id === id) {
+                newItem = Object.assign({}, item)
+                newItem[property] = value;
+                return newItem;
+            }
+            return item;
+        })
+
+        this.setState({
+                taskItems: newItems,
+                detail: newItem
+            }
+        )
+
+    }
+
+    onDataChange = (data) => console.warn('onDataChange to be built')
+   
     onDetailClosed = () => {
         this.setState({displayDetail:false})
     }
@@ -72,7 +71,7 @@ class TaskContainer extends Component {
                     }
                 </div>
                 {
-                    this.state.displayDetail ? <TaskDetail data={this.state.detail} onTaskMarked={this.onTaskMarked} onClose={this.onDetailClosed}></TaskDetail> : null
+                    this.state.displayDetail ? <TaskDetail data={this.state.detail} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange} onCommentsChange={this.onCommentsChange} onDataChange={this.onDataChange} onClose={this.onDetailClosed}></TaskDetail> : null
                 }
             </div>           
         )
