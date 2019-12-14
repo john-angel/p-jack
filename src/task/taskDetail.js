@@ -39,7 +39,7 @@ class TaskDetail extends Component{
             <div className={'taskDetail'}>
                 <div className={'taskDetailItem'}>
                     <FontAwesomeIcon className={'taskDetailIcon'} icon={statusIcon} onClick={this.onCheckIconClick}></FontAwesomeIcon>
-                    <textarea id={'taskName'} style={{textDecoration:nameDecoration}} value={this.props.data.name} onChange={this.onNameChange} onCommentsChange={this.onCommentsChange} onBlur={this.onBlur}></textarea>
+                    <textarea id={'taskName'} style={{textDecoration:nameDecoration}} value={this.props.data.name} onChange={this.onNameChange} onBlur={this.onBlur}></textarea>
                 </div>
                 <div className={'taskDetailItem'}>
                     <FontAwesomeIcon className={'taskDetailIcon'} icon={faCalendarAlt}></FontAwesomeIcon>
