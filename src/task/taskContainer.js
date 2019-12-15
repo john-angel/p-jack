@@ -32,10 +32,11 @@ class TaskContainer extends Component {
 
     onDueDateChange = (id,date) => this.updateProperty(id,'due',date)
 
+    onStatusChange = (id,status) => this.updateProperty(id,'status',status)
+
     onCommentsChange = (id,comments) => this.updateProperty(id,'comments',comments)
 
     updateProperty = (id,property,value) => {
-
         let newItem;
         let newItems = [...this.state.taskItems];
 
@@ -53,10 +54,7 @@ class TaskContainer extends Component {
                 detail: newItem
             }
         )
-
-    }
-
-    onDataChange = (data) => console.warn('onDataChange to be built')
+    }  
    
     onDetailClosed = () => {
         this.setState({displayDetail:false})
@@ -73,7 +71,7 @@ class TaskContainer extends Component {
                     }
                 </div>
                 {
-                    this.state.displayDetail ? <TaskDetail data={this.state.detail} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange} onDueDateChange={this.onDueDateChange} onCommentsChange={this.onCommentsChange} onDataChange={this.onDataChange} onClose={this.onDetailClosed}></TaskDetail> : null
+                    this.state.displayDetail ? <TaskDetail data={this.state.detail} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange} onDueDateChange={this.onDueDateChange} onStatusChange={this.onStatusChange} onCommentsChange={this.onCommentsChange} onClose={this.onDetailClosed}></TaskDetail> : null
                 }
             </div>           
         )

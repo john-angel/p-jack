@@ -19,7 +19,6 @@ class ProjectDetail extends Component{
             status: projects[this.props.projectId].status,
             statusColor: getColorFromStatus(projects[this.props.projectId].status)
         };
-
     }
 
     onChange = (event) => {
