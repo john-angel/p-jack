@@ -3,16 +3,41 @@ import {NavLink} from 'react-router-dom';
 
 class NavigationBar extends Component{
 
+    onSearchClick = (event) => {
+        event.preventDefault();
+        console.warn('Search feature coming soon!');
+    }
+
+    onAddClick = (event) => {
+        event.preventDefault();
+        console.warn('Add feature coming soon!');
+    }
+
+    onTasksClick = (event) => {
+        event.preventDefault();
+        console.warn('Tasks feature coming soon!');
+    }
+
+    onRevenueClick = (event) => {
+        event.preventDefault();
+        console.warn('Revenue feature coming soon!');
+    }
+
+    onLogoutClick = (event) => {
+        event.preventDefault();
+        console.warn('Logout feature coming soon!');
+    }
+
     render(){
         return( 
             <nav className='navigationBar'>
                 <ul>
-                    <li><NavLink to="/search">Search</NavLink></li>
-                    <li><NavLink to="/add">Add</NavLink></li>
-                    <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-                    <li><NavLink to="/tasks">Tasks</NavLink></li>
-                    <li><NavLink to="/revenue">Revenue</NavLink></li>
-                    <li><NavLink to="/logout">Log out</NavLink></li>
+                    <li><NavLink to="/search" activeClassName={'activeNavBarLink'} onClick={this.onSearchClick}>Search</NavLink></li>
+                    <li><NavLink to="/add" activeClassName={'activeNavBarLink'} onClick={this.onAddClick}>Add</NavLink></li>
+                    <li><NavLink to="/dashboard" activeClassName={'activeNavBarLink'}>Dashboard</NavLink></li>
+                    <li><NavLink to="/tasks" activeClassName={'activeNavBarLink'} onClick={this.onTasksClick}>Tasks</NavLink></li>
+                    <li><NavLink to="/revenue" activeClassName={'activeNavBarLink'} onClick={this.onRevenueClick}>Revenue</NavLink></li>
+                    <li><NavLink to="/logout" activeClassName={'activeNavBarLink'} onClick={this.onLogoutClick}>Log out</NavLink></li>
                 </ul>
             </nav>
         )

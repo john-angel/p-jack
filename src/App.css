@@ -32,8 +32,13 @@ body{
 }
 
 .navigationBar li a:hover{
-  background-color: #252526;
+  background-color: #161F2C;
   color:#E3E1E1;
+}
+
+.activeNavBarLink {
+  background-color: #161F2C;
+  color:white;
 }
 
 .projectsContainer {
