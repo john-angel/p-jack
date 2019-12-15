@@ -18,6 +18,7 @@ class RevenueChart extends Component{
             annotations: { alwaysOutside: true },            
             bar: { groupWidth: '80%' },
             legend: { position: 'none' },
+            hAxis: { textStyle: { color:'white', fontSize: 11} },
             vAxis: {
                 gridlines: {
                     count: 0
