@@ -18,8 +18,9 @@ class TaskStatusChart extends Component{
         const { dataTable, slices } = this.createDataTable(tasks);
 
         const options = {
+            backgroundColor: '#161F2C',
             pieHole: 0.4,
-            legend: { alignment: 'center', position: 'right' },
+            legend: { alignment: 'center', position: 'right', textStyle: {color:'white'} },
             pieSliceText: 'none',
             slices: slices,
             chartArea: { left: 2, top: 5, width: '80%' }

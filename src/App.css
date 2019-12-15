@@ -41,6 +41,7 @@ body{
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
+  background-color: #161F2C;
  }
 
 
