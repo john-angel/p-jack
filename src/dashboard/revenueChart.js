@@ -14,13 +14,10 @@ class RevenueChart extends Component{
         const dataTable = this.createDataTable();
 
         let options = {
-            
-            annotations: {
-                alwaysOutside: true                
-            },
-            
-            bar: { groupWidth: "80%" },
-            legend: { position: "none" },
+            backgroundColor: '#161F2C',            
+            annotations: { alwaysOutside: true },            
+            bar: { groupWidth: '80%' },
+            legend: { position: 'none' },
             vAxis: {
                 gridlines: {
                     count: 0
