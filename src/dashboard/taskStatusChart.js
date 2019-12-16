@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {withRouter} from 'react-router-dom'
+import {NavLink,withRouter} from 'react-router-dom'
 import {notStartedColor, onHoldColor, onTrackColor, delayedColor, atRiskColor, completeColor, linkColor} from '../utils/colors';
 import {notStartedStatus, onHoldStatus, onTrackStatus, delayedStatus, atRiskStatus, completeStatus} from '../utils/status';
 
@@ -112,13 +112,14 @@ class TaskStatusChart extends Component{
     onAdd = () => console.log('onAdd'); 
 
     render(){
+        const link = `/project/${this.props.projectId}`;
         return (
             <React.Fragment>
             {
                 typeof this.props.tasks === 'undefined' ?
-                <a href='/tasks' type='text/html' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '400px', height: '180px', textDecoration: 'none', color:linkColor}}>
+                <NavLink to={link} onClick={this.onSelect} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '400px', height: '180px', textDecoration: 'none', color:linkColor}}>
                     Let's add the first task
-                </a> :
+                </NavLink> :
                 <div id={this.props.divId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '270px', height: '180px'}} onClick={this.onSelect}></div>
             }
             </React.Fragment>

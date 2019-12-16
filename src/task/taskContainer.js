@@ -12,7 +12,7 @@ class TaskContainer extends Component {
         let taskObj = tasks[this.props.projectId];
 
         this.state = {
-            taskItems: Object.keys(taskObj).map(task => taskObj[task]),
+            taskItems: typeof taskObj !== 'undefined' ? Object.keys(taskObj).map(task => taskObj[task]): null,
             displayDetail: false,
             detail:null
         };
@@ -65,9 +65,11 @@ class TaskContainer extends Component {
             <div className={'taskContainer'}>
                 <div className={'taskGrid'} style={this.displayDetail ? { width: '50%', marginRight: '5px'} : {width: '100%', marginRight: '10px'}}>
                     {
+                        this.state.taskItems !== null ?
                         this.state.taskItems.map(item =>
                             <Task key={item.id} data={item} onSelected={this.onTaskSelected} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange}></Task>
-                        )
+                        ) 
+                        : <Task data={null} onSelected={this.onTaskSelected} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange}></Task>
                     }
                 </div>
                 {
