@@ -28,16 +28,17 @@ class NavigationBar extends Component{
         console.warn('Logout feature coming soon!');
     }
 
+    //TODO: Remove className property from links that are built.
     render(){
         return( 
             <nav className='navigationBar'>
                 <ul>
-                    <li><NavLink to="/search" activeClassName={'activeNavBarLink'} onClick={this.onSearchClick}>Search</NavLink></li>
-                    <li><NavLink to="/add" activeClassName={'activeNavBarLink'} onClick={this.onAddClick}>Add</NavLink></li>
+                    <li><NavLink to="/search" className={'navBarLinkDisabled'} activeClassName={'activeNavBarLink'} onClick={this.onSearchClick}>Search</NavLink></li>
+                    <li><NavLink to="/add" className={'navBarLinkDisabled'} activeClassName={'activeNavBarLink'} onClick={this.onAddClick}>Add</NavLink></li>
                     <li><NavLink to="/dashboard" activeClassName={'activeNavBarLink'}>Dashboard</NavLink></li>
-                    <li><NavLink to="/tasks" activeClassName={'activeNavBarLink'} onClick={this.onTasksClick}>Tasks</NavLink></li>
-                    <li><NavLink to="/revenue" activeClassName={'activeNavBarLink'} onClick={this.onRevenueClick}>Revenue</NavLink></li>
-                    <li><NavLink to="/logout" activeClassName={'activeNavBarLink'} onClick={this.onLogoutClick}>Log out</NavLink></li>
+                    <li><NavLink to="/tasks" className={'navBarLinkDisabled'} activeClassName={'activeNavBarLink'} onClick={this.onTasksClick}>Tasks</NavLink></li>
+                    <li><NavLink to="/revenue" className={'navBarLinkDisabled'} activeClassName={'activeNavBarLink'} onClick={this.onRevenueClick}>Revenue</NavLink></li>
+                    <li><NavLink to="/logout" className={'navBarLinkDisabled'} activeClassName={'activeNavBarLink'} onClick={this.onLogoutClick}>Log out</NavLink></li>
                 </ul>
             </nav>
         )

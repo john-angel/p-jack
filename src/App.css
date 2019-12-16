@@ -22,7 +22,7 @@ body{
 }
 
 .navigationBar li a{
-  color:#E3E1E1;
+  /*Color has to be set to color:#E3E1E1 once all links are enabled*/
   text-decoration: none;
   display: block;
   padding-left: 10px;
@@ -33,12 +33,17 @@ body{
 
 .navigationBar li a:hover{
   background-color: #161F2C;
-  color:#E3E1E1;
 }
 
 .activeNavBarLink {
   background-color: #161F2C;
   color:white;
+}
+.navBarLinkDisabled {
+  color:gray;
+}
+.navBarLinkEnabled {
+  color:#E3E1E1;
 }
 
 .projectsContainer {
