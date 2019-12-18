@@ -8,7 +8,7 @@ import {getColorFromStatus} from '../utils/colors';
 class TaskDetail extends Component{
 
     onCheckIconClick = () => {
-        this.props.onTaskMarked(this.props.data.id);
+        this.props.onTaskMarked(this.props.data.id,this.props.data.status);
     }
 
     onNameChange = (event) => {

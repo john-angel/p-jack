@@ -18,7 +18,7 @@ class Task extends Component {
 
     onCheckIconClick = () => {
         if(this.props.data !== null){
-            this.props.onTaskMarked(this.props.data.id); 
+            this.props.onTaskMarked(this.props.data.id,this.props.data.status); 
         }            
     }
 

@@ -26,7 +26,7 @@ class TaskContainer extends Component {
         });
     }
 
-    onTaskMarked = (id) => this.state.detail.status === completeStatus ? this.updateProperty(id,'status',notStartedStatus) : this.updateProperty(id,'status',completeStatus)
+    onTaskMarked = (id,status) => status === completeStatus ? this.updateProperty(id,'status',notStartedStatus) : this.updateProperty(id,'status',completeStatus)
 
     onNameChange = (id,name) => this.updateProperty(id,'name',name)
 
