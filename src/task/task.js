@@ -8,6 +8,8 @@ class Task extends Component {
 
     constructor(props){
         super(props);
+
+        this.inputRef = React.createRef();
         this.state = {
             checkIcon: faPlus,
             value: '', 
@@ -31,11 +33,23 @@ class Task extends Component {
         
         if(this.props.data !== null){
             this.props.onNameChange(this.props.data.id,event.target.value);
-        }else{
+        }else{//TODO:This has to be enabled for projects that already have tasks.
             this.setState({
                 checkIcon:faCircle, 
                 value:event.target.value 
             });
+        }
+    }
+
+    onKeyUp = (event) => {
+        event.persist();
+        
+        if(event.keyCode === 13){            
+            this.inputRef.current.blur();
+            //TODO:The event has to be fired for projects that already have tasks
+            if(this.props.data === null){
+                this.props.onNewTask(event.target.value);
+            }            
         }
     }
 
@@ -49,7 +63,7 @@ class Task extends Component {
         return (
             <div className={'taskItem'}>
                 <FontAwesomeIcon className={'taskCheckIcon'} icon={checkIcon} onClick={this.onCheckIconClick}></FontAwesomeIcon>
-                <textarea className={'taskDescription'} maxLength={'100'} rows={'2'} placeholder={placeholder} value={value} style={{textDecoration:descriptionDecoration}} onClick={this.onNameClick} onChange={this.onNameChange}></textarea>                
+                <input className={'taskDescription'} type={'text'} ref={this.inputRef} maxLength={'100'} placeholder={placeholder} value={value} style={{textDecoration:descriptionDecoration}} onClick={this.onNameClick} onChange={this.onNameChange} onKeyUp={this.onKeyUp}></input>                
             </div>
                            
         )

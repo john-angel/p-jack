@@ -55,6 +55,25 @@ class TaskContainer extends Component {
             }
         )
     }  
+
+    onNewTask = (name) => {
+
+        let newTask = {
+            id:1, //TODO:id has to be task(n) + 1.
+            name:name,
+            status: notStartedStatus,
+            comments: '',
+            due: ''
+        }
+
+        let tasks = [newTask];
+
+        this.setState({
+            taskItems: tasks,
+            detail: newTask,
+            displayDetail: true
+        })
+    }
    
     onDetailClosed = () => {
         this.setState({displayDetail:false})
@@ -69,7 +88,7 @@ class TaskContainer extends Component {
                         this.state.taskItems.map(item =>
                             <Task key={item.id} data={item} onSelected={this.onTaskSelected} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange}></Task>
                         ) 
-                        : <Task data={null} onSelected={this.onTaskSelected} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange}></Task>
+                        : <Task data={null} onSelected={this.onTaskSelected} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange} onNewTask={this.onNewTask}></Task>
                     }
                 </div>
                 {
