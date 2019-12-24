@@ -8,12 +8,7 @@ class Task extends Component {
 
     constructor(props){
         super(props);
-
-        this.inputRef = React.createRef();
-        this.state = {
-            checkIcon: faPlus,
-            value: '', 
-    }
+        this.inputRef = React.createRef();        
     }
 
     onCheckIconClick = () => {
@@ -30,42 +25,32 @@ class Task extends Component {
       
     onNameChange = (event) => {
         event.persist();
-        
-        if(this.props.data !== null){
-            this.props.onNameChange(this.props.data.id,event.target.value);
-        }else{//TODO:This has to be enabled for projects that already have tasks.
-            this.setState({
-                checkIcon:faCircle, 
-                value:event.target.value 
-            });
-        }
+        this.props.onNameChange(this.props.data.id,event.target.value);
     }
 
     onKeyUp = (event) => {
         event.persist();
         
         if(event.keyCode === 13){            
-            this.inputRef.current.blur();
-            //TODO:The event has to be fired for projects that already have tasks
-            if(this.props.data === null){
-                this.props.onNewTask(event.target.value);
-            }            
+            this.inputRef.current.blur();       
+            if(this.props.data.id === 0){
+                this.props.onNewTask(this.props.data);
+            }        
         }
     }
 
     render(){
         
-        const checkIcon = this.props.data !== null ? this.props.data.status === completeStatus ? faCheckCircle : faCircle : this.state.checkIcon;
-        const descriptionDecoration = this.props.data !== null ? this.props.data.status === completeStatus ? 'line-through' : 'none' : 'none';
-        const placeholder = this.props.data !== null ? '' : 'Add task...';
-        const value = this.props.data !== null ? this.props.data.name : this.state.value;
+        const checkIcon = this.props.data.id !== 0 ? this.props.data.status === completeStatus ? faCheckCircle : faCircle : faPlus;
+        const descriptionDecoration = this.props.data.status === completeStatus ? 'line-through' : 'none';
+        const placeholder = this.props.data.id !== 0 ? '' : 'Add task...';
+        const value = this.props.data.name;
 
         return (
             <div className={'taskItem'}>
                 <FontAwesomeIcon className={'taskCheckIcon'} icon={checkIcon} onClick={this.onCheckIconClick}></FontAwesomeIcon>
                 <input className={'taskDescription'} type={'text'} ref={this.inputRef} maxLength={'100'} placeholder={placeholder} value={value} style={{textDecoration:descriptionDecoration}} onClick={this.onNameClick} onChange={this.onNameChange} onKeyUp={this.onKeyUp}></input>                
-            </div>
-                           
+            </div>                           
         )
     }
 }

@@ -8,11 +8,23 @@ class TaskContainer extends Component {
     
     constructor(props){
         super(props);
-        
+
+        let taskItems = [{
+            id:0,
+            name:'',
+            status: notStartedStatus,
+            comments: '',
+            due: ''
+        }];
+
         let taskObj = tasks[this.props.projectId];
+        
+        if(typeof taskObj !== 'undefined'){            
+            taskItems = taskItems.concat(Object.keys(taskObj).map(task => taskObj[task]));           
+        }
 
         this.state = {
-            taskItems: typeof taskObj !== 'undefined' ? Object.keys(taskObj).map(task => taskObj[task]): null,
+            taskItems: taskItems,
             displayDetail: false,
             detail:null
         };
@@ -21,7 +33,7 @@ class TaskContainer extends Component {
     onTaskSelected = (task) => {
 
         this.setState({
-            displayDetail: true,
+            displayDetail: task.id !== 0 ? true : false,
             detail: task
         });
     }
@@ -56,22 +68,23 @@ class TaskContainer extends Component {
         )
     }  
 
-    onNewTask = (name) => {
+    onNewTask = (task) => {
 
-        let newTask = {
-            id:1, //TODO:id has to be task(n) + 1.
-            name:name,
+        this.updateProperty(task.id,'name','');
+        
+        let newTask = [{
+            id:100, //TODO:id has to be id(n) + 1.
+            name:task.name,
             status: notStartedStatus,
             comments: '',
             due: ''
-        }
+        }]
 
-        let tasks = [newTask];
-
-        this.setState({
-            taskItems: tasks,
-            detail: newTask,
-            displayDetail: true
+        this.setState((prevState) => {
+            return {
+                taskItems:prevState.taskItems.concat(newTask),
+                detail:newTask
+            }
         })
     }
    
@@ -82,14 +95,14 @@ class TaskContainer extends Component {
     render(){
         return(
             <div className={'taskContainer'}>
-                <div className={'taskGrid'} style={this.displayDetail ? { width: '50%', marginRight: '5px'} : {width: '100%', marginRight: '10px'}}>
-                    {
-                        this.state.taskItems !== null ?
+                <div className={'taskGrid'} style={this.displayDetail ? { width: '50%', marginRight: '5px'} : {width: '100%', marginRight: '10px'}}>                                        
+                {                                      
+                    this.state.taskItems !== null ?                        
                         this.state.taskItems.map(item =>
-                            <Task key={item.id} data={item} onSelected={this.onTaskSelected} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange}></Task>
-                        ) 
-                        : <Task data={null} onSelected={this.onTaskSelected} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange} onNewTask={this.onNewTask}></Task>
-                    }
+                            <Task key={item.id} data={item} onSelected={this.onTaskSelected} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange} onNewTask={this.onNewTask}></Task>
+                        )
+                    : null 
+                }
                 </div>
                 {
                     this.state.displayDetail ? <TaskDetail data={this.state.detail} onTaskMarked={this.onTaskMarked} onNameChange={this.onNameChange} onDueDateChange={this.onDueDateChange} onStatusChange={this.onStatusChange} onCommentsChange={this.onCommentsChange} onClose={this.onDetailClosed}></TaskDetail> : null
