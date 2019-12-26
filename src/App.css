@@ -343,4 +343,15 @@ body{
   color:white;
 }
 
+.revenueAmount{ 
+  display:grid;
+  align-items: center;
+  border-style:none;
+  resize: none;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9em;
+  background-color: #161F2C;
+  color:white;
+}
+
 
