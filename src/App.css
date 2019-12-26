@@ -308,3 +308,39 @@ body{
   color:#7B47BB
 }
 
+.revenueContainer{
+  display: flex;
+  flex-direction: row;
+}
+
+.revenueGrid{
+  display: grid;
+  grid-auto-rows: 3em;
+  align-items: center;
+  height: 100vh;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 5px;
+  background-color: #161F2C;
+  color:white
+}
+
+.revenueItem{
+  display:grid;
+  grid-template-columns: 40% 20% 20% 20%;
+  column-gap: 10px;
+
+}
+
+.revenueDescription{ 
+  display:grid;
+  align-items: center;
+  border-style:none;
+  resize: none;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 0.9em;
+  background-color: #161F2C;
+  color:white;
+}
+
+

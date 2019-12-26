@@ -27,7 +27,7 @@ class TaskContainer extends Component {
             taskItems: taskItems,
             displayDetail: false,
             detail:null
-        };
+        };        
     }
 
     onTaskSelected = (task) => {

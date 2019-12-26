@@ -103,9 +103,9 @@ class TaskStatusChart extends Component{
     }
 
     onSelect = (event) => {
-        console.log('Chart selected:', this.props.projectId);
         this.props.history.push({
-            pathname:`/project/${this.props.projectId}`                       
+            pathname:`/project/${this.props.projectId}`,
+            state:{item:'tasks'}                       
         })
     }
     

@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {NavLink,withRouter} from 'react-router-dom'
 import {linkColor,getColorFromStatus} from '../utils/colors';
 
 class RevenueChart extends Component{
@@ -53,16 +54,24 @@ class RevenueChart extends Component{
 
         return dataTable;
     }
+
+    onSelect = () => {
+        this.props.history.push({
+            pathname:`/project/${this.props.projectId}`,
+            state:{item:'revenue'}                       
+        })
+    }
     
     render(){
+        const link = `/project/${this.props.projectId}`;
         return(
             <React.Fragment>
             {
                 typeof this.props.revenue === 'undefined' ?
-                    <a href='/tasks' type='text/html' style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '400px', height: '180px', textDecoration: 'none', color: linkColor }}>
-                            Do you want to add some revenue?
-                    </a> :
-                    <div id={this.props.divId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '200px', height: '180px'}}></div>
+                    <NavLink to={link} onClick={this.onSelect} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '400px', height: '180px', textDecoration: 'none', color:linkColor}}>
+                        Do you want to add some revenue?
+                    </NavLink> :
+                    <div id={this.props.divId} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '200px', height: '180px'}} onClick={this.onSelect}></div>
 
             }
             </React.Fragment>
@@ -70,4 +79,4 @@ class RevenueChart extends Component{
     }
 }
 
-export default RevenueChart;
+export default withRouter(RevenueChart);

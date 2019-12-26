@@ -180,49 +180,65 @@ let tasks = {
 
 let revenue = {
   2: {
-      Q1:{
-        date:'Q1',
-        amount:1500,
-        status:atRiskStatus
-      },
-    Q2: {
+    1: {
+      id: 1,
+      name: 'Land',
+      date: 'Q1',
+      amount: 1500,
+      status: atRiskStatus
+    },
+    2: {
+      id: 2,
+      name: 'Architect',
       date: 'Q2',
       amount: 2300,
       status: onTrackStatus
     },
-    Q3: {
+    3: {
+      id: 3,
+      name: 'House design',
       date: 'Q3',
       amount: 3200,
       status: completeStatus
     },
-    Q4: {
+    4: {
+      id: 4,
+      name: 'Quote',
       date: 'Q4',
       amount: 600,
       status: delayedStatus
     }
   },
   4: {
-    Q1: {
+    5: {
+      id: 5,
+      name: 'Domain',
       date: 'Q1',
       amount: 500,
       status: notStartedStatus
     },
-    Q2: {
+    6: {
+      id: 6,
+      name: 'Portfolio',
       date: 'Q2',
       amount: 20000,
       status: onHoldStatus
     },
-    Q3: {
+    7: {
+      id: 7,
+      name: 'Profile',
       date: 'Q3',
       amount: 35000,
       status: onTrackStatus
     },
-    Q4: {
+    8: {
+      id: 8,
+      name: 'Blog',
       date: 'Q4',
       amount: 600,
       status: atRiskStatus
     }
-  }   
+  }
 }
 
 export {projects,tasks,revenue}
