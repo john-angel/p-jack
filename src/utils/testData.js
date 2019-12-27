@@ -183,28 +183,28 @@ let revenue = {
     1: {
       id: 1,
       name: 'Land',
-      date: 'Q1',
+      date: '2019-01-13',
       amount: 1500,
       status: atRiskStatus
     },
     2: {
       id: 2,
       name: 'Architect',
-      date: 'Q2',
+      date: '2019-05-20',
       amount: 2300,
       status: onTrackStatus
     },
     3: {
       id: 3,
       name: 'House design',
-      date: 'Q3',
+      date: '2019-07-16',
       amount: 3200,
       status: completeStatus
     },
     4: {
       id: 4,
       name: 'Quote',
-      date: 'Q4',
+      date: '2019-11-30',
       amount: 600,
       status: delayedStatus
     }
@@ -213,28 +213,28 @@ let revenue = {
     5: {
       id: 5,
       name: 'Domain',
-      date: 'Q1',
+      date: '2019-02-15',
       amount: 500,
       status: notStartedStatus
     },
     6: {
       id: 6,
       name: 'Portfolio',
-      date: 'Q2',
+      date: '2019-04-13',
       amount: 20000,
       status: onHoldStatus
     },
     7: {
       id: 7,
       name: 'Profile',
-      date: 'Q3',
+      date: '2019-07-18',
       amount: 35000,
       status: onTrackStatus
     },
     8: {
       id: 8,
       name: 'Blog',
-      date: 'Q4',
+      date: '2019-12-21',
       amount: 600,
       status: atRiskStatus
     }
