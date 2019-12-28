@@ -32,6 +32,8 @@ class RevenueContainer extends Component {
 
     onDateChange = (id,date) => this.updateProperty(id,'date',date)
 
+    onStatusChange = (id,status) => this.updateProperty(id,'status',status)
+
     updateProperty = (id,property,value) => {
         let newItem;
         let newItems = [...this.state.revenueItems];
@@ -56,7 +58,7 @@ class RevenueContainer extends Component {
                 <div className={'revenueGrid'} style={{width: '100%', marginRight: '10px'}}>                                        
                 {
                     this.state.revenueItems.map(item =>
-                        <Revenue key={item.id} data={item} onNameChange={this.onNameChange} onAmountChange={this.onAmountChange} onDateChange={this.onDateChange}></Revenue>
+                        <Revenue key={item.id} data={item} onNameChange={this.onNameChange} onAmountChange={this.onAmountChange} onDateChange={this.onDateChange} onStatusChange={this.onStatusChange}></Revenue>
                     )
                 }
                 </div>                
