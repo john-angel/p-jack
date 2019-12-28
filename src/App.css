@@ -219,7 +219,6 @@ body{
   display:grid;
   grid-template-columns: 1.2em auto;
   column-gap: 10px;
-
 }
 
 .taskCheckIcon {
@@ -327,9 +326,14 @@ body{
 
 .revenueItem{
   display:grid;
-  grid-template-columns: 40% 15% 10% 35%;
+  grid-template-columns: 2% 38% 15% 10% 35%;
   column-gap: 5px;
+}
 
+.revenueCheckIcon {
+  font-size: '1.2em';
+  color: white;
+  margin-left: 5px;
 }
 
 .revenueDescription{ 

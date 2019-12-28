@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faCircle } from '@fortawesome/free-regular-svg-icons';
+import { faCircle as faFilledCircle, faCheckCircle,faPlus } from '@fortawesome/free-solid-svg-icons'
 import {notStartedStatus,onHoldStatus,onTrackStatus,delayedStatus,atRiskStatus,completeStatus,getTextFromStatus} from '../utils/status';
 import {getColorFromStatus} from '../utils/colors'
 
 class Revenue extends Component{
+
+    onCheckIconClick = (event) => {
+        event.persist();        
+        this.props.onRevenueMarked(this.props.data.id,this.props.data.status);              
+    }
 
     onNameChange = (event) => {
         event.persist();
@@ -31,6 +37,7 @@ class Revenue extends Component{
     }
 
     render(){
+        const checkIcon = this.props.data.id !== 0 ? this.props.data.status === completeStatus ? faCheckCircle : faCircle : faPlus;
         const namePlaceholder = this.props.data.id !== 0 ? '' : 'Description...';
         const amountPlaceholder = this.props.data.id !== 0 ? '' : 'Amount...';
         const datePlaceholder = this.props.data.id !== 0 ? '' : 'Date...';
@@ -44,11 +51,12 @@ class Revenue extends Component{
 
         return(
             <div className={'revenueItem'}>
+                <FontAwesomeIcon className={'revenueCheckIcon'} icon={checkIcon} onClick={this.onCheckIconClick}></FontAwesomeIcon>
                 <input className={'revenueDescription'} type={'text'} maxLength={'100'} value={this.props.data.name} placeholder={namePlaceholder} onChange={this.onNameChange}></input>
                 <input className={'revenueAmount'} type={'text'} maxLength={'20'} value={this.props.data.amount} placeholder={amountPlaceholder} onChange={this.onAmountChange}></input>
                 <input className={'revenueDate'} type={'text'} value={this.props.data.date} name={'revenueDate'} placeholder={datePlaceholder} style={{color:dateColor}} onChange={this.onDateChange} onFocus={this.onDateFocus}></input>
                 <section>
-                    <FontAwesomeIcon icon={faCircle} style={{ fontSize: '0.8em', color: statusIconColor, marginRight: '4px' }}></FontAwesomeIcon>
+                    <FontAwesomeIcon icon={faFilledCircle} style={{ fontSize: '0.8em', color: statusIconColor, marginRight: '4px' }}></FontAwesomeIcon>
                     <select id={'statusDataList'} value={this.props.data.status} style={{color:statusTextColor}} onChange={this.onStatusChange}>
                         <option value={notStartedStatus}>{getTextFromStatus(notStartedStatus)}</option>
                         <option value={onHoldStatus}>{getTextFromStatus(onHoldStatus)}</option>

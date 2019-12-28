@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {revenue} from '../utils/testData';
-import {notStartedStatus} from '../utils/status';
+import {notStartedStatus,completeStatus} from '../utils/status';
 import Revenue from './revenue';
 
 class RevenueContainer extends Component {
@@ -25,6 +25,8 @@ class RevenueContainer extends Component {
             revenueItems: revenueItems            
         };        
     }
+
+    onRevenueMarked = (id,status) => status === completeStatus ? this.updateProperty(id,'status',notStartedStatus) : this.updateProperty(id,'status',completeStatus)
 
     onNameChange = (id,name) => this.updateProperty(id,'name',name)
 
@@ -58,7 +60,7 @@ class RevenueContainer extends Component {
                 <div className={'revenueGrid'} style={{width: '100%', marginRight: '10px'}}>                                        
                 {
                     this.state.revenueItems.map(item =>
-                        <Revenue key={item.id} data={item} onNameChange={this.onNameChange} onAmountChange={this.onAmountChange} onDateChange={this.onDateChange} onStatusChange={this.onStatusChange}></Revenue>
+                        <Revenue key={item.id} data={item} onRevenueMarked={this.onRevenueMarked} onNameChange={this.onNameChange} onAmountChange={this.onAmountChange} onDateChange={this.onDateChange} onStatusChange={this.onStatusChange}></Revenue>
                     )
                 }
                 </div>                
