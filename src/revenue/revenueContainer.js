@@ -11,6 +11,7 @@ class RevenueContainer extends Component {
         let revenueItems = [{
             id:0,
             name:'',
+            amount:'',
             status: notStartedStatus,
             date: 'yyyy-mm-dd'
         }];
@@ -41,7 +42,7 @@ class RevenueContainer extends Component {
         let newItems = [...this.state.revenueItems];
 
         newItems = newItems.map(item => {
-            if (item.id === id) {
+            if (item.id === id) {             
                 newItem = Object.assign({}, item)
                 newItem[property] = value;
                 return newItem;
@@ -52,7 +53,45 @@ class RevenueContainer extends Component {
         this.setState({
             revenueItems: newItems
         })
-    }  
+    }
+    
+    onNewRevenue = (revenue) => {
+
+        let newItem;
+        let newItems = [...this.state.revenueItems];
+
+        //TODO:Unify this with updateProperty
+        newItems = newItems.map(item => {
+            if (item.id === revenue.id) {             
+                newItem = Object.assign({}, item)
+                newItem.name = '';
+                newItem.amount = '';
+                newItem.date = 'yyyy-mm-dd';
+                newItem.status = notStartedStatus;
+                return newItem;
+            }
+            return item;
+        })
+        
+        this.setState({
+            revenueItems: newItems
+        })       
+
+        
+        let newRevenue = [{
+            id:200, //TODO:id has to be id(n) + 1.
+            name:revenue.name,
+            amount:revenue.amount,
+            date:revenue.date,
+            status: revenue.amount            
+        }]
+
+        this.setState((prevState) => {
+            return {
+                revenueItems:prevState.revenueItems.concat(newRevenue)
+            }
+        })        
+    }
 
     render(){
         return(
@@ -60,7 +99,7 @@ class RevenueContainer extends Component {
                 <div className={'revenueGrid'} style={{width: '100%', marginRight: '10px'}}>                                        
                 {
                     this.state.revenueItems.map(item =>
-                        <Revenue key={item.id} data={item} onRevenueMarked={this.onRevenueMarked} onNameChange={this.onNameChange} onAmountChange={this.onAmountChange} onDateChange={this.onDateChange} onStatusChange={this.onStatusChange}></Revenue>
+                        <Revenue key={item.id} data={item} onRevenueMarked={this.onRevenueMarked} onNewRevenue={this.onNewRevenue} onNameChange={this.onNameChange} onAmountChange={this.onAmountChange} onDateChange={this.onDateChange} onStatusChange={this.onStatusChange}></Revenue>
                     )
                 }
                 </div>                

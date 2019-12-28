@@ -7,9 +7,22 @@ import {getColorFromStatus} from '../utils/colors'
 
 class Revenue extends Component{
 
+    infoComplete = () => {
+        if (this.props.data.name !== '' && this.props.data.amount !== '' && this.props.data.date !== 'yyyy-mm-dd'){
+            return true;
+        }
+        return false
+    }
+
     onCheckIconClick = (event) => {
-        event.persist();        
-        this.props.onRevenueMarked(this.props.data.id,this.props.data.status);              
+        event.persist();
+        if(this.props.data.id === 0){
+            if(this.infoComplete()){
+                this.props.onNewRevenue(this.props.data);
+            }
+        }else{
+            this.props.onRevenueMarked(this.props.data.id,this.props.data.status);
+        }           
     }
 
     onNameChange = (event) => {
@@ -44,8 +57,8 @@ class Revenue extends Component{
         const dateColor = this.props.data.date !== 'yyyy-mm-dd' ? 'white' : '#727272';
         const statusIconColor = getColorFromStatus(this.props.data.status);
         let statusTextColor = '#727272'
-        
-        if (this.props.data.name !== '' && this.props.data.amount !== '' && this.props.data.date !== 'yyyy-mm-dd'){
+
+        if(this.infoComplete()){
             statusTextColor = 'white';
         }
 
