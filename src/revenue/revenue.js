@@ -14,7 +14,7 @@ class Revenue extends Component{
     }
 
     onDateChange = (event) => {
-        event.persist();
+        event.persist();        
         this.props.onDateChange(this.props.data.id,event.target.value);
     }
 
@@ -25,14 +25,14 @@ class Revenue extends Component{
     render(){
         const namePlaceholder = this.props.data.id !== 0 ? '' : 'Description...';
         const amountPlaceholder = this.props.data.id !== 0 ? '' : 'Amount...';
-        const dateValue = this.props.data.id !== 0 ? this.props.data.date : '';
         const datePlaceholder = this.props.data.id !== 0 ? '' : 'Date...';
+        const dateColor = this.props.data.date !== 'yyyy-mm-dd' ? 'white' : '#727272';
 
         return(
             <div className={'revenueItem'}>
                 <input className={'revenueDescription'} type={'text'} maxLength={'100'} value={this.props.data.name} placeholder={namePlaceholder} onChange={this.onNameChange}></input>
                 <input className={'revenueAmount'} type={'text'} maxLength={'20'} value={this.props.data.amount} placeholder={amountPlaceholder} onChange={this.onAmountChange}></input>
-                <input className={'revenueDate'} type={'text'} ref={this.inputRef} value={dateValue} name={'revenueDate'} placeholder={datePlaceholder} onChange={this.onDateChange} onFocus={this.onDateFocus}></input>
+                <input className={'revenueDate'} type={'text'} value={this.props.data.date} name={'revenueDate'} placeholder={datePlaceholder} style={{color:dateColor}} onChange={this.onDateChange} onFocus={this.onDateFocus}></input>
                 <p>{getTextFromStatus(this.props.data.status)}</p>
             </div>      
         )

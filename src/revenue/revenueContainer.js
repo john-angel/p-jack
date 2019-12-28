@@ -12,7 +12,7 @@ class RevenueContainer extends Component {
             id:0,
             name:'',
             status: notStartedStatus,
-            date: '2020-06-30'
+            date: 'yyyy-mm-dd'
         }];
 
         let revenueObj = revenue[this.props.projectId];
