@@ -1,0 +1,23 @@
+.projectSummaryContainer{
+    display:grid;
+    color:white;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.projectSummaryTitle{
+    grid-column: span 3;
+}
+
+.projectSummaryGrid{
+    display:grid;
+    align-items: center;
+    justify-items: center;
+    grid-column: span 3;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+}
+
+.projectSummaryGrid p {
+    margin:0;
+    padding:0;
+}
