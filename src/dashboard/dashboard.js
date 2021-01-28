@@ -34,7 +34,7 @@ class Dashboard extends Component{
                     </DashboardItem>
                 ))                
             }             
-            </div>
+            </div>            
           </React.Fragment>                       
         )
     }

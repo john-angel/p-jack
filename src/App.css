@@ -2,17 +2,19 @@
   box-sizing: border-box;
 }
 body{
-  background-color: #000000;
+  background-color: #212529;
 }
+
 .App{
   display: flex;
   flex-direction: row;
-  background-color: #000000;
+  background-color: #212529;
 }
 
 .navigationBar{
-  background-color:#000000;
+  background-color:#2B2F33;
   width:109px;
+  height: 100vh;
 }
 
 .navigationBar ul{
@@ -22,7 +24,6 @@ body{
 }
 
 .navigationBar li a{
-  /*Color has to be set to color:#E3E1E1 once all links are enabled*/
   text-decoration: none;
   display: block;
   padding-left: 10px;
@@ -32,18 +33,15 @@ body{
 }
 
 .navigationBar li a:hover{
-  background-color: #161F2C;
+  color:#B290EB;
 }
 
+.navBarLinkDefault{
+  color:#E0E0E0;
+}
 .activeNavBarLink {
-  background-color: #161F2C;
-  color:white;
-}
-.navBarLinkDisabled {
-  color:gray;
-}
-.navBarLinkEnabled {
-  color:#E3E1E1;
+  background-color: rgba(178, 144, 235, 0.15);
+  color:#B290EB;
 }
 
 .projectsContainer {
