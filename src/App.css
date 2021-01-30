@@ -9,6 +9,9 @@
   --site-background-color:#212529;
   --mainComponents-background-color:#2B2F33;
   --text-default-color:#E0E0E0;
+  --onTrack-color:#7ED3B2;
+  --atRisk-color:#FF9992;
+  --onHold-Color:#63C6E7;  
 }
 
 body{

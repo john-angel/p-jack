@@ -12,6 +12,7 @@
 }
 
 .searchIcon {
+    margin-left: 1em;
     margin-top: 1em;
     color:#757575;/*To match the color of the placeholder of the input element*/
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import './project.css'
 
-const projectSummary = (props) =>     
+const ProjectSummary = (props) =>     
     <section className={'projectSummaryContainer'}>
         <p className={'projectSummaryTitle'}>Projects</p>
         <section className={'projectSummaryGrid'}>            
@@ -16,4 +16,4 @@ const projectSummary = (props) =>
 
     </section>
 
-export default projectSummary;
+export default ProjectSummary;
