@@ -3,11 +3,6 @@ import {NavLink} from 'react-router-dom';
 
 class NavigationBar extends Component{
 
-    onDashboardClick = (event) => {
-        event.preventDefault();
-        console.warn('Dashboard feature coming soon!');
-    }
-
     onProjectsClick = (event) => {
         event.preventDefault();
         console.warn('Projects feature coming soon!');
