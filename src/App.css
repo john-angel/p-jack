@@ -4,18 +4,25 @@
   box-sizing: border-box;
   
 }
+
+:root{
+  --site-background-color:#212529;
+  --mainComponents-background-color:#2B2F33;
+  --text-default-color:#E0E0E0;
+}
+
 body{
-  background-color: #212529;
+  background-color: var(--site-background-color);
 }
 
 .App{
   display: flex;
   flex-direction: row;
-  background-color: #212529;
+  background-color: var(--site-background-color);
 }
 
 .navigationBar{
-  background-color:#2B2F33;
+  background-color: var(--mainComponents-background-color);
   width:109px;
   height:100vh;
 }
@@ -38,7 +45,7 @@ body{
 }
 
 .navBarLinkDefault{
-  color:#E0E0E0;
+  color: var(--text-default-color);
 }
 .activeNavBarLink {
   background-color: rgba(178, 144, 235, 0.15);

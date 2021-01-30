@@ -1,0 +1,33 @@
+@import url('../App.css');
+
+.searchContainer{
+    display: flex;
+    flex-direction: row;
+    background-color: var(--mainComponents-background-color);
+    margin-left: 1em;
+    margin-top: 1em;
+    width:20em;
+    height: 3em;
+    border-radius: 4px; 
+}
+
+.searchIcon {
+    margin-top: 1em;
+    color:#757575;/*To match the color of the placeholder of the input element*/
+}
+
+.searchText {
+    font-size: 1em;
+    font-weight: 100;
+    margin-top: 0.3em;
+    padding-left: 1em;
+    padding-right: 1em;
+    width: 100%;
+    border-style: none;
+    background-color: var(--mainComponents-background-color);
+    color: var(--text-default-color);
+}
+
+.searchText:focus {
+    outline: none;
+}
