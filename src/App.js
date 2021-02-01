@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import NavigationBar from './navigation/navigationBar';
+import Search from './search/search';
 import Dashboard from  './dashboard/dashboard';
 import Project from './project/project'
 
@@ -10,11 +11,14 @@ function App() {
     <Router>
       <div className="App">
         <NavigationBar></NavigationBar>
-        <Switch>
-          <Route path='/dashboard' component={Dashboard}></Route>
-          <Route path='/project/:id' component={Project}></Route>
-          <Route exact path='/' component={Dashboard}></Route>
-        </Switch>
+        <div className={'pageGrid'}>
+          <Search></Search>        
+          <Switch>
+            <Route path='/dashboard' component={Dashboard}></Route>
+            <Route path='/project/:id' component={Project}></Route>
+            <Route exact path='/' component={Dashboard}></Route>
+          </Switch>
+        </div>
       </div>
     </Router>
   )

@@ -1,0 +1,6 @@
+@import '../App.css';
+
+.dashboardSummary {
+    display: flex;
+    flex-direction: row;
+}

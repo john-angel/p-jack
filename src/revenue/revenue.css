@@ -1,6 +1,6 @@
 @import '../App.css';
 
-.projectSummaryContainer{
+.revenueSummaryContainer{
     display:grid;
     border-radius: 4px;
     background-color: var(--mainComponents-background-color);
@@ -11,14 +11,14 @@
     grid-template-columns: repeat(3,1fr);
 }
 
-.projectSummaryTitle{
+.revenueSummaryTitle{
     grid-column: span 3;
     font-size: 1.2em;
     margin-top: 0.8em;
     margin-left: 0.8em;    
 }
 
-.projectSummaryGrid{
+.revenueSummaryGrid{
     display:grid;
     align-items: center;
     justify-items: center;
@@ -27,24 +27,28 @@
     grid-template-rows: repeat(2,1fr);
 }
 
-.projectSummaryOnTrackNumber, .projectSummaryAtRiskNumber, .projectSummaryOnHoldNumber {
+.revenueSummaryForecastedNumber,
+.revenueSummaryInvoicedNumber,
+.revenueSummaryAtRiskNumber {
     font-size: 1.8em;
     margin-top: 0.2em;    
 }
 
-.projectSummaryOnTrackNumber{
+.revenueSummaryForecastedNumber{
+    color: var(--info-Color);
+}
+
+.revenueSummaryInvoicedNumber{
     color: var(--onTrack-color);
 }
 
-.projectSummaryAtRiskNumber{
+.revenueSummaryAtRiskNumber{
     color: var(--atRisk-color);
 }
 
-.projectSummaryOnHoldNumber{
-    color: var(--onHold-Color);
-}
-
-.projectSummaryOnTrack, .projectSummaryAtRisk, .projectSummaryOnHold {
+.revenueSummaryForecasted,
+.revenueSummaryInvoiced,
+.revenueSummaryAtRisk
+ {
     font-size: 0.8em;    
 }
-

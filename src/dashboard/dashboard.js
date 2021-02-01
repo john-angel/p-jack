@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import './dashboard.css';
+import ProjectSummary from '../project/projectSummary';
+import RevenueSummary from '../revenue/revenueSummary';
 import DashboardItem from './dashboardItem'
 import TaskStatusChart from './taskStatusChart';
 import RevenueChart from './revenueChart';
@@ -18,7 +21,14 @@ class Dashboard extends Component{
    
     render(){
         return(
-          <React.Fragment>
+          <React.Fragment>            
+          {
+            <div className='dashboardSummary'>
+              <ProjectSummary></ProjectSummary>
+              <RevenueSummary></RevenueSummary>
+            </div>
+            
+            /*
             <div className={"projectsContainer"}>
             {
                 this.state.projects.map(project => (
@@ -33,8 +43,11 @@ class Dashboard extends Component{
                       </div>
                     </DashboardItem>
                 ))                
-            }             
-            </div>            
+                }             
+            </div>
+            */
+          }
+            
           </React.Fragment>                       
         )
     }
