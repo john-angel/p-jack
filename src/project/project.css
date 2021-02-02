@@ -1,12 +1,11 @@
 @import '../App.css';
 
-.projectSummaryContainer{
+.projectSummaryContainer{ 
     grid-area: projectSummary;
     display:grid;
     border-radius: 4px;
     background-color: var(--mainComponents-background-color);
     color: var(--text-default-color);
-    margin-left: 1em;
     width: 400px;
     grid-template-columns: repeat(3,1fr);
 }
@@ -18,7 +17,7 @@
     margin-left: 0.8em;    
 }
 
-.projectSummaryGrid{
+.projectSummaryDetail{
     display:grid;
     align-items: center;
     justify-items: center;
@@ -48,3 +47,4 @@
     font-size: 0.8em;    
 }
 
+  

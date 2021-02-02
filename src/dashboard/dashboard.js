@@ -23,13 +23,13 @@ class Dashboard extends Component{
    
     render(){
         return(
-          <React.Fragment>
+          <div className='dashBoardContainer'>
             <div className='dashboardSummary'>
-              <Search></Search>
+              <Search></Search>            
               <ProjectSummary></ProjectSummary>
               <RevenueSummary></RevenueSummary>
             </div>
-            <div className={"projectsContainer"}>
+            <div className='dashboardDetails'>
             {
                 this.state.projects.map(project => (
                     <DashboardItem key={project.id} title={project.name}>
@@ -40,12 +40,12 @@ class Dashboard extends Component{
                       <div className={'revenueInfoDashboard'}>
                         <RevenueChart divId={'revenueChart' + project.id} projectId={project.id} revenue={revenue[project.id]}></RevenueChart>
                         <RevenueTotal divId={'revenueTotal' + project.id} revenue={revenue[project.id]}></RevenueTotal>
-                      </div>
+                      </div>                                          
                     </DashboardItem>
                 ))                
-                }             
-            </div>
-          </React.Fragment>                       
+            }             
+            </div>            
+          </div>                       
         )
     }
 }

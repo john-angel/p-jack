@@ -3,9 +3,9 @@ import './revenue.css';
 
 const RevenueSummary = () => (
 
-    <section className={'revenueSummaryContainer'}>
+    <section className={'revenueSummaryContainer'}>    
         <p className={'revenueSummaryTitle'}>Revenue</p>
-        <section className={'revenueSummaryGrid'}>            
+        <section className={'revenueSummaryDetail'}>            
             <p className={'revenueSummaryForecastedNumber'}>$80.5K</p>
             <p className={'revenueSummaryInvoicedNumber'}>$60.1K</p>
             <p className={'revenueSummaryAtRiskNumber'}>$20.4K</p>

@@ -9,14 +9,12 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <NavigationBar></NavigationBar>
-        <div className='pageGrid'>                  
-          <Switch>
-            <Route path='/dashboard' component={Dashboard}></Route>
-            <Route path='/project/:id' component={Project}></Route>
-            <Route exact path='/' component={Dashboard}></Route>
-          </Switch>
-        </div>
+        <NavigationBar></NavigationBar>       
+        <Switch>            
+          <Route path='/dashboard' component={Dashboard}></Route>
+          <Route path='/project/:id' component={Project}></Route>
+          <Route exact path='/' component={Dashboard}></Route>            
+        </Switch>        
       </div>
     </Router>
   )

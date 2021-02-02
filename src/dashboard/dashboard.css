@@ -3,12 +3,45 @@
 @import '../project/project.css';
 @import '../revenue/revenue.css';
 
+
+.dashboardContainer {
+    display: flex;
+    flex-direction: column;
+}
+
 .dashboardSummary {
     display: grid;
-    grid-template-columns: repeat(2,calc(400px + 1em));
+    grid-template-columns: repeat(2,400px);    
+    grid-auto-rows: minmax(min-content,max-content);
     gap: 1em;
     grid-template-areas: 
         'header header'
         'projectSummary revenueSummary';
+    margin-top: 1em;
+    margin-left: 1em;    
 }
 
+.dashboardDetails {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.dashboardItem{
+    margin-top: 1em;
+    margin-left: 1em;
+    width: 400px;
+    height: 400px;      
+    border-radius: 4px;
+    background-color:var(--mainComponents-background-color);
+  }
+  
+.dashboardItemTitle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:100%;    
+    color:var(--text-default-color);
+    font-size: 1em;
+}
+  
