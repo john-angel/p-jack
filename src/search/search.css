@@ -1,10 +1,12 @@
 @import url('../App.css');
 
 .searchContainer{
+    grid-area: header;
     display: flex;
     flex-direction: row;
     background-color: var(--mainComponents-background-color);
     margin-left: 1em;
+    margin-right: 1em;/*To be aligned with the right border of the RevenueSummary component*/
     margin-top: 1em;    
     height: 3em;
     border-radius: 4px; 

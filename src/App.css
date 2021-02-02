@@ -25,6 +25,11 @@ body{
   background-color: var(--site-background-color);
 }
 
+.pageGrid {
+  display: flex;
+  flex-direction: column;
+}
+
 .navigationBar{
   background-color: var(--mainComponents-background-color);
   width:109px;

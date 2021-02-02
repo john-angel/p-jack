@@ -9,6 +9,8 @@ import RevenueTotal from './revenueTotal'
 import {projects,tasks,revenue} from '../utils/testData';
 import TaskOverview from './taskOverview';
 
+import Search from '../search/search';
+
 class Dashboard extends Component{
 
     constructor(props){
@@ -21,14 +23,12 @@ class Dashboard extends Component{
    
     render(){
         return(
-          <React.Fragment>            
-          {
+          <React.Fragment>
             <div className='dashboardSummary'>
+              <Search></Search>
               <ProjectSummary></ProjectSummary>
               <RevenueSummary></RevenueSummary>
             </div>
-            
-            /*
             <div className={"projectsContainer"}>
             {
                 this.state.projects.map(project => (
@@ -45,9 +45,6 @@ class Dashboard extends Component{
                 ))                
                 }             
             </div>
-            */
-          }
-            
           </React.Fragment>                       
         )
     }

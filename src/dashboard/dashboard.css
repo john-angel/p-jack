@@ -1,6 +1,14 @@
 @import '../App.css';
+@import '../search/search.css';
+@import '../project/project.css';
+@import '../revenue/revenue.css';
 
 .dashboardSummary {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(2,calc(400px + 1em));
+    gap: 1em;
+    grid-template-areas: 
+        'header header'
+        'projectSummary revenueSummary';
 }
+
