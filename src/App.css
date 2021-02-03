@@ -26,21 +26,21 @@ body{
 
 .navigationBar{
   background-color: var(--mainComponents-background-color);
-  width:109px;
+  width: 7em;
   height:100vh;  
 }
 
 .navigationBar ul{
   list-style-type: none;
-  padding: 1em 0px;  
+  margin-top: 1em;  
 }
 
 .navigationBar li a{
   text-decoration: none;
-  display: block;
-  padding-left: 10px;
+  display: block;  
+  padding-left: 1em;
   padding-top: 1em;
-  padding-bottom: 1em;
+  padding-bottom: 1em;  
 }
 
 .navigationBar li a:hover{
