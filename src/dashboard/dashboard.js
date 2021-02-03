@@ -3,6 +3,7 @@ import './dashboard.css';
 import ProjectSummary from '../project/projectSummary';
 import RevenueSummary from '../revenue/revenueSummary';
 import DashboardItem from './dashboardItem'
+import {getTextFromStatus} from '../utils/status';
 import TaskStatusChart from './taskStatusChart';
 import RevenueChart from './revenueChart';
 import RevenueTotal from './revenueTotal'
@@ -32,15 +33,23 @@ class Dashboard extends Component{
             <div className='dashboardDetails'>
             {
                 this.state.projects.map(project => (
-                    <DashboardItem key={project.id} title={project.name}>
-                      <div className={'taskInfoDashboard'}>
+                    <DashboardItem key={project.id} title={project.name}>                    
+                      <p className='dashboardProjectStatus'>Status: {getTextFromStatus(project.status)}</p>
+                      <p className='dashboardProjectRevenue'>Revenue: {project.revenue}</p>
+                      <p className='dashboardProjectDueDate'>Due date: {project.due}</p>
+                    {
+                    /*This will be merged progressively as the project information is updated to match the wireframe
+                    <div className={'taskInfoDashboard'}>
                         <TaskStatusChart divId={'taskStatusChart' + project.id} projectId={project.id} tasks={tasks[project.id]}></TaskStatusChart>
                         <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
                       </div>
                       <div className={'revenueInfoDashboard'}>
                         <RevenueChart divId={'revenueChart' + project.id} projectId={project.id} revenue={revenue[project.id]}></RevenueChart>
                         <RevenueTotal divId={'revenueTotal' + project.id} revenue={revenue[project.id]}></RevenueTotal>
-                      </div>                                          
+                      </div>
+                    */
+                    }
+                                                                
                     </DashboardItem>
                 ))                
             }             

@@ -5,9 +5,9 @@ class DashboardItem extends Component {
     render(){
         return (            
             <div className={'dashboardItem'}>            
-                <div className={'dashboardItemTitle'}>
+                <p className={'dashboardItemTitle'}>
                     {this.props.title}
-                </div>
+                </p>
                 {this.props.children}                          
             </div>
         )

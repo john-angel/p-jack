@@ -7,6 +7,7 @@ let projects = {
     description: 'Front End developer job',
     start: '2019-08-01',
     due: '2019-11-30',
+    revenue: 56100,
     status: onTrackStatus
   },
   2: {
@@ -15,6 +16,7 @@ let projects = {
     description: 'House in the country side',
     start: '2018-04-12',
     due: '2019-12-30',
+    revenue: 7600,
     status: delayedStatus
   },
   3: {
@@ -23,6 +25,7 @@ let projects = {
     description: 'Improve drawing skills',
     start: '2019-06-01',
     due: '2019-12-30',
+    revenue: 0,
     status: onHoldStatus
   },
   4: {
@@ -31,6 +34,7 @@ let projects = {
     description: 'Establish a work out routine',
     start: '2019-06-01',
     due: '2019-12-30',
+    revenue: 0,
     status: atRiskStatus
   }  
 }
