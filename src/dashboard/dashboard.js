@@ -32,10 +32,19 @@ class Dashboard extends Component{
             </div>
             <div className='dashboardDetails'>
             {
-                this.state.projects.map(project => (
-                    <DashboardItem key={project.id} title={project.name}>                    
+                this.state.projects.map(project => {
+                  const revenue = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD',
+                    notation:'compact',                                        
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2,
+                  }).format(project.revenue);
+
+                  return(
+                      <DashboardItem key={project.id} title={project.name}>                    
                       <p className='dashboardProjectStatus'>Status: {getTextFromStatus(project.status)}</p>
-                      <p className='dashboardProjectRevenue'>Revenue: {project.revenue}</p>
+                      <p className='dashboardProjectRevenue'>Revenue: {revenue}</p>
                       <p className='dashboardProjectDueDate'>Due date: {project.due}</p>
                     {
                     /*This will be merged progressively as the project information is updated to match the wireframe
@@ -48,10 +57,10 @@ class Dashboard extends Component{
                         <RevenueTotal divId={'revenueTotal' + project.id} revenue={revenue[project.id]}></RevenueTotal>
                       </div>
                     */
-                    }
-                                                                
+                    }                                                                
                     </DashboardItem>
-                ))                
+                  )
+                })                
             }             
             </div>            
           </div>                       
