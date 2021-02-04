@@ -33,8 +33,11 @@
     grid-auto-rows: minmax(min-content,max-content);
     grid-template-areas: 
         'dashboardItemTitle dashboardItemTitle'
+        '. .'
         'dashboardProjectStatus .'
+        '. .'
         'dashboardProjectRevenue .'
+        '. .'
         'dashboardProjectDueDate .';
     gap: 1em;
     margin-top: 1em;
