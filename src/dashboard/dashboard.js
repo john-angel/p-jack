@@ -21,8 +21,32 @@ class Dashboard extends Component{
         projects: Object.keys(projects).map(item => projects[item]),
       }
     }  
+
+    parseRevenue = (project) => {
+      const revenue = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        notation:'compact',                                        
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }).format(project.revenue);
+
+      return revenue;
+    }
+
+    parseDueDate = (project) => {
+
+      let dateArray = project.dueDate.split('-');      
+      let month = Number(dateArray[1]) - 1;
+      const date = new Date(dateArray[0], month, dateArray[2]);
+
+      dateArray = date.toDateString().split(' ');
+
+      return `${dateArray[2]} ${dateArray[1]} ${dateArray[3]}`;
+    }
    
     render(){
+
         return(
           <div className='dashBoardContainer'>
             <div className='dashboardSummary'>
@@ -33,19 +57,12 @@ class Dashboard extends Component{
             <div className='dashboardDetails'>
             {
                 this.state.projects.map(project => {
-                  const revenue = new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD',
-                    notation:'compact',                                        
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2,
-                  }).format(project.revenue);
 
                   return(
                       <DashboardItem key={project.id} title={project.name}>                    
                       <p className='dashboardProjectStatus'>Status: {getTextFromStatus(project.status)}</p>
-                      <p className='dashboardProjectRevenue'>Revenue: {revenue}</p>
-                      <p className='dashboardProjectDueDate'>Due date: {project.due}</p>
+                      <p className='dashboardProjectRevenue'>Revenue: {this.parseRevenue(project)}</p>
+                      <p className='dashboardProjectDueDate'>Due date: {this.parseDueDate(project)}</p>
                     {
                     /*This will be merged progressively as the project information is updated to match the wireframe
                     <div className={'taskInfoDashboard'}>

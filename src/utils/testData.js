@@ -5,8 +5,8 @@ let projects = {
     id: 1,
     name: 'Job',
     description: 'Front End developer job',
-    start: '2019-08-01',
-    due: '2019-11-30',
+    startDate: '2019-08-01',
+    dueDate: '2021-05-30',
     revenue: 56100,
     status: onTrackStatus
   },
@@ -14,8 +14,8 @@ let projects = {
     id: 2,
     name: 'House',
     description: 'House in the country side',
-    start: '2018-04-12',
-    due: '2019-12-30',
+    startDate: '2018-04-12',
+    dueDate: '2019-12-30',
     revenue: 7600,
     status: delayedStatus
   },
@@ -23,8 +23,8 @@ let projects = {
     id: 3,
     name: 'Drawing',
     description: 'Improve drawing skills',
-    start: '2019-06-01',
-    due: '2019-12-30',
+    startDate: '2019-06-01',
+    dueDate: '2019-12-30',
     revenue: 0,
     status: onHoldStatus
   },
@@ -32,8 +32,8 @@ let projects = {
     id: 4,
     name: 'Exercise',
     description: 'Establish a work out routine',
-    start: '2019-06-01',
-    due: '2019-12-30',
+    startDate: '2019-06-01',
+    dueDate: '2019-12-30',
     revenue: 0,
     status: atRiskStatus
   }  
@@ -46,42 +46,42 @@ let tasks = {
       name: 'Build portfolio',
       status: onTrackStatus,
       comments: 'Jack development in progress',
-      due: '2010-10-30'
+      dueDate: '2010-10-30'
     },
     2: {
       id:'2',
       name: 'Buy domain',
       status: completeStatus,
       comments: 'www.johnangel.dev bought',
-      due: '2010-10-30'
+      dueDate: '2010-10-30'
     },
     3: {
       id:'3',
       name: 'Publish portfolio project on domain',
       status: delayedStatus,
       comments: 'Jack app published through Netlify',
-      due: '2019-10-05'
+      dueDate: '2019-10-05'
     },
     4: {
       id:'4',
       name: 'Update Linkedin profile',
       status: onHoldStatus,
       comments: 'Update profile following tips from Udacity and other sources',
-      due: '2010-10-28'
+      dueDate: '2010-10-28'
     },
     5: {
       id:'5',
       name: 'Make public Linv source code',
       status: atRiskStatus,
       comments: 'Make public code on GitHub',
-      due: '2010-10-20'
+      dueDate: '2010-10-20'
     },
     6: {
       id:'6',
       name: 'Setup blog',
       status: notStartedStatus,
       comments: 'Setup blog on www.johnangel.dev',
-      due: ''
+      dueDate: ''
     }
   },
   3: {
@@ -90,14 +90,14 @@ let tasks = {
       name: 'Copy cartoon',
       status: delayedStatus,
       comments: 'Copy a marvel character',
-      due:'2010-09-30'
+      dueDate:'2010-09-30'
     },
     2: {
       id:'2',
       name: 'Draw cartoon',
       status: delayedStatus,
       comments: 'Draw a hero',
-      due:'2010-10-16'
+      dueDate:'2010-10-16'
     }
   },
   4: {
@@ -106,14 +106,14 @@ let tasks = {
       name: 'Go to Gym',
       status: atRiskStatus,
       comments: 'Follow a routine at least 3 times per week',
-      due:'2010-11-30'
+      dueDate:'2010-11-30'
     },
     2: {
       id:'2',
       name: 'Swim',
       status: delayedStatus,
       comments: 'Go swimming once per week',
-      due:'2010-10-05'
+      dueDate:'2010-10-05'
     }
   }
 }
