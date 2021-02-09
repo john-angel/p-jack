@@ -46,42 +46,42 @@ let tasks = {
       name: 'Build portfolio',
       status: onTrackStatus,
       comments: 'Jack development in progress',
-      dueDate: '2010-10-30'
+      dueDate: '2021-03-15'
     },
     2: {
       id:'2',
       name: 'Buy domain',
-      status: completeStatus,
+      status: delayedStatus,
       comments: 'www.johnangel.dev bought',
-      dueDate: '2010-10-30'
+      dueDate: '2021-02-01'
     },
     3: {
       id:'3',
       name: 'Publish portfolio project on domain',
-      status: delayedStatus,
+      status: completeStatus,
       comments: 'Jack app published through Netlify',
-      dueDate: '2019-10-05'
+      dueDate: '2021-03-30'
     },
     4: {
       id:'4',
       name: 'Update Linkedin profile',
       status: onHoldStatus,
       comments: 'Update profile following tips from Udacity and other sources',
-      dueDate: '2010-10-28'
+      dueDate: '2021-02-28'
     },
     5: {
       id:'5',
       name: 'Make public Linv source code',
       status: atRiskStatus,
       comments: 'Make public code on GitHub',
-      dueDate: '2010-10-20'
+      dueDate: '2021-03-10'
     },
     6: {
       id:'6',
       name: 'Setup blog',
       status: notStartedStatus,
       comments: 'Setup blog on www.johnangel.dev',
-      dueDate: ''
+      dueDate: '2021-02-15'
     }
   },
   3: {

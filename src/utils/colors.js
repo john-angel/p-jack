@@ -1,10 +1,13 @@
 
 export const notStartedColor = '#EBEBEB';
-export const onHoldColor = '#CFCFCF';
+export const onHoldColor = '#63C6E7';
 export const onTrackColor = '#7ED3B2';
-export const delayedColor = '#FF8080';
-export const atRiskColor = '#FFBA92';
-export const completeColor = '#8AC6D1';
+export const delayedColor = '#E87998';
+export const atRiskColor = '#FFB185';
+export const completeColor = '#5D7FF5';
+export const defaultColor = '#E0E0E0';
+export const infoColor = '#B290EB';
+
 
 export const projectDiagramColor = '#FF8080';
 export const projectInfoColor = '#8AC6D1';
