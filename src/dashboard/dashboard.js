@@ -64,10 +64,11 @@ class Dashboard extends Component{
                       <p className='dashboardProjectRevenue'>Revenue: {this.parseRevenue(project)}</p>
                       <p className='dashboardProjectDueDate'>Due date: {this.parseDueDate(project)}</p>
                       <TaskOverview tasks={tasks[project.id]}></TaskOverview>
+                      <RevenueChart divId={'revenueChart' + project.id} projectId={project.id} revenue={revenue[project.id]}></RevenueChart>
                     {
                     /*This will be merged progressively as the project information is updated to match the wireframe                    
-                      <div className={'revenueInfoDashboard'}>
-                        <RevenueChart divId={'revenueChart' + project.id} projectId={project.id} revenue={revenue[project.id]}></RevenueChart>
+  
+                    <div className={'revenueInfoDashboard'}>
                         <RevenueTotal divId={'revenueTotal' + project.id} revenue={revenue[project.id]}></RevenueTotal>
                       </div>
                     */

@@ -123,62 +123,62 @@ let revenue = {
     1: {
       id: 1,
       name: 'Land',
-      date: '2019-01-13',
+      date: 'Q1',
       amount: 1500,
-      status: atRiskStatus
+      status: completeStatus
     },
     2: {
       id: 2,
       name: 'Architect',
-      date: '2019-05-20',
+      date: 'Q2',
       amount: 2300,
       status: onTrackStatus
     },
     3: {
       id: 3,
-      name: 'House design',
-      date: '2019-07-16',
+      name: 'Materials',
+      date: 'Q3',
       amount: 3200,
-      status: completeStatus
+      status: atRiskStatus
     },
     4: {
       id: 4,
       name: 'Quote',
-      date: '2019-11-30',
+      date: 'Q4',
       amount: 600,
-      status: delayedStatus
+      status: onHoldStatus
     }
   },
   1: {
     1: {
       id: 1,
       name: 'Domain',
-      date: '2019-02-15',
-      amount: 500,
-      status: notStartedStatus
+      date: 'Q1',
+      amount: 1000000,
+      status: atRiskStatus
     },
     2: {
       id: 2,
       name: 'Portfolio',
-      date: '2019-04-13',
-      amount: 20000,
+      date: 'Q2',
+      amount: 100000,
       status: onHoldStatus
     },
     3: {
       id: 3,
       name: 'Profile',
-      date: '2019-07-18',
-      amount: 35000,
+      date: 'Q3',
+      amount: 80500,
       status: onTrackStatus
     },
     4: {
       id: 4,
       name: 'Blog',
-      date: '2019-12-21',
-      amount: 600,
-      status: atRiskStatus
+      date: 'Q4',
+      amount: 1300000,
+      status: delayedStatus
     }
-  }
+  }  
 }
 
 export {projects,tasks,revenue}
