@@ -17,3 +17,5 @@ const statusTextMap = {
 export function getTextFromStatus(status) {
     return statusTextMap[status];    
 }
+
+export const statusPriorityEnum = Object.freeze({completeStatus:1, onHoldStatus:2, notStartedStatus:3, onTrackStatus:4, atRiskStatus:5, delayedStatus:6});

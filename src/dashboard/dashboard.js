@@ -63,12 +63,9 @@ class Dashboard extends Component{
                       <p className='dashboardProjectStatus'>Status: {getTextFromStatus(project.status)}</p>
                       <p className='dashboardProjectRevenue'>Revenue: {this.parseRevenue(project)}</p>
                       <p className='dashboardProjectDueDate'>Due date: {this.parseDueDate(project)}</p>
+                      <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
                     {
-                    /*This will be merged progressively as the project information is updated to match the wireframe
-                    <div className={'taskInfoDashboard'}>
-                        <TaskStatusChart divId={'taskStatusChart' + project.id} projectId={project.id} tasks={tasks[project.id]}></TaskStatusChart>
-                        <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
-                      </div>
+                    /*This will be merged progressively as the project information is updated to match the wireframe                    
                       <div className={'revenueInfoDashboard'}>
                         <RevenueChart divId={'revenueChart' + project.id} projectId={project.id} revenue={revenue[project.id]}></RevenueChart>
                         <RevenueTotal divId={'revenueTotal' + project.id} revenue={revenue[project.id]}></RevenueTotal>

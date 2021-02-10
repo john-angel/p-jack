@@ -65,7 +65,7 @@ let tasks = {
     4: {
       id:'4',
       name: 'Update Linkedin profile',
-      status: onHoldStatus,
+      status: atRiskStatus,
       comments: 'Update profile following tips from Udacity and other sources',
       dueDate: '2021-02-28'
     },
@@ -74,7 +74,7 @@ let tasks = {
       name: 'Make public Linv source code',
       status: atRiskStatus,
       comments: 'Make public code on GitHub',
-      dueDate: '2021-03-10'
+      dueDate: '2021-02-26'
     },
     6: {
       id:'6',

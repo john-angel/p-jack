@@ -1,68 +1,105 @@
 import React, {Component} from 'react';
-import {notStartedStatus,onHoldStatus,onTrackStatus,delayedStatus,atRiskStatus} from '../utils/status';
-import {getColorFromStatus, linkColor} from '../utils/colors';
+import {notStartedStatus,onHoldStatus,onTrackStatus,delayedStatus,atRiskStatus, statusPriorityEnum, completeStatus} from '../utils/status';
+import {getColorFromStatus, infoColor} from '../utils/colors';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPauseCircle, faStopCircle, faFire, faCheck, faExclamation, faInfo} from '@fortawesome/free-solid-svg-icons'
+import {TaskQueue} from '../task/taskQueue';
+
 
 class TaskOverview extends Component{
 
     constructor(props){
         super(props);
-        let tasksTobeCompleted = 0;
-        let nextTask = '';
-        let taskColor = '';
-
+        
+        this.queue = new TaskQueue();
+        
         if(typeof this.props.tasks !== 'undefined'){
             const tasksArray = Object.keys(this.props.tasks).map(projectId => this.props.tasks[projectId]);
             
             tasksArray.forEach(task => {
 
-                switch (task.status) {
-                    case notStartedStatus:
-                    case onHoldStatus:
-                        tasksTobeCompleted++;
-                        break;                   
-                    case onTrackStatus:
-                    case atRiskStatus:
-                        if(nextTask === ''){ 
-                            nextTask = task.name;
-                            taskColor = getColorFromStatus(task.status);
-                        };                        
-                        tasksTobeCompleted++;
-                        break;
-                    case delayedStatus://Delayed tasks have a higher priority
-                        nextTask = task.name;
-                        taskColor = getColorFromStatus(task.status) ;
-                        tasksTobeCompleted++;
-                        break;                                   
-                    default:
-                        break;
-                }
-
+                if(task.status !== completeStatus){
+                    let taskElement = this.setPriority(task);
+                    taskElement = this.parseDueDate(taskElement);                
+                    this.queue.enqueue(taskElement);
+                }           
                 
-            })
-            this.state = tasksTobeCompleted === 0 ? 
-                {task:'You are done!', color:getColorFromStatus(onTrackStatus), tasksToComplete:tasksTobeCompleted} :
-                {task:nextTask, color:taskColor, tasksToComplete:tasksTobeCompleted};
-        }else{
-            this.state = {task:'No tasks defined', color:getColorFromStatus(atRiskStatus)}
+            })              
         }
 
+        this.queue.print();
     }
-    
+
+    setPriority = (task) => {
+        let newTask = {};
+
+        Object.assign(newTask,task);
+        newTask.priority = statusPriorityEnum[task.status];
+        
+        return newTask;      
+    }
+
+    parseDueDate = (task) => {
+        let newTask = {};
+        
+        let dateArray = task.dueDate.split('-');      
+        let month = Number(dateArray[1]) - 1;
+        let newDate = new Date(dateArray[0], month, dateArray[2]);
+
+        Object.assign(newTask,task);
+        newTask.dueDate = newDate;
+
+        return newTask;
+    }
+
+    getIcon = (task) => {
+        if (typeof task !== 'undefined') {
+            switch (task.status) {
+                case notStartedStatus:
+                    return faStopCircle;
+                case onHoldStatus:
+                    return faPauseCircle;
+                case onTrackStatus:
+                    return faCheck;
+                case atRiskStatus:
+                    return faExclamation;
+                case delayedStatus:
+                    return faFire;
+            }
+        }
+        return faInfo;
+    }
     
     render(){
+        const firstTask = this.queue.dequeue();
+        const firstTaskName = typeof firstTask === 'undefined' ? 'No tasks defined' : firstTask.name;
+        const firstTaskIcon = this.getIcon(firstTask);
+        const firstTaskIconColor = typeof firstTask === 'undefined' ? infoColor : getColorFromStatus(firstTask.status);
+
+        const secondTask = this.queue.dequeue();        
+        const secondTaskName = typeof secondTask === 'undefined' ? 'No tasks defined' : secondTask.name;
+        const secondTaskIcon = this.getIcon(secondTask);
+        const secondTaskIconColor = typeof secondTask === 'undefined' ? infoColor : getColorFromStatus(secondTask.status);
+
+        
         return (
-            typeof this.props.tasks !== 'undefined' ?
-                <ul className={'taskOverviewList'}>
-                    <li ><a href='/tasks' type='text/html' style={{ fontSize: '1em', fontWeight: 'bold', color: this.state.color }}>{this.state.task}</a></li>
-                    {
-                        this.state.tasksToComplete > 0 ?
-                            <li style={{color:linkColor}}><a href='/tasks' type='text/html' style={{ fontSize: '1.5em',color:linkColor}}>{this.state.tasksToComplete}</a> tasks to go</li> :
-                            null
-                    }
-                </ul> :
-            null
+            <>                           
+                <div className='dashboardFirstTaskContainer'>
+                    <FontAwesomeIcon icon={firstTaskIcon} style={{color:firstTaskIconColor}}></FontAwesomeIcon>
+                    <p className='dashboardFirstTaskName'>{firstTaskName}</p>
+                </div>                
+                {
+                    typeof secondTask !== 'undefined' ?
+                    <div className='dashboardSecondTaskContainer'>
+                        <FontAwesomeIcon icon={secondTaskIcon} style={{color:secondTaskIconColor}}></FontAwesomeIcon>
+                        <p className='dashboardSecondTaskName'>{secondTaskName}</p>
+                    </div>
+                    :
+                    null
+                }
+            </>           
         )
-    }
+    }                
 }
 
 export default TaskOverview;

@@ -34,9 +34,9 @@
     grid-template-areas: 
         'dashboardItemTitle dashboardItemTitle'
         '. .'
-        'dashboardProjectStatus .'
+        'dashboardProjectStatus dashboardFirstTaskContainer'
         '. .'
-        'dashboardProjectRevenue .'
+        'dashboardProjectRevenue dashboardSecondTaskContainer'
         '. .'
         'dashboardProjectDueDate .';
     gap: 1em;
@@ -74,4 +74,26 @@
     grid-area: dashboardProjectDueDate;
     font-size: 0.8em;
     margin-left: 1.2em;
+}
+
+.dashboardFirstTaskContainer {
+    grid-area: dashboardFirstTaskContainer;
+    display:flex;
+    flex-direction: row;
+    font-size: 0.8em;
+}
+
+.dashboardFirstTaskName {
+    margin-left: 0.5em;
+}
+
+.dashboardSecondTaskContainer {
+    grid-area: dashboardSecondTaskContainer;
+    display:flex;
+    flex-direction: row;
+    font-size: 0.8em;
+}
+
+.dashboardSecondTaskName {
+    margin-left: 0.5em;
 }
