@@ -59,11 +59,11 @@ class Dashboard extends Component{
                 this.state.projects.map(project => {
 
                   return(
-                      <DashboardItem key={project.id} title={project.name}>                    
+                    <DashboardItem key={project.id} title={project.name}>                    
                       <p className='dashboardProjectStatus'>Status: {getTextFromStatus(project.status)}</p>
                       <p className='dashboardProjectRevenue'>Revenue: {this.parseRevenue(project)}</p>
                       <p className='dashboardProjectDueDate'>Due date: {this.parseDueDate(project)}</p>
-                      <TaskOverview divId={'taskOverview' + project.id} tasks={tasks[project.id]}></TaskOverview>
+                      <TaskOverview tasks={tasks[project.id]}></TaskOverview>
                     {
                     /*This will be merged progressively as the project information is updated to match the wireframe                    
                       <div className={'revenueInfoDashboard'}>
