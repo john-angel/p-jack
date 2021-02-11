@@ -106,6 +106,7 @@
 
 div[id^='revenueChart'] {
     height: 185px;
+    margin-left: 0.5em;
 }
 
 .dashboardRevenueNotForecasted {

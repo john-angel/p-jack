@@ -26,8 +26,6 @@ class TaskOverview extends Component{
                 
             })              
         }
-
-        this.queue.print();
     }
 
     setPriority = (task) => {
