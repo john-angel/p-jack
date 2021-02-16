@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {notStartedStatus,onHoldStatus,onTrackStatus,delayedStatus,atRiskStatus, statusPriorityEnum, completeStatus} from '../utils/status';
 import {getColorFromStatus, infoColor} from '../utils/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPauseCircle, faStopCircle, faFire, faCheck, faExclamation, faInfo} from '@fortawesome/free-solid-svg-icons'
+import { faPauseCircle, faStopCircle, faFire, faCheck, faExclamation, faInfo, faQuestion} from '@fortawesome/free-solid-svg-icons'
 import {TaskQueue} from '../task/taskQueue';
 
 
@@ -63,6 +63,8 @@ class TaskOverview extends Component{
                     return faExclamation;
                 case delayedStatus:
                     return faFire;
+                default:
+                    return faQuestion;
             }
         }
         return faInfo;
