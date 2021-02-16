@@ -21,7 +21,7 @@ class TaskOverview extends Component{
                 if(task.status !== completeStatus){
                     let taskElement = this.setPriority(task);
                     taskElement = this.parseDueDate(taskElement);                
-                    this.queue.enqueue(taskElement);
+                    this.queue.add(taskElement);
                 }           
                 
             })              
@@ -71,12 +71,12 @@ class TaskOverview extends Component{
     }
     
     render(){
-        const firstTask = this.queue.dequeue();
+        const firstTask = this.queue.remove();
         const firstTaskName = typeof firstTask === 'undefined' ? 'No tasks defined' : firstTask.name;
         const firstTaskIcon = this.getIcon(firstTask);
         const firstTaskIconColor = typeof firstTask === 'undefined' ? infoColor : getColorFromStatus(firstTask.status);
 
-        const secondTask = this.queue.dequeue();        
+        const secondTask = this.queue.remove();        
         const secondTaskName = typeof secondTask === 'undefined' ? 'No tasks defined' : secondTask.name;
         const secondTaskIcon = this.getIcon(secondTask);
         const secondTaskIconColor = typeof secondTask === 'undefined' ? infoColor : getColorFromStatus(secondTask.status);

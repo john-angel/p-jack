@@ -1,3 +1,4 @@
+//TODO: Create Unit Test and check if this has to be renamed to something more general
 export function TaskQueue(){
     var collection = [];
     
@@ -5,7 +6,7 @@ export function TaskQueue(){
       console.log('Queue:', collection);
     };
     
-    this.enqueue = function(element){
+    this.add = function(element){
       if(this.isEmpty()){
         collection.push(element);
       }
@@ -31,7 +32,7 @@ export function TaskQueue(){
       }        
     };   
   
-    this.dequeue = function(){
+    this.remove = function(){
       return collection.shift();
     };
     
