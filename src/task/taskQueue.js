@@ -1,6 +1,6 @@
-//TODO: Create Unit Test and check if this has to be renamed to something more general
 export function TaskQueue(){
-    var collection = [];
+
+    let collection = [];
     
     this.print = function(){
       console.log('Queue:', collection);
@@ -48,3 +48,5 @@ export function TaskQueue(){
       return(collection.length === 0);
     };  
   };
+
+  export default TaskQueue;
