@@ -4,9 +4,8 @@ import ProjectSummary from '../project/projectSummary';
 import RevenueSummary from '../revenue/revenueSummary';
 import DashboardItem from './dashboardItem'
 import {getTextFromStatus} from '../utils/status';
-import TaskStatusChart from './taskStatusChart';
 import RevenueChart from './revenueChart';
-import RevenueTotal from './revenueTotal'
+import ProgressChart from './progressChart';
 import {projects,tasks,revenue} from '../utils/testData';
 import TaskOverview from './taskOverview';
 
@@ -65,14 +64,7 @@ class Dashboard extends Component{
                       <p className='dashboardProjectDueDate'>Due date: {this.parseDueDate(project)}</p>
                       <TaskOverview tasks={tasks[project.id]}></TaskOverview>
                       <RevenueChart divId={'revenueChart' + project.id} projectId={project.id} revenue={revenue[project.id]}></RevenueChart>
-                    {
-                    /*This will be merged progressively as the project information is updated to match the wireframe                    
-  
-                    <div className={'revenueInfoDashboard'}>
-                        <RevenueTotal divId={'revenueTotal' + project.id} revenue={revenue[project.id]}></RevenueTotal>
-                      </div>
-                    */
-                    }                                                                
+                      <ProgressChart tasksPercentage='100%' revenuePercentage='70%'></ProgressChart>
                     </DashboardItem>
                   )
                 })                

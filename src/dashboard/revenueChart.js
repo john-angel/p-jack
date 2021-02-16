@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {mainComponentsBackgroundColor,textDefaultColor,linkColor,getColorFromStatus, infoColor} from '../utils/colors';
+import {mainComponentsBackgroundColor,textDefaultColor,getColorFromStatus, infoColor} from '../utils/colors';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfo} from '@fortawesome/free-solid-svg-icons';
 

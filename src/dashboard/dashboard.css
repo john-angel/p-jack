@@ -40,7 +40,7 @@
         '. .'
         'dashboardProjectDueDate .'
         '. .'
-        'dashboardProjectRevenueChart .';
+        'dashboardProjectRevenueChart dashboardProgressChart';
     gap: 1em;
     margin-top: 1em;
     margin-left: 1em;
@@ -118,4 +118,46 @@ div[id^='revenueChart'] {
 
 .dashboardRevenueNotForecasted p{
     margin-left: 0.5em
+}
+
+.dashboardProgressChart {
+    grid-area: dashboardProgressChart;
+    font-size: 0.8em;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas: 
+        'dashboardTasksNameProgressBar dashboardTasksProgressBar'
+        'dashboardRevenueNameProgressBar dashboardRevenueProgressBar';
+}
+
+.dashboardTasksNameProgressBar{
+    grid-area: dashboardTasksNameProgressBar;
+    align-self: center;
+}
+
+.dashboardTasksProgressBar {
+    grid-area: dashboardTasksProgressBar;
+    align-self: center;
+    height: 1.2em;
+    width: 80%;
+    border-radius: 2px;
+    text-align: left;
+    color:var(--mainComponents-background-color);
+}
+
+.dashboardRevenueNameProgressBar{
+    grid-area: dashboardRevenueNameProgressBar;    
+}
+
+.dashboardRevenueProgressBar {
+    grid-area: dashboardRevenueProgressBar;
+    height: 1.2em;
+    width: 80%;
+    border-radius: 2px;
+}
+
+.dashboardTasksValueProgressBar, .dashboardRevenueValueProgressBar {
+    color:var(--mainComponents-background-color);
+    width: min-content;
 }
