@@ -1,17 +1,17 @@
-import React, {Component} from 'react';
+import React from 'react';
 import '../App.css';
 
-class DashboardItem extends Component {
-    render(){
-        return (            
-            <div className={'dashboardItem'}>            
-                <p className={'dashboardItemTitle'}>
-                    {this.props.title}
-                </p>
-                {this.props.children}                          
-            </div>
-        )
-    }
+function DashboardItem(props) {
+
+    return (
+        <div className={'dashboardItem'} onClick={props.onClickEvent}>
+            <p className={'dashboardItemTitle'}>
+                {props.title}
+            </p>
+            {props.children}
+        </div>
+    )
 }
+
 
 export default DashboardItem;
