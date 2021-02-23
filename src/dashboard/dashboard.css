@@ -112,8 +112,10 @@ div[id^='revenueChart'] {
 .dashboardRevenueNotForecasted {
     display: flex;
     flex-direction: row;
+    align-items: center;
     font-size: 0.8em;
     margin-left: 1.2em;
+    height: 185px;
 }
 
 .dashboardRevenueNotForecasted p{
