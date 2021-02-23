@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {withRouter} from 'react-router-dom';
 import './dashboard.css';
 import ProjectSummary from '../project/projectSummary';
 import RevenueSummary from '../revenue/revenueSummary';
@@ -8,7 +9,6 @@ import RevenueChart from './revenueChart';
 import ProgressChart from './progressChart';
 import {projects,tasks,revenue} from '../utils/testData';
 import TaskOverview from './taskOverview';
-
 import Search from '../search/search';
 
 class Dashboard extends Component{
@@ -43,36 +43,43 @@ class Dashboard extends Component{
 
       return `${dateArray[2]} ${dateArray[1]} ${dateArray[3]}`;
     }
-   
+
+    onClick = (projectId) => {
+      this.props.history.push({
+        pathname: `/project/${projectId}`,
+        state: { item: 'tasks' }
+      })
+    }
+
     render(){
 
-        return(
-          <div className='dashBoardContainer'>
-            <div className='dashboardSummary'>
-              <Search></Search>            
-              <ProjectSummary></ProjectSummary>
-              <RevenueSummary></RevenueSummary>
-            </div>
-            <div className='dashboardDetails'>
+      return (
+        <div className='dashBoardContainer'>
+          <div className='dashboardSummary'>
+            <Search></Search>
+            <ProjectSummary></ProjectSummary>
+            <RevenueSummary></RevenueSummary>
+          </div>
+          <div className='dashboardDetails'>
             {
-                this.state.projects.map(project => {
+              this.state.projects.map(project => {
 
-                  return(
-                    <DashboardItem key={project.id} title={project.name}>                    
-                      <p className='dashboardProjectStatus'>Status: {getTextFromStatus(project.status)}</p>
-                      <p className='dashboardProjectRevenue'>Revenue: {this.parseRevenue(project)}</p>
-                      <p className='dashboardProjectDueDate'>Due date: {this.parseDueDate(project)}</p>
-                      <TaskOverview tasks={tasks[project.id]}></TaskOverview>
-                      <RevenueChart divId={'revenueChart' + project.id} projectId={project.id} revenue={revenue[project.id]}></RevenueChart>
-                      <ProgressChart tasksPercentage='100%' revenuePercentage='70%'></ProgressChart>
-                    </DashboardItem>
-                  )
-                })                
-            }             
-            </div>            
-          </div>                       
-        )
+                return (
+                  <DashboardItem key={project.id} title={project.name} onClickEvent={() => this.onClick(project.id)}>
+                    <p className='dashboardProjectStatus'>Status: {getTextFromStatus(project.status)}</p>
+                    <p className='dashboardProjectRevenue'>Revenue: {this.parseRevenue(project)}</p>
+                    <p className='dashboardProjectDueDate'>Due date: {this.parseDueDate(project)}</p>
+                    <TaskOverview tasks={tasks[project.id]}></TaskOverview>
+                    <RevenueChart divId={'revenueChart' + project.id} projectId={project.id} revenue={revenue[project.id]}></RevenueChart>
+                    <ProgressChart tasksPercentage='20%' revenuePercentage='50%'></ProgressChart>
+                  </DashboardItem>
+                )
+              })
+            }
+          </div>
+        </div>
+      )
     }
 }
 
-export default Dashboard;
+export default withRouter(Dashboard);
