@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
 
-function DashboardItem(props) {
+function DashboardItem(props){
 
     return (
         <div className={'dashboardItem'} onClick={props.onClickEvent}>
@@ -12,6 +12,5 @@ function DashboardItem(props) {
         </div>
     )
 }
-
 
 export default DashboardItem;

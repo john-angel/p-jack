@@ -50,7 +50,12 @@
     background-color:var(--mainComponents-background-color);
     color: var(--text-default-color);
     cursor: pointer;
-  }
+}
+
+.dashboardItem:hover{
+    --text-default-color:white;
+    filter:brightness(1.1);
+}
   
 .dashboardItemTitle{
     grid-area: dashboardItemTitle;

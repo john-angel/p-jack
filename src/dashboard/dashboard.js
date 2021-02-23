@@ -17,7 +17,7 @@ class Dashboard extends Component{
       super(props);
       
       this.state = {
-        projects: Object.keys(projects).map(item => projects[item]),
+        projects: Object.keys(projects).map(item => projects[item])       
       }
     }  
 
