@@ -48,7 +48,8 @@
     height: 400px;      
     border-radius: 4px;
     background-color:var(--mainComponents-background-color);
-    color: var(--text-default-color)
+    color: var(--text-default-color);
+    cursor: pointer;
   }
   
 .dashboardItemTitle{
