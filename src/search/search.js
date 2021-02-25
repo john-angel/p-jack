@@ -11,7 +11,9 @@ class Search extends React.Component {
         this.searchRef = React.createRef();
     }
 
-    onChange = () => console.log('onChange')
+    onChange = (event) => {
+        this.props.onSearchEvent(event.target.value);
+    }
 
     render(){
         return(

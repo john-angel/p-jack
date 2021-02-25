@@ -17,7 +17,8 @@ class Dashboard extends Component{
       super(props);
       
       this.state = {
-        projects: Object.keys(projects).map(item => projects[item])       
+        projects: Object.keys(projects).map(item => projects[item]),
+        searchText:''
       }
     }  
 
@@ -44,6 +45,11 @@ class Dashboard extends Component{
       return `${dateArray[2]} ${dateArray[1]} ${dateArray[3]}`;
     }
 
+    onSearchEvent = (text) => {
+      this.setState({searchText:text})
+    }
+  
+
     onClick = (projectId) => {
       this.props.history.push({
         pathname: `/project/${projectId}`,
@@ -56,15 +62,15 @@ class Dashboard extends Component{
       return (
         <div className='dashBoardContainer'>
           <div className='dashboardSummary'>
-            <Search></Search>
+            <Search onSearchEvent={this.onSearchEvent}></Search>
             <ProjectSummary></ProjectSummary>
             <RevenueSummary></RevenueSummary>
           </div>
           <div className='dashboardDetails'>
             {
               this.state.projects.map(project => {
-
-                return (
+                return project.name.toLowerCase().includes(this.state.searchText.toLowerCase()) ?
+                (
                   <DashboardItem key={project.id} title={project.name} onClickEvent={() => this.onClick(project.id)}>
                     <p className='dashboardProjectStatus'>Status: {getTextFromStatus(project.status)}</p>
                     <p className='dashboardProjectRevenue'>Revenue: {this.parseRevenue(project)}</p>
@@ -73,7 +79,8 @@ class Dashboard extends Component{
                     <RevenueChart divId={'revenueChart' + project.id} projectId={project.id} revenue={revenue[project.id]}></RevenueChart>
                     <ProgressChart tasksPercentage='20%' revenuePercentage='50%'></ProgressChart>
                   </DashboardItem>
-                )
+                ):
+                null
               })
             }
           </div>

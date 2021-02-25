@@ -71,12 +71,13 @@ class TaskOverview extends Component{
     }
     
     render(){
-        const firstTask = this.queue.remove();
+        this.queue.print();
+        const firstTask = this.queue.at(0);
         const firstTaskName = typeof firstTask === 'undefined' ? 'No tasks defined' : firstTask.name;
         const firstTaskIcon = this.getIcon(firstTask);
         const firstTaskIconColor = typeof firstTask === 'undefined' ? infoColor : getColorFromStatus(firstTask.status);
 
-        const secondTask = this.queue.remove();        
+        const secondTask = this.queue.at(1);        
         const secondTaskName = typeof secondTask === 'undefined' ? 'No tasks defined' : secondTask.name;
         const secondTaskIcon = this.getIcon(secondTask);
         const secondTaskIconColor = typeof secondTask === 'undefined' ? infoColor : getColorFromStatus(secondTask.status);

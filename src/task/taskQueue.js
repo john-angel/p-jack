@@ -43,6 +43,10 @@ export function TaskQueue(){
     this.size = function(){
       return collection.length;
     };
+
+    this.at = function(index){
+      return collection[index];
+    }
     
     this.isEmpty = function(){
       return(collection.length === 0);
