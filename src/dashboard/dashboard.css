@@ -54,7 +54,7 @@
 
 .dashboardItem:hover{
     --text-default-color:white;
-    filter:brightness(1.1);
+    filter:brightness(1.25);
 }
   
 .dashboardItemTitle{
