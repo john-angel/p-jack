@@ -61,12 +61,12 @@ class Dashboard extends Component{
 
       return (
         <div className='dashBoardContainer'>
-          <div className='dashboardSummary'>
+          <section className='dashboardSummary'>
             <Search placeholder='Search projects...' onSearchEvent={this.onSearchEvent}></Search>
             <ProjectSummary></ProjectSummary>
             <RevenueSummary></RevenueSummary>
-          </div>
-          <div className='dashboardDetails'>
+          </section>
+          <section className='dashboardDetails'>
             {
               this.state.projects.map(project => {
                 return project.name.toLowerCase().includes(this.state.searchText.toLowerCase()) ?
@@ -83,7 +83,7 @@ class Dashboard extends Component{
                 null
               })
             }
-          </div>
+          </section>
         </div>
       )
     }
