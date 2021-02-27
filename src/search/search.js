@@ -6,11 +6,6 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 class Search extends React.Component {
 
-    constructor(props){
-        super(props);
-        this.searchRef = React.createRef();
-    }
-
     onChange = (event) => {
         this.props.onSearchEvent(event.target.value);
     }
@@ -19,7 +14,7 @@ class Search extends React.Component {
         return(
             <div className={'searchContainer'}>
                 <FontAwesomeIcon className={'searchIcon'} icon={faSearch}></FontAwesomeIcon>
-                <input type='search' className='searchText' placeholder='Search projects...' name='searchText' required ref={this.searchRef} onChange={this.onChange}></input>
+                <input type='search' className='searchText' placeholder='Search projects...' name='searchText'  onChange={this.onChange}></input>
             </div>
         );
     }
