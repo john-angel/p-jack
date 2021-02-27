@@ -1,7 +1,7 @@
 @import url('../App.css');
 
 .searchContainer{
-    grid-area: header;
+    grid-area: search;
     display: flex;
     flex-direction: row;
     background-color: var(--mainComponents-background-color);
