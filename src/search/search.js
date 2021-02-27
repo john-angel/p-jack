@@ -14,7 +14,7 @@ class Search extends React.Component {
         return(
             <div className={'searchContainer'}>
                 <FontAwesomeIcon className={'searchIcon'} icon={faSearch}></FontAwesomeIcon>
-                <input type='search' className='searchText' placeholder='Search projects...' name='searchText'  onChange={this.onChange}></input>
+                <input type='search' className='searchText' placeholder={this.props.placeholder} name='searchText'  onChange={this.onChange}></input>
             </div>
         );
     }

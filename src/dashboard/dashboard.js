@@ -62,7 +62,7 @@ class Dashboard extends Component{
       return (
         <div className='dashBoardContainer'>
           <div className='dashboardSummary'>
-            <Search onSearchEvent={this.onSearchEvent}></Search>
+            <Search placeholder='Search projects...' onSearchEvent={this.onSearchEvent}></Search>
             <ProjectSummary></ProjectSummary>
             <RevenueSummary></RevenueSummary>
           </div>
