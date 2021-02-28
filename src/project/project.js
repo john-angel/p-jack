@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
+import Search from '../search/search';
 import ProjectDetail from './projectDetail';
 import TaskContainer from '../task/taskContainer';
 import RevenueContainer from '../revenue/revenueContainer';
@@ -24,15 +25,18 @@ class Project extends Component{
     render(){
         return(
             <React.Fragment>                
-                <div className={'project'}>
-                    <ProjectDetail projectId={this.state.id}>
-                    </ProjectDetail>
+                <div className='projectContainer'>
+                    <section className='projectHeader'>
+                        <Search placeholder='Search tasks...'></Search>
+                        <ProjectDetail projectId={this.state.id}></ProjectDetail>
+                    </section>                    
+                    {/*  /*The following elements will be updated progressively to match the Wireframe                  
                     {
                         this.props.location.state.item === 'tasks' ?
                         <TaskContainer projectId={this.state.id}></TaskContainer> :
                         <RevenueContainer projectId={this.state.id}></RevenueContainer>
                     }
-                    
+                    */}
                 </div>
             </React.Fragment>            
         )

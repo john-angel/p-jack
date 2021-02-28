@@ -9,8 +9,6 @@ export const completeColor = '#5D7FF5';
 export const textDefaultColor = '#E0E0E0';
 export const infoColor = '#B290EB';
 
-
-export const projectDiagramColor = '#FF8080';
 export const projectInfoColor = '#8AC6D1';
 export const projectDateColor = '#7ED3B2';
 

@@ -47,4 +47,53 @@
     font-size: 0.8em;    
 }
 
+.projectContainer{
+    display:flex;
+    flex-direction: column;    
+}
+
+.projectHeader{
+    margin-top: 1em;
+    margin-left: 1em;
+}
+
+.projectDetailContainer{
+    margin-top: 1em;
+    display: grid;
+    grid-template-columns: 400px repeat(2,calc(200px));/*TODO:Check gap between two last columns so the total align with the Backlog and On Progress components*/
+    grid-auto-rows: minmax(min-content,max-content);
+    grid-template-areas: 
+        'projectDetailTitle projectDetailTitle projectDetailTitle'
+        'projectDetailDescription projectDetailDates projectDetailStatus'
+    ;
+    gap: 1em;
+    background-color: var(--mainComponents-background-color);
+    color: var(--text-default-color);    
+  }
+   
+.projectDetailTitle{
+    margin-top: 0.8em;
+    margin-left: 0.8em;    
+    grid-area: projectDetailTitle;
+    font-size: 1.2em;
+    font-weight: normal;    
+}
+
+.projectDetailDescription{
+    grid-area: projectDetailDescription;
+    border-style:none;  
+    resize: none;
+    font-size: 0.8em;
+    background-color: var(--mainComponents-background-color);
+    color: var(--text-default-color);
+    margin-left: 0.8em;
+    margin-bottom: 0.8em;
+}
+
+#projectInfo {
+    display: grid;
+    grid-template-columns: 1.2em auto auto auto;
+    column-gap: 10px;
+}
+  
   

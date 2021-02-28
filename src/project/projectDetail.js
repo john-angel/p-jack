@@ -1,10 +1,10 @@
 import React,{Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faProjectDiagram,faInfoCircle,faCircle } from '@fortawesome/free-solid-svg-icons'
+import { faProjectDiagram,faCircle } from '@fortawesome/free-solid-svg-icons'
 import { faCalendarAlt} from '@fortawesome/free-regular-svg-icons'
 import {projects} from '../utils/testData'
 import {notStartedStatus,onHoldStatus,onTrackStatus,delayedStatus,atRiskStatus,completeStatus,getTextFromStatus} from '../utils/status'
-import {getColorFromStatus,projectDiagramColor,projectInfoColor,projectDateColor} from '../utils/colors'
+import {getColorFromStatus,infoColor,projectDateColor} from '../utils/colors'
 
 class ProjectDetail extends Component{
 
@@ -46,10 +46,13 @@ class ProjectDetail extends Component{
     
     render(){
         return (
-            <div id={'projectDetail'}>
-                <h1 style={{ fontWeight:'normal'}}><FontAwesomeIcon icon={faProjectDiagram} style={{ color: projectDiagramColor }}></FontAwesomeIcon> {this.state.name}</h1>
-                <div id={'projectInfo'}>
-                    <FontAwesomeIcon id={'pjDescriptionIcon'} icon={faInfoCircle} style={{ fontSize: '1.2em', color: projectInfoColor}}></FontAwesomeIcon>
+            <div className='projectDetailContainer'>
+                <h1 className='projectDetailTitle'><FontAwesomeIcon icon={faProjectDiagram} style={{ color: infoColor }}></FontAwesomeIcon> {this.state.name}</h1>
+                <textarea className='projectDetailDescription' maxLength={'125'} rows={'2'} value={this.state.description} onChange={this.onChange}></textarea>
+
+                {/*The following elements will be updated progressively to match the Wireframe
+                    <div id={'projectInfo'}>
+                    
                     <textarea id={'pjDescriptionText'} maxLength={'125'} rows={'2'} value={this.state.description} onChange={this.onChange}></textarea>
                     <details id={'projectDate'}>
                         <summary><FontAwesomeIcon icon={faCalendarAlt} style={{ fontSize: '1em', color: projectDateColor, marginRight: '4px' }}></FontAwesomeIcon>Dates</summary>
@@ -68,6 +71,8 @@ class ProjectDetail extends Component{
                         </select>
                     </section>
                 </div>
+
+                */}                
             </div>
 
         )
