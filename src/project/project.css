@@ -88,13 +88,14 @@
     color: var(--text-default-color);
     margin-left: 0.8em;
     margin-bottom: 0.8em;
+    width: 100%;
 }
 
 .projectDetailDates{
     grid-area: projectDetailDates;
     display: grid;
     grid-template-columns: 1fr 5fr;
-    align-items: start;
+    align-items: center;
     grid-template-areas:
         'projectDetailStartLabel projectDetailStartValue'
         'projectDetailFinishLabel projectDetailFinishValue';
@@ -102,11 +103,11 @@
 
 .projectDetailStartLabel{
     grid-area: projectDetailStartLabel;
-    font-size: 0.8em;
+    font-size: 0.8em;    
 }
 
 #projectDetailStartValue{
-    grid-area: projectDetailStartValue;       
+    grid-area: projectDetailStartValue;
 }
 
 .projectDetailFinishLabel{
@@ -124,7 +125,7 @@
     border: none;
     font-size: 0.8em;    
 }
-  
+ 
   #projectDetailStartValue::-webkit-inner-spin-button, #projectDetailStartValue::-webkit-outer-spin-button, #projectDetailStartValue::-webkit-clear-button,
   #projectDetailFinishValue::-webkit-inner-spin-button, #projectDetailFinishValue::-webkit-outer-spin-button, #projectDetailFinishValue::-webkit-clear-button{
     -webkit-appearance: none;
@@ -136,7 +137,7 @@
     grid-area: projectDetailStatus;
     display: grid;
     grid-template-columns: 1fr 2fr;
-    align-items: start;
+    align-items: center;
     grid-template-areas:
         'projectDetailRevenueLabel projectDetailRevenueValue'
         'projectDetailStatusLabel projectDetailStatusValue';
