@@ -59,6 +59,7 @@
 
 .projectDetailContainer{
     margin-top: 1em;
+    border-radius: 4px;
     display: grid;
     grid-template-columns: 400px repeat(2,calc(200px));/*TODO:Check gap between two last columns so the total align with the Backlog and On Progress components*/
     grid-auto-rows: minmax(min-content,max-content);
