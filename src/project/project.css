@@ -90,6 +90,40 @@
     margin-bottom: 0.8em;
 }
 
+.projectDetailDates{
+    grid-area: projectDetailDates;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    align-items: start;
+    grid-template-areas:
+        'projectDetailStartLabel projectDetailStartValue'
+        'projectDetailFinishLabel projectDetailFinishValue';
+}
+
+.projectDetailStartLabel{
+    grid-area: projectDetailStartLabel;
+    font-size: 0.8em;
+}
+
+#projectDetailStartValue{
+    grid-area: projectDetailStartValue;       
+}
+
+#projectDetailStartValue, #projectDetailFinishValue{
+    background-color: var(--mainComponents-background-color);
+    color: var(--text-default-color);
+    border: none;
+    font-size: 0.8em;    
+}
+  
+  #projectDetailStartValue::-webkit-inner-spin-button, #projectDetailStartValue::-webkit-outer-spin-button, #projectDetailStartValue::-webkit-clear-button,
+  #projectDetailFinishValue::-webkit-inner-spin-button, #projectDetailFinishValue::-webkit-outer-spin-button, #projectDetailFinishValue::-webkit-clear-button{
+    -webkit-appearance: none;
+     margin:0;
+     padding:0
+}
+  
+
 #projectInfo {
     display: grid;
     grid-template-columns: 1.2em auto auto auto;

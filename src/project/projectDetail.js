@@ -14,7 +14,7 @@ class ProjectDetail extends Component{
         this.state = {
             name: projects[this.props.projectId].name,
             description: projects[this.props.projectId].description,
-            start: projects[this.props.projectId].start,
+            start: projects[this.props.projectId].startDate,
             due: projects[this.props.projectId].due,           
             status: projects[this.props.projectId].status,
             statusColor: getColorFromStatus(projects[this.props.projectId].status)
@@ -49,7 +49,10 @@ class ProjectDetail extends Component{
             <div className='projectDetailContainer'>
                 <h1 className='projectDetailTitle'><FontAwesomeIcon icon={faProjectDiagram} style={{ color: infoColor }}></FontAwesomeIcon> {this.state.name}</h1>
                 <textarea className='projectDetailDescription' maxLength={'125'} rows={'2'} value={this.state.description} onChange={this.onChange}></textarea>
-
+                <section className='projectDetailDates'>
+                    <label className='projectDetailStartLabel' htmlFor={'projectDetailStartValue'}>Start: </label>
+                    <input type={'date'} id={'projectDetailStartValue'} value={this.state.start} name={'projectDetailStartLabel'} onChange={this.onStartDateChange}></input>
+                </section>
                 {/*The following elements will be updated progressively to match the Wireframe
                     <div id={'projectInfo'}>
                     
