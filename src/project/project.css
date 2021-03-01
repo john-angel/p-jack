@@ -109,6 +109,15 @@
     grid-area: projectDetailStartValue;       
 }
 
+.projectDetailFinishLabel{
+    grid-area: projectDetailFinishLabel;
+    font-size: 0.8em;
+}
+
+#projectDetailFinishValue{
+    grid-area: projectDetailFinishValue;       
+}
+
 #projectDetailStartValue, #projectDetailFinishValue{
     background-color: var(--mainComponents-background-color);
     color: var(--text-default-color);

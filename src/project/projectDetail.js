@@ -15,7 +15,7 @@ class ProjectDetail extends Component{
             name: projects[this.props.projectId].name,
             description: projects[this.props.projectId].description,
             start: projects[this.props.projectId].startDate,
-            due: projects[this.props.projectId].due,           
+            due: projects[this.props.projectId].dueDate,           
             status: projects[this.props.projectId].status,
             statusColor: getColorFromStatus(projects[this.props.projectId].status)
         };
@@ -52,6 +52,8 @@ class ProjectDetail extends Component{
                 <section className='projectDetailDates'>
                     <label className='projectDetailStartLabel' htmlFor={'projectDetailStartValue'}>Start: </label>
                     <input type={'date'} id={'projectDetailStartValue'} value={this.state.start} name={'projectDetailStartLabel'} onChange={this.onStartDateChange}></input>
+                    <label className='projectDetailFinishLabel' htmlFor={'projectDetailFinishValue'}>Finish: </label>
+                    <input type={'date'} id={'projectDetailFinishValue'} value={this.state.due} name={'projectDetailFinishLabel'} onChange={this.onDueDateChange}></input>
                 </section>
                 {/*The following elements will be updated progressively to match the Wireframe
                     <div id={'projectInfo'}>
