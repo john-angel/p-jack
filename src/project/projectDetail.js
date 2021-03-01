@@ -51,9 +51,9 @@ class ProjectDetail extends Component{
                 <textarea className='projectDetailDescription' maxLength={'125'} rows={'2'} value={this.state.description} onChange={this.onChange}></textarea>
                 <section className='projectDetailDates'>
                     <label className='projectDetailStartLabel' htmlFor={'projectDetailStartValue'}>Start: </label>
-                    <input type={'date'} id={'projectDetailStartValue'} value={this.state.start} name={'projectDetailStartLabel'} onChange={this.onStartDateChange}></input>
+                    <input type={'date'} id={'projectDetailStartValue'} value={this.state.start} name={'projectDetailStartLabel'} style={{color:infoColor}} onChange={this.onStartDateChange}></input>
                     <label className='projectDetailFinishLabel' htmlFor={'projectDetailFinishValue'}>Finish: </label>
-                    <input type={'date'} id={'projectDetailFinishValue'} value={this.state.finish} name={'projectDetailFinishLabel'} onChange={this.onFinishDateChange}></input>
+                    <input type={'date'} id={'projectDetailFinishValue'} value={this.state.finish} name={'projectDetailFinishLabel'} style={{color:this.state.statusColor}} onChange={this.onFinishDateChange}></input>
                 </section>
                 {/*The following elements will be updated progressively to match the Wireframe
                     <div id={'projectInfo'}>
