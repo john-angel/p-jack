@@ -1,10 +1,9 @@
 import React,{Component} from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faProjectDiagram,faCircle } from '@fortawesome/free-solid-svg-icons'
-import { faCalendarAlt} from '@fortawesome/free-regular-svg-icons'
+import { faProjectDiagram } from '@fortawesome/free-solid-svg-icons'
 import {projects} from '../utils/testData'
 import {notStartedStatus,onHoldStatus,onTrackStatus,delayedStatus,atRiskStatus,completeStatus,getTextFromStatus} from '../utils/status'
-import {getColorFromStatus,infoColor,projectDateColor} from '../utils/colors'
+import {getColorFromStatus,infoColor} from '../utils/colors'
 
 class ProjectDetail extends Component{
 
@@ -75,20 +74,9 @@ class ProjectDetail extends Component{
                 </section>
                 <section className='projectDetailStatus'>
                     <label className='projectDetailRevenueLabel' htmlFor='projectDetailRevenueValue'>Revenue:</label>
-                    <input type='text' id='projectDetailRevenueValue' value={this.state.revenue} name='projectDetailRevenueValue' style={{color:this.state.statusColor}} onChange={this.onRevenueChange}></input>
-                </section>
-                {/*The following elements will be updated progressively to match the Wireframe
-                    <div id={'projectInfo'}>
-                    
-                    <textarea id={'pjDescriptionText'} maxLength={'125'} rows={'2'} value={this.state.description} onChange={this.onChange}></textarea>
-                    <details id={'projectDate'}>
-                        <summary><FontAwesomeIcon icon={faCalendarAlt} style={{ fontSize: '1em', color: projectDateColor, marginRight: '4px' }}></FontAwesomeIcon>Dates</summary>
-                        <p><label htmlFor={'startDate'}>Start: </label><input type={'date'} id={'startDate'} value={this.state.start} name={'startDate'} onChange={this.onStartDateChange}></input></p>
-                        <p><label htmlFor={'dueDate'}>Due: </label><input type={'date'} id={'dueDate'} value={this.state.due} name={'dueDate'} onChange={this.onDueDateChange}></input></p>                        
-                    </details>
-                    <section id={'projectStatus'}>
-                        <FontAwesomeIcon icon={faCircle} style={{ fontSize: '0.8em', color: this.state.statusColor, marginRight: '4px'}}></FontAwesomeIcon>
-                        <select id={'statusDataList'} value={this.state.status} onChange={this.onStatusChange}>
+                    <input type='text' id='projectDetailRevenueValue' value={this.state.revenue} name='projectDetailRevenueValue' style={{color:infoColor}} onChange={this.onRevenueChange}></input>
+                    <label className='projectDetailStatusLabel' htmlFor='projectDetailStatusValue'>Status:</label>
+                    <select id='projectDetailStatusValue' value={this.state.status} style={{color:this.state.statusColor}} onChange={this.onStatusChange}>
                             <option value={notStartedStatus}>{getTextFromStatus(notStartedStatus)}</option>
                             <option value={onHoldStatus}>{getTextFromStatus(onHoldStatus)}</option>
                             <option value={onTrackStatus}>{getTextFromStatus(onTrackStatus)}</option>
@@ -96,12 +84,8 @@ class ProjectDetail extends Component{
                             <option value={atRiskStatus}>{getTextFromStatus(atRiskStatus)}</option>
                             <option value={completeStatus}>{getTextFromStatus(completeStatus)}</option>
                         </select>
-                    </section>
-                </div>
-
-                */}                
+                </section>                     
             </div>
-
         )
     }
 }

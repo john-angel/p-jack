@@ -154,3 +154,17 @@
     font-size: 0.8em;
     width: calc(100% - 0.8em);
 }
+
+.projectDetailStatusLabel{
+    grid-area: projectDetailStatusLabel;
+    font-size: 0.8em;
+}
+
+#projectDetailStatusValue{
+    grid-area: projectDetailStatusValue;
+    background-color: var(--mainComponents-background-color);
+    border: none;
+    font-size: 0.8em;    
+    width: calc(100% - 0.8em);
+    -webkit-appearance: none;
+}
