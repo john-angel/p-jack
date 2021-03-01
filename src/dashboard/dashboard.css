@@ -38,7 +38,7 @@
         '. .'
         'dashboardProjectRevenue dashboardSecondTaskContainer'
         '. .'
-        'dashboardProjectDueDate .'
+        'dashboardProjectFinishDate .'
         '. .'
         'dashboardProjectRevenueChart dashboardProgressChart';
     gap: 1em;
@@ -78,8 +78,8 @@
     margin-left: 1.2em;
 }
 
-.dashboardProjectDueDate {
-    grid-area: dashboardProjectDueDate;
+.dashboardProjectFinishDate {
+    grid-area: dashboardProjectFinishDate;
     font-size: 0.8em;
     margin-left: 1.2em;
 }

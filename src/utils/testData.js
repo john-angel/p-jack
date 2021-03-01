@@ -6,7 +6,7 @@ let projects = {
     name: 'Job',
     description: 'Front End developer job',
     startDate: '2019-08-01',
-    dueDate: '2021-05-30',
+    finishDate: '2021-05-30',
     revenue: 56100,
     status: onTrackStatus
   },
@@ -15,7 +15,7 @@ let projects = {
     name: 'House',
     description: 'House in the country side',
     startDate: '2018-04-12',
-    dueDate: '2019-12-30',
+    finishDate: '2019-12-30',
     revenue: 7600,
     status: delayedStatus
   },
@@ -24,7 +24,7 @@ let projects = {
     name: 'Drawing',
     description: 'Improve drawing skills',
     startDate: '2019-06-01',
-    dueDate: '2019-12-30',
+    finishDate: '2019-12-30',
     revenue: 0,
     status: onHoldStatus
   },
@@ -33,7 +33,7 @@ let projects = {
     name: 'Exercise',
     description: 'Establish a work out routine',
     startDate: '2019-06-01',
-    dueDate: '2019-12-30',
+    finishDate: '2019-12-30',
     revenue: 0,
     status: atRiskStatus
   }  

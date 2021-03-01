@@ -15,7 +15,7 @@ class ProjectDetail extends Component{
             name: projects[this.props.projectId].name,
             description: projects[this.props.projectId].description,
             start: projects[this.props.projectId].startDate,
-            due: projects[this.props.projectId].dueDate,           
+            finish: projects[this.props.projectId].finishDate,           
             status: projects[this.props.projectId].status,
             statusColor: getColorFromStatus(projects[this.props.projectId].status)
         };
@@ -31,9 +31,9 @@ class ProjectDetail extends Component{
         this.setState({start:event.target.value});
     }
 
-    onDueDateChange = (event) => {
+    onFinishDateChange = (event) => {
         event.persist();
-        this.setState({due:event.target.value});        
+        this.setState({finish:event.target.value});        
     }
 
     onStatusChange = (event) => {
@@ -53,7 +53,7 @@ class ProjectDetail extends Component{
                     <label className='projectDetailStartLabel' htmlFor={'projectDetailStartValue'}>Start: </label>
                     <input type={'date'} id={'projectDetailStartValue'} value={this.state.start} name={'projectDetailStartLabel'} onChange={this.onStartDateChange}></input>
                     <label className='projectDetailFinishLabel' htmlFor={'projectDetailFinishValue'}>Finish: </label>
-                    <input type={'date'} id={'projectDetailFinishValue'} value={this.state.due} name={'projectDetailFinishLabel'} onChange={this.onDueDateChange}></input>
+                    <input type={'date'} id={'projectDetailFinishValue'} value={this.state.finish} name={'projectDetailFinishLabel'} onChange={this.onFinishDateChange}></input>
                 </section>
                 {/*The following elements will be updated progressively to match the Wireframe
                     <div id={'projectInfo'}>

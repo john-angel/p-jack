@@ -34,9 +34,9 @@ class Dashboard extends Component{
       return revenue;
     }
 
-    parseDueDate = (project) => {
+    parseFinishDate = (project) => {
 
-      let dateArray = project.dueDate.split('-');      
+      let dateArray = project.finishDate.split('-');      
       let month = Number(dateArray[1]) - 1;
       const date = new Date(dateArray[0], month, dateArray[2]);
 
@@ -74,7 +74,7 @@ class Dashboard extends Component{
                   <DashboardItem key={project.id} title={project.name} onClickEvent={() => this.onClick(project.id)}>
                     <p className='dashboardProjectStatus'>Status: {getTextFromStatus(project.status)}</p>
                     <p className='dashboardProjectRevenue'>Revenue: {this.parseRevenue(project)}</p>
-                    <p className='dashboardProjectDueDate'>Due date: {this.parseDueDate(project)}</p>
+                    <p className='dashboardProjectFinishDate'>Finish date: {this.parseFinishDate(project)}</p>
                     <TaskOverview tasks={tasks[project.id]}></TaskOverview>
                     <RevenueChart divId={'revenueChart' + project.id} projectId={project.id} revenue={revenue[project.id]}></RevenueChart>
                     <ProgressChart tasksPercentage='20%' revenuePercentage='50%'></ProgressChart>
