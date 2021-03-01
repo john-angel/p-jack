@@ -131,12 +131,26 @@
      margin:0;
      padding:0
 }
-  
 
-#projectInfo {
+.projectDetailStatus{
+    grid-area: projectDetailStatus;
     display: grid;
-    grid-template-columns: 1.2em auto auto auto;
-    column-gap: 10px;
+    grid-template-columns: 1fr 2fr;
+    align-items: start;
+    grid-template-areas:
+        'projectDetailRevenueLabel projectDetailRevenueValue'
+        'projectDetailStatusLabel projectDetailStatusValue';
 }
-  
-  
+
+.projectDetailRevenueLabel{
+    grid-area: projectDetailRevenueLabel;
+    font-size: 0.8em;
+}
+
+#projectDetailRevenueValue{
+    grid-area: projectDetailRevenueValue;
+    background-color: var(--mainComponents-background-color);
+    border: none;
+    font-size: 0.8em;
+    width: calc(100% - 0.8em);
+}

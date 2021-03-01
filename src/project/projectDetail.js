@@ -16,10 +16,23 @@ class ProjectDetail extends Component{
             description: projects[this.props.projectId].description,
             start: projects[this.props.projectId].startDate,
             finish: projects[this.props.projectId].finishDate,           
+            revenue: this.parseRevenue(projects[this.props.projectId].revenue),
             status: projects[this.props.projectId].status,
             statusColor: getColorFromStatus(projects[this.props.projectId].status)
         };
     }
+
+    parseRevenue = (value) => {
+        const revenue = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+          notation:'compact',                                        
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }).format(value);
+  
+        return revenue;
+      }
 
     onChange = (event) => {
         event.persist();
@@ -43,17 +56,26 @@ class ProjectDetail extends Component{
             statusColor:getColorFromStatus(event.target.value)
         });
     }
+
+    onRevenueChange = (event) => {
+        event.persist();
+        this.setState({revenue:event.target.value});
+    }
     
     render(){
         return (
             <div className='projectDetailContainer'>
                 <h1 className='projectDetailTitle'><FontAwesomeIcon icon={faProjectDiagram} style={{ color: infoColor }}></FontAwesomeIcon> {this.state.name}</h1>
-                <textarea className='projectDetailDescription' maxLength={'125'} rows={'2'} value={this.state.description} onChange={this.onChange}></textarea>
+                <textarea className='projectDetailDescription' maxLength='125' rows='2' value={this.state.description} onChange={this.onChange}></textarea>
                 <section className='projectDetailDates'>
-                    <label className='projectDetailStartLabel' htmlFor={'projectDetailStartValue'}>Start: </label>
-                    <input type={'date'} id={'projectDetailStartValue'} value={this.state.start} name={'projectDetailStartLabel'} style={{color:infoColor}} onChange={this.onStartDateChange}></input>
-                    <label className='projectDetailFinishLabel' htmlFor={'projectDetailFinishValue'}>Finish: </label>
-                    <input type={'date'} id={'projectDetailFinishValue'} value={this.state.finish} name={'projectDetailFinishLabel'} style={{color:this.state.statusColor}} onChange={this.onFinishDateChange}></input>
+                    <label className='projectDetailStartLabel' htmlFor={'projectDetailStartValue'}>Start:</label>
+                    <input type='date' id='projectDetailStartValue' value={this.state.start} name='projectDetailStartLabel' style={{color:infoColor}} onChange={this.onStartDateChange}></input>
+                    <label className='projectDetailFinishLabel' htmlFor={'projectDetailFinishValue'}>Finish:</label>
+                    <input type='date' id='projectDetailFinishValue' value={this.state.finish} name='projectDetailFinishLabel' style={{color:this.state.statusColor}} onChange={this.onFinishDateChange}></input>
+                </section>
+                <section className='projectDetailStatus'>
+                    <label className='projectDetailRevenueLabel' htmlFor='projectDetailRevenueValue'>Revenue:</label>
+                    <input type='text' id='projectDetailRevenueValue' value={this.state.revenue} name='projectDetailRevenueValue' style={{color:this.state.statusColor}} onChange={this.onRevenueChange}></input>
                 </section>
                 {/*The following elements will be updated progressively to match the Wireframe
                     <div id={'projectInfo'}>
