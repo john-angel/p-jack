@@ -94,12 +94,13 @@
 
 .projectDetailDates{
     grid-area: projectDetailDates;
+    margin-bottom: 0.8em;
     display: grid;
     grid-template-columns: 1fr 5fr;
     align-items: center;
     grid-template-areas:
         'projectDetailStartLabel projectDetailStartValue'
-        'projectDetailFinishLabel projectDetailFinishValue';
+        'projectDetailFinishLabel projectDetailFinishValue';    
 }
 
 .projectDetailStartLabel{
@@ -135,6 +136,7 @@
 }
 
 .projectDetailStatus{
+    margin-bottom: 0.8em;
     grid-area: projectDetailStatus;
     display: grid;
     grid-template-columns: 1fr 2fr;
