@@ -16,13 +16,7 @@ class Project extends Component{
         const { id } = this.props.match.params;
         this.state = {
             id: id
-        };
-        
-    }
-
-    componentDidMount(){       
-        const { id } = this.props.match.params;
-        this.setState({id:id});
+        };        
     }
 
     render(){
