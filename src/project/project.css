@@ -48,20 +48,23 @@
 }
 
 .projectContainer{
-    display:flex;
-    flex-direction: column;    
-}
-
-.projectHeader{
+    display:grid;
+    grid-template-areas: 
+        'search search .'
+        'projectDetailContainer projectDetailContainer .'
+        'projectBacklogInfo projectInProgressInfo projectDoneInfo';
+    grid-template-columns: repeat(3,calc(400px + 0.5em));/*0.5 em added to match the gap between projectDetailDates and projectDetailStatus*/
+    grid-auto-rows: minmax(min-content,max-content);
+    gap: 1em;
     margin-top: 1em;
-    margin-left: 1em;
+    margin-left: 1em;    
 }
 
 .projectDetailContainer{
-    margin-top: 1em;
-    border-radius: 4px;
+    grid-area: projectDetailContainer;
+    border-radius: 4px;    
     display: grid;
-    grid-template-columns: 400px repeat(2,calc(200px));/*TODO:Check gap between two last columns so the total align with the Backlog and On Progress components*/
+    grid-template-columns: 400px repeat(2,200px);
     grid-auto-rows: minmax(min-content,max-content);
     grid-template-areas: 
         'projectDetailTitle projectDetailTitle projectDetailTitle'
@@ -73,10 +76,10 @@
   }
    
 .projectDetailTitle{
-    margin-top: 0.8em;
-    margin-left: 0.8em;    
-    grid-area: projectDetailTitle;
     font-size: 1.2em;
+    margin-top: 0.4em;
+    margin-left: 0.4em;
+    grid-area: projectDetailTitle;
     font-weight: normal;    
 }
 
@@ -155,8 +158,8 @@
     grid-area: projectDetailRevenueValue;
     background-color: var(--mainComponents-background-color);
     border: none;
-    font-size: 0.8em;
-    width: calc(100% - 0.8em);
+    font-size: 0.8em;    
+    width: calc(100% - 0.8em);    
 }
 
 .projectDetailStatusLabel{
@@ -171,4 +174,23 @@
     font-size: 0.8em;    
     width: calc(100% - 0.8em);
     -webkit-appearance: none;
+}
+
+.projectBacklogInfo{
+    grid-area: projectBacklogInfo;    
+}
+
+.projectBacklogInfo, .projectInProgressInfo, .projectDoneInfo{
+    border-radius: 4px;
+    background-color: var(--mainComponents-background-color);
+    color: var(--text-default-color);
+    width: 100%;
+}
+
+.projectInProgressInfo{
+    grid-area: projectInProgressInfo;    
+}
+
+.projectDoneInfo{
+    grid-area: projectDoneInfo;    
 }

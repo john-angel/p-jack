@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
 import Search from '../search/search';
 import ProjectDetail from './projectDetail';
+import BacklogInfo from '../backlog/backlogInfo';
+import InProgressInfo from '../inProgress/inProgressInfo';
+import DoneInfo from '../done/doneInfo';
 import TaskContainer from '../task/taskContainer';
 import RevenueContainer from '../revenue/revenueContainer';
 
@@ -25,19 +28,31 @@ class Project extends Component{
     render(){
         return(
             <React.Fragment>                
-                <div className='projectContainer'>
-                    <section className='projectHeader'>
-                        <Search placeholder='Search tasks...'></Search>
-                        <ProjectDetail projectId={this.state.id}></ProjectDetail>
-                    </section>                    
+                <section className='projectContainer'>
+                    <Search placeholder='Search tasks...'></Search>
+                    <ProjectDetail projectId={this.state.id}></ProjectDetail>                    
+                    <BacklogInfo></BacklogInfo>
+                    <InProgressInfo></InProgressInfo>
+                    <DoneInfo></DoneInfo>
+                    
                     {/*  /*The following elements will be updated progressively to match the Wireframe                  
                     {
+                        <section className='projectHeader'>
+                            <Search placeholder='Search tasks...'></Search>
+                            <ProjectDetail projectId={this.state.id}></ProjectDetail>
+                        </section>
+                        <section className='projectBoard'>
+                            <BacklogInfo></BacklogInfo>
+                            <InProgressInfo></InProgressInfo>
+                            <DoneInfo></DoneInfo>
+                        </section>                    
+
                         this.props.location.state.item === 'tasks' ?
                         <TaskContainer projectId={this.state.id}></TaskContainer> :
                         <RevenueContainer projectId={this.state.id}></RevenueContainer>
                     }
                     */}
-                </div>
+                </section>
             </React.Fragment>            
         )
     }
