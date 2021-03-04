@@ -1,4 +1,6 @@
 import {notStartedStatus, onHoldStatus, onTrackStatus, delayedStatus, atRiskStatus, completeStatus} from './status';
+import {backlog, inProgress, done} from './board';
+
 //TODO: Check if delayed status is required
 let projects = {
   1: {
@@ -7,7 +9,7 @@ let projects = {
     description: 'Front End developer job',
     startDate: '2019-08-01',
     finishDate: '2021-05-30',
-    revenue: 56100,
+    revenue: 56100,    
     status: onTrackStatus
   },
   2: {
@@ -46,42 +48,48 @@ let tasks = {
       name: 'Build portfolio',
       status: onTrackStatus,
       comments: 'Jack development in progress',
-      dueDate: '2021-03-15'
+      dueDate: '2021-03-15',
+      boardList: inProgress
     },
     2: {
       id:'2',
       name: 'Buy domain',
       status: delayedStatus,
       comments: 'www.johnangel.dev bought',
-      dueDate: '2021-02-01'
+      dueDate: '2021-02-01',
+      boardList: backlog
     },
     3: {
       id:'3',
       name: 'Publish portfolio project on domain',
       status: completeStatus,
       comments: 'Jack app published through Netlify',
-      dueDate: '2021-03-30'
+      dueDate: '2021-03-30',
+      boardList: inProgress
     },
     4: {
       id:'4',
       name: 'Update Linkedin profile',
       status: atRiskStatus,
       comments: 'Update profile following tips from Udacity and other sources',
-      dueDate: '2021-02-28'
+      dueDate: '2021-02-28',
+      boardList: inProgress,
     },
     5: {
       id:'5',
       name: 'Make public Linv source code',
       status: atRiskStatus,
       comments: 'Make public code on GitHub',
-      dueDate: '2021-02-26'
+      dueDate: '2021-02-26',
+      boardList: backlog
     },
     6: {
       id:'6',
       name: 'Setup blog',
       status: notStartedStatus,
       comments: 'Setup blog on www.johnangel.dev',
-      dueDate: '2021-02-15'
+      dueDate: '2021-02-15',
+      boardList: done
     }
   },
   3: {
