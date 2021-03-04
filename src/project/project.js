@@ -25,22 +25,12 @@ class Project extends Component{
                 <section className='projectContainer'>
                     <Search placeholder='Search tasks...'></Search>
                     <ProjectDetail projectId={this.state.id}></ProjectDetail>                    
-                    <BacklogInfo></BacklogInfo>
+                    <BacklogInfo projectId={this.state.id} ></BacklogInfo>
                     <InProgressInfo></InProgressInfo>
                     <DoneInfo></DoneInfo>
                     
-                    {/*  /*The following elements will be updated progressively to match the Wireframe                  
-                    {
-                        <section className='projectHeader'>
-                            <Search placeholder='Search tasks...'></Search>
-                            <ProjectDetail projectId={this.state.id}></ProjectDetail>
-                        </section>
-                        <section className='projectBoard'>
-                            <BacklogInfo></BacklogInfo>
-                            <InProgressInfo></InProgressInfo>
-                            <DoneInfo></DoneInfo>
-                        </section>                    
-
+                    {/*  /*The following elements will be updated progressively to match the Wireframe               
+                    {                       
                         this.props.location.state.item === 'tasks' ?
                         <TaskContainer projectId={this.state.id}></TaskContainer> :
                         <RevenueContainer projectId={this.state.id}></RevenueContainer>

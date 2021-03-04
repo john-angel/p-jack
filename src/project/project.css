@@ -52,7 +52,7 @@
     grid-template-areas: 
         'search search .'
         'projectDetailContainer projectDetailContainer .'
-        'projectBacklogInfo projectInProgressInfo projectDoneInfo';
+        'projectBacklogContainer projectInProgressContainer projectDoneContainer';
     grid-template-columns: repeat(3,calc(400px + 0.5em));/*0.5 em added to match the gap between projectDetailDates and projectDetailStatus*/
     grid-auto-rows: minmax(min-content,max-content);
     gap: 1em;
@@ -176,21 +176,70 @@
     -webkit-appearance: none;
 }
 
-.projectBacklogInfo{
-    grid-area: projectBacklogInfo;    
+.projectBacklogContainer{
+    grid-area: projectBacklogContainer;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-areas: 
+        'projectBacklogInfoTitle projectBacklogInfoTitle'
+        'projectBacklogInfoTotalTasksValue projectBacklogInfoTasksAtRiskValue'
+        'projectBacklogInfoTotalTasksName projectBacklogInfoTasksAtRiskName';
 }
 
-.projectBacklogInfo, .projectInProgressInfo, .projectDoneInfo{
+.projectBacklogInfoTitle{
+    grid-area: projectBacklogInfoTitle;
+    font-size: 1.2em;
+    margin-top: 0.8em;
+    margin-left: 0.8em;
+}
+
+.projectBacklogInfoTotalTasksValue{
+    grid-area: projectBacklogInfoTotalTasksValue;
+    color: var(--info-Color);
+}
+
+.projectBacklogInfoTasksAtRiskValue{
+    grid-area: projectBacklogInfoTasksAtRiskValue;
+    color: var(--atRisk-color);
+}
+
+.projectBacklogInfoTotalTasksName{
+    grid-area: projectBacklogInfoTotalTasksName;
+}
+
+.projectBacklogInfoTasksAtRiskName{
+    grid-area: projectBacklogInfoTasksAtRiskName;
+}
+
+.projectBacklogInfoTotalTasksValue, .projectBacklogInfoTasksAtRiskValue,
+.projectBacklogInfoTotalTasksName, .projectBacklogInfoTasksAtRiskName{
+    align-self: center;
+    justify-self: center;
+}
+
+.projectBacklogInfoTotalTasksValue, .projectBacklogInfoTasksAtRiskValue{
+    font-size: 1.8em;
+    margin-top: 0.2em;
+}
+
+.projectBacklogInfoTotalTasksName, .projectBacklogInfoTasksAtRiskName{
+    font-size: 0.8em;
+}
+
+
+.projectInProgressContainer{
+    grid-area: projectInProgressContainer;
+}
+
+.projectDoneContainer{
+    grid-area: projectDoneContainer;    
+}
+
+.projectBacklogContainer, .projectInProgressContainer, .projectDoneContainer{
     border-radius: 4px;
     background-color: var(--mainComponents-background-color);
     color: var(--text-default-color);
     width: 100%;
 }
 
-.projectInProgressInfo{
-    grid-area: projectInProgressInfo;    
-}
-
-.projectDoneInfo{
-    grid-area: projectDoneInfo;    
-}
