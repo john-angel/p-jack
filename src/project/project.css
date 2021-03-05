@@ -305,6 +305,10 @@ input[id^='projectTaskDueValue']{
     font-size: 0.8em;
 }
 
+input[id^='projectTaskDueValue']::-webkit-calendar-picker-indicator{
+    margin-left: 0;
+}
+
 .projectTaskRevenueLabel{
     grid-area: projectTaskRevenueLabel;
     margin-left: 1.2em;    
