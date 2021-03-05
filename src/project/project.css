@@ -178,6 +178,11 @@
 
 .projectBacklogContainer{
     grid-area: projectBacklogContainer;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectBacklogSummary{
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: repeat(3,1fr);
@@ -236,10 +241,98 @@
     grid-area: projectDoneContainer;    
 }
 
-.projectBacklogContainer, .projectInProgressContainer, .projectDoneContainer{
+.projectBacklogSummary, .projectInProgressContainer, .projectDoneContainer{
     border-radius: 4px;
     background-color: var(--mainComponents-background-color);
     color: var(--text-default-color);
     width: 100%;
 }
 
+.projectTaskContainer{
+    margin-top: 1em;
+    border-radius: 4px;
+    background-color: var(--mainComponents-background-color);
+    color: var(--text-default-color);
+    display: grid;
+    grid-template-columns: repeat(4,100px);
+    grid-template-areas:
+        'projectTaskTitle projectTaskTitle projectTaskTitle projectTaskTitle'
+        'projectTaskStatusLabel  projectTaskStatusValue projectTaskDueLabel projectTaskDueValue'
+        'projectTaskRevenueLabel projectTaskRevenueValue projectTaskAssignedLabel projectTaskAssignedValue'
+        'projectTaskNotes projectTaskNotes projectTaskNotes projectTaskNotes';
+}
+
+.projectTaskTitle{
+    grid-area: projectTaskTitle;
+    font-weight: normal;
+    font-size: 1.2em;
+    margin-top: 0.8em;
+    margin-left: 0.8em;
+} 
+
+.projectTaskContainer label, textarea{
+    margin-top: 1.2em;
+    font-size: 0.8em;
+}
+
+.projectTaskStatusLabel{
+    grid-area: projectTaskStatusLabel;
+    margin-left: 1.2em;    
+}
+
+.projectTaskContainer select{
+    background-color: var(--mainComponents-background-color);
+    color: var(--text-default-color);
+    border: none;
+    font-size: 0.8em;
+    -webkit-appearance: none;
+}
+
+select[id^='projectTaskStatusValue']{
+    grid-area: projectTaskStatusValue;    
+}
+
+.projectTaskDueLabel{
+    grid-area: projectTaskDueLabel;
+}
+
+input[id^='projectTaskDueValue']{
+    grid-area: projectTaskDueValue;
+    background-color: var(--mainComponents-background-color);
+    color: var(--text-default-color);
+    border: none;
+    font-size: 0.8em;
+}
+
+.projectTaskRevenueLabel{
+    grid-area: projectTaskRevenueLabel;
+    margin-left: 1.2em;    
+}
+
+input[id^='projectTaskRevenueValue']{
+    grid-area: projectTaskRevenueValue;
+    background-color: var(--mainComponents-background-color);
+    border: none;
+    font-size: 0.8em;    
+}
+
+.projectTaskAssignedLabel{
+    grid-area: projectTaskAssignedLabel;
+}
+
+select[id^='projectTaskAssignedValue']{
+    grid-area: projectTaskAssignedValue;    
+}
+
+
+.projectTaskNotes{
+    grid-area: projectTaskNotes;
+    margin-left: 1.2em;
+    border-style:none;  
+    resize: none;
+    background-color: var(--mainComponents-background-color);
+    color: var(--text-default-color);
+    margin-bottom: 1.2em;
+    width: calc(100% - 2.4em);
+
+}

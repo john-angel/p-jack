@@ -1,13 +1,16 @@
 import React, {Component} from 'react';
 import {tasks} from '../utils/testData';
 import {backlog} from '../utils/board';
+import Task from '../task/task';
 
 class BacklogInfo extends Component {
     
     constructor(props){
         super(props);
         
-        this.state = {tasks: []};
+        this.state = {
+            tasks: []
+        };
 
         let taskObj = tasks[this.props.projectId];
         
@@ -19,11 +22,16 @@ class BacklogInfo extends Component {
     render(){
         return(
             <section className='projectBacklogContainer'>
-                <p className='projectBacklogInfoTitle'>Backlog</p>
-                <p className='projectBacklogInfoTotalTasksValue'>4</p>
-                <p className='projectBacklogInfoTotalTasksName'>Tasks</p>
-                <p className='projectBacklogInfoTasksAtRiskValue'>1</p>
-                <p className='projectBacklogInfoTasksAtRiskName'>At risk</p>
+                <section className='projectBacklogSummary'>
+                    <p className='projectBacklogInfoTitle'>Backlog</p>
+                    <p className='projectBacklogInfoTotalTasksValue'>{this.state.tasks.length}</p>
+                    <p className='projectBacklogInfoTotalTasksName'>Tasks</p>
+                    <p className='projectBacklogInfoTasksAtRiskValue'>1</p>
+                    <p className='projectBacklogInfoTasksAtRiskName'>At risk</p>
+                </section>
+                {
+                    this.state.tasks.map(task => <Task key={task.id} data={task}></Task>)
+                }                
             </section>
         )
     }

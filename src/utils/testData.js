@@ -49,6 +49,7 @@ let tasks = {
       status: onTrackStatus,
       comments: 'Jack development in progress',
       dueDate: '2021-03-15',
+      revenue: '5600',
       boardList: inProgress
     },
     2: {
@@ -57,6 +58,7 @@ let tasks = {
       status: delayedStatus,
       comments: 'www.johnangel.dev bought',
       dueDate: '2021-02-01',
+      revenue: '50',
       boardList: backlog
     },
     3: {
@@ -65,6 +67,7 @@ let tasks = {
       status: completeStatus,
       comments: 'Jack app published through Netlify',
       dueDate: '2021-03-30',
+      revenue: 0,
       boardList: inProgress
     },
     4: {
@@ -73,6 +76,7 @@ let tasks = {
       status: atRiskStatus,
       comments: 'Update profile following tips from Udacity and other sources',
       dueDate: '2021-02-28',
+      revenue: '1500',
       boardList: inProgress,
     },
     5: {
@@ -81,6 +85,7 @@ let tasks = {
       status: atRiskStatus,
       comments: 'Make public code on GitHub',
       dueDate: '2021-02-26',
+      revenue: '3500',
       boardList: backlog
     },
     6: {

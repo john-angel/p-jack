@@ -1,56 +1,84 @@
 import React, {Component} from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircle } from '@fortawesome/free-regular-svg-icons';
-import { faCheckCircle, faPlus} from '@fortawesome/free-solid-svg-icons';
-import {completeStatus} from '../utils/status';
+import {notStartedStatus,onHoldStatus,onTrackStatus,delayedStatus,atRiskStatus,completeStatus,getTextFromStatus} from '../utils/status';
+import {getColorFromStatus, infoColor} from '../utils/colors';
 
-class Task extends Component {
+class Task extends Component{
 
     constructor(props){
         super(props);
-        this.inputRef = React.createRef();        
-    }
 
-    onCheckIconClick = () => {
-        if(this.props.data !== null){
-            this.props.onTaskMarked(this.props.data.id,this.props.data.status); 
-        }            
-    }
-
-    onNameClick = () => {
-        if(this.props.data !== null){
-            this.props.onSelected(this.props.data);
+        this.state = {
+            id:this.props.data.id,
+            name:this.props.data.name,
+            status:getTextFromStatus(this.props.data.status),
+            dueDate:this.props.data.dueDate,
+            revenue:this.parseRevenue(this.props.data.revenue),
+            assigned:this.props.data.assigned,
+            comments:this.props.data.comments,
+            statusColor:getColorFromStatus(this.props.data.status)
         }
     }
-      
-    onNameChange = (event) => {
+
+    parseRevenue = (value) => {
+        const revenue = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD',
+          notation:'compact',                                        
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        }).format(value);
+  
+        return revenue;
+      }
+
+    onStatusChange = (event) => {
         event.persist();
-        this.props.onNameChange(this.props.data.id,event.target.value);
+        this.setState({
+            status:event.target.value,
+            statusColor:getColorFromStatus(event.target.value)
+        });
     }
 
-    onKeyUp = (event) => {
+    onDueDateChange = (event) => {
         event.persist();
-        
-        if(event.keyCode === 13){            
-            this.inputRef.current.blur();       
-            if(this.props.data.id === 0){
-                this.props.onNewTask(this.props.data);
-            }        
-        }
+        this.setState({dueDate:event.target.value});        
+    }
+
+    onRevenueChange = (event) => {
+        event.persist();
+        this.setState({revenue:event.target.value})
+    }
+
+    onAssignedChange = (event) => {
+        event.persist();
+        this.setState({assigned:event.target.value})
     }
 
     render(){
-        
-        const checkIcon = this.props.data.id !== 0 ? this.props.data.status === completeStatus ? faCheckCircle : faCircle : faPlus;
-        const descriptionDecoration = this.props.data.status === completeStatus ? 'line-through' : 'none';
-        const placeholder = this.props.data.id !== 0 ? '' : 'Add task...';
-        const value = this.props.data.name;
-
-        return (
-            <div className={'taskItem'}>
-                <FontAwesomeIcon className={'taskCheckIcon'} icon={checkIcon} onClick={this.onCheckIconClick}></FontAwesomeIcon>
-                <input className={'taskDescription'} type={'text'} ref={this.inputRef} maxLength={'100'} placeholder={placeholder} value={value} style={{textDecoration:descriptionDecoration}} onClick={this.onNameClick} onChange={this.onNameChange} onKeyUp={this.onKeyUp}></input>                
-            </div>                           
+        return(
+            <section className='projectTaskContainer'>
+                <h3 className='projectTaskTitle'>{this.state.name}</h3>
+                <label className='projectTaskStatusLabel' htmlFor={'projectTaskStatusValue' + this.state.id}>Status:</label>
+                <select id={'projectTaskStatusValue' + this.state.id} value={this.state.status} style={{ color: this.state.statusColor }} onChange={this.onStatusChange}>
+                    <option value={notStartedStatus}>{getTextFromStatus(notStartedStatus)}</option>
+                    <option value={onHoldStatus}>{getTextFromStatus(onHoldStatus)}</option>
+                    <option value={onTrackStatus}>{getTextFromStatus(onTrackStatus)}</option>
+                    <option value={delayedStatus}>{getTextFromStatus(delayedStatus)}</option>
+                    <option value={atRiskStatus}>{getTextFromStatus(atRiskStatus)}</option>
+                    <option value={completeStatus}>{getTextFromStatus(completeStatus)}</option>
+                </select>
+                <label className='projectTaskDueLabel' htmlFor={'projectTaskDueValue' + this.state.id}>Due:</label>
+                <input type='date' id={'projectTaskDueValue' + this.state.id} value={this.state.dueDate} name='projectTaskDueValue' style={{color:infoColor}} onChange={this.onDueDateChange}></input>
+                <label className='projectTaskRevenueLabel' htmlFor={'projectTaskRevenueValue' + this.state.id}>Revenue:</label>
+                <input type='text' id={'projectTaskRevenueValue' + this.state.id} value={this.state.revenue} name='projectTaskRevenueValue' style={{color:infoColor}} onChange={this.onRevenueChange}></input>
+                <label className='projectTaskAssignedLabel' htmlFor={'projectTaskAssignedValue' + this.state.id}>Assigned:</label>
+                <select id={'projectTaskAssignedValue' + this.state.id} value={this.state.assigned} onChange={this.onAssignedChange}>
+                    <option value='John'>John</option>
+                    <option value='Natasha'>Natasha</option>
+                    <option value='Tony'>Tony</option>                    
+                </select>
+                <textarea className='projectTaskNotes'>{this.state.comments}</textarea>
+            </section>
         )
     }
 }
