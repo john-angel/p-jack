@@ -255,11 +255,12 @@
     color: var(--text-default-color);
     display: grid;
     grid-template-columns: repeat(4,100px);
+    align-items: end;
     grid-template-areas:
         'projectTaskTitle projectTaskTitle projectTaskTitle projectTaskTitle'
         'projectTaskStatusLabel  projectTaskStatusValue projectTaskDueLabel projectTaskDueValue'
         'projectTaskRevenueLabel projectTaskRevenueValue projectTaskAssignedLabel projectTaskAssignedValue'
-        'projectTaskNotes projectTaskNotes projectTaskNotes projectTaskNotes';
+        'projectTaskComments projectTaskComments projectTaskComments projectTaskComments';
 }
 
 .projectTaskTitle{
@@ -325,8 +326,8 @@ select[id^='projectTaskAssignedValue']{
 }
 
 
-.projectTaskNotes{
-    grid-area: projectTaskNotes;
+.projectTaskComments{
+    grid-area: projectTaskComments;    
     margin-left: 1.2em;
     border-style:none;  
     resize: none;

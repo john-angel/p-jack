@@ -54,6 +54,13 @@ class Task extends Component{
         this.setState({assigned:event.target.value})
     }
 
+    onCommentsChange = (event) => {
+        event.persist();
+        this.setState({comments:event.target.value})
+    }
+
+
+
     render(){
         return(
             <section className='projectTaskContainer'>
@@ -77,7 +84,7 @@ class Task extends Component{
                     <option value='Natasha'>Natasha</option>
                     <option value='Tony'>Tony</option>                    
                 </select>
-                <textarea className='projectTaskNotes'>{this.state.comments}</textarea>
+                <textarea className='projectTaskComments' maxLength='125' rows='2' value={this.state.comments} onChange={this.onCommentsChange}></textarea>
             </section>
         )
     }
