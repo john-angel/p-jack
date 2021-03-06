@@ -49,7 +49,7 @@ let tasks = {
       status: onTrackStatus,
       comments: 'Jack development in progress',
       dueDate: '2021-03-15',
-      revenue: '5600',
+      revenue: 5600,
       boardList: inProgress
     },
     2: {
@@ -58,7 +58,7 @@ let tasks = {
       status: delayedStatus,
       comments: 'www.johnangel.dev bought',
       dueDate: '2021-02-01',
-      revenue: '50',
+      revenue: 50,
       boardList: backlog
     },
     3: {
@@ -76,7 +76,7 @@ let tasks = {
       status: atRiskStatus,
       comments: 'Update profile following tips from Udacity and other sources',
       dueDate: '2021-02-28',
-      revenue: '1500',
+      revenue: 1500,
       boardList: inProgress,
     },
     5: {
@@ -85,7 +85,7 @@ let tasks = {
       status: atRiskStatus,
       comments: 'Make public code on GitHub',
       dueDate: '2021-02-26',
-      revenue: '3500',
+      revenue: 3500,
       boardList: backlog
     },
     6: {
@@ -94,6 +94,7 @@ let tasks = {
       status: notStartedStatus,
       comments: 'Setup blog on www.johnangel.dev',
       dueDate: '2021-02-15',
+      revenue: 2000,
       boardList: done
     }
   },
