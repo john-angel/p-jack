@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
+import {tasks} from '../utils/testData';
+import {backlog, inProgress, done} from '../utils/board';
 import Search from '../search/search';
 import ProjectDetail from './projectDetail';
 import BacklogInfo from '../backlog/backlogInfo';
@@ -14,9 +16,23 @@ class Project extends Component{
         super(props);
         
         const { id } = this.props.match.params;
+        
         this.state = {
-            id: id
-        };        
+            id: id,
+            backlogTasks: [],
+            inProgressTasks: [],
+            doneTasks: []
+        };
+
+        let taskObj = tasks[id];
+        
+        if(typeof taskObj !== 'undefined'){
+            Object.keys(taskObj).map(id => {
+                const boardList = taskObj[id].boardList;
+                boardList === backlog ? this.state.backlogTasks.push(taskObj[id]) : boardList === inProgress ? this.state.inProgressTasks.push(taskObj[id]) : this.state.doneTasks.push(taskObj[id]);
+                return 0;
+            })
+        }       
     }
 
     render(){
@@ -25,9 +41,9 @@ class Project extends Component{
                 <section className='projectContainer'>
                     <Search placeholder='Search tasks...'></Search>
                     <ProjectDetail projectId={this.state.id}></ProjectDetail>                    
-                    <BacklogInfo projectId={this.state.id} ></BacklogInfo>
-                    <InProgressInfo></InProgressInfo>
-                    <DoneInfo></DoneInfo>
+                    <BacklogInfo tasks={this.state.backlogTasks} ></BacklogInfo>
+                    <InProgressInfo tasks={this.state.inProgressTasks}></InProgressInfo>
+                    <DoneInfo tasks={this.state.doneTasks}></DoneInfo>
                     
                     {/*  /*The following elements will be updated progressively to match the Wireframe               
                     {                       
