@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
 import {tasks} from '../utils/testData';
-import {backlog, inProgress, done} from '../utils/board';
+import {backlog, inProgress} from '../utils/board';
 import Search from '../search/search';
 import ProjectDetail from './projectDetail';
 import BacklogInfo from '../backlog/backlogInfo';

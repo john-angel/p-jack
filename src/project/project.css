@@ -290,7 +290,59 @@
 }
 
 .projectDoneContainer{
-    grid-area: projectDoneContainer;    
+    grid-area: projectDoneContainer;
+    display: flex;
+    flex-direction: column;
+}
+
+.projectDoneSummary{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-areas: 
+        'projectDoneInfoTitle projectDoneInfoTitle'
+        'projectDoneInfoTotalTasksValue projectDoneInfoInvoicedValue'
+        'projectDoneInfoTotalTasksName projectDoneInfoInvoicedName';
+}
+
+.projectDoneInfoTitle {
+    grid-area: projectDoneInfoTitle;
+    font-size: 1.2em;
+    margin-top: 0.8em;
+    margin-left: 0.8em;
+}
+
+.projectDoneInfoTotalTasksValue{
+    grid-area: projectDoneInfoTotalTasksValue;
+    color: var(--info-Color);
+}
+
+.projectDoneInfoInvoicedValue {
+    grid-area: projectDoneInfoInvoicedValue;
+    color: var(--onTrack-color);
+}
+
+.projectDoneInfoTotalTasksName{
+    grid-area: projectDoneInfoTotalTasksName;
+} 
+
+.projectDoneInfoInvoicedName{
+    grid-area: projectDoneInfoInvoicedName;
+}
+
+.projectDoneInfoTotalTasksValue, .projectDoneInfoInvoicedValue,
+.projectDoneInfoTotalTasksName, .projectDoneInfoInvoicedName{
+    align-self: center;
+    justify-self: center;
+}   
+
+.projectDoneInfoTotalTasksValue, .projectDoneInfoInvoicedValue{
+    font-size: 1.8em;
+    margin-top: 0.2em;
+}
+
+.projectDoneInfoTotalTasksName, .projectDoneInfoInvoicedName{
+    font-size: 0.8em;
 }
 
 .projectBacklogSummary, .projectInProgressSummary, .projectDoneSummary{
