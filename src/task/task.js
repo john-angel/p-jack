@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {notStartedStatus,onHoldStatus,onTrackStatus,delayedStatus,atRiskStatus,completeStatus,getTextFromStatus} from '../utils/status';
-import {getColorFromStatus, infoColor} from '../utils/colors';
+import {getColorFromStatus, textDefaultColor} from '../utils/colors';
 
 class Task extends Component{
 
@@ -59,8 +59,6 @@ class Task extends Component{
         this.setState({comments:event.target.value})
     }
 
-
-
     render(){
         return(
             <section className='projectTaskContainer'>
@@ -75,9 +73,9 @@ class Task extends Component{
                     <option value={completeStatus}>{getTextFromStatus(completeStatus)}</option>
                 </select>
                 <label className='projectTaskDueLabel' htmlFor={'projectTaskDueValue' + this.state.id}>Due:</label>
-                <input type='date' id={'projectTaskDueValue' + this.state.id} value={this.state.dueDate} name='projectTaskDueValue' style={{color:infoColor}} onChange={this.onDueDateChange}></input>
+                <input type='date' id={'projectTaskDueValue' + this.state.id} value={this.state.dueDate} name='projectTaskDueValue' onChange={this.onDueDateChange}></input>
                 <label className='projectTaskRevenueLabel' htmlFor={'projectTaskRevenueValue' + this.state.id}>Revenue:</label>
-                <input type='text' id={'projectTaskRevenueValue' + this.state.id} value={this.state.revenue} name='projectTaskRevenueValue' style={{color:infoColor}} onChange={this.onRevenueChange}></input>
+                <input type='text' id={'projectTaskRevenueValue' + this.state.id} value={this.state.revenue} name='projectTaskRevenueValue' style={{color:textDefaultColor}} onChange={this.onRevenueChange}></input>
                 <label className='projectTaskAssignedLabel' htmlFor={'projectTaskAssignedValue' + this.state.id}>Assigned:</label>
                 <select id={'projectTaskAssignedValue' + this.state.id} value={this.state.assigned} onChange={this.onAssignedChange}>
                     <option value='John'>John</option>

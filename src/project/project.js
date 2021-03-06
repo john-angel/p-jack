@@ -7,8 +7,6 @@ import ProjectDetail from './projectDetail';
 import BacklogInfo from '../backlog/backlogInfo';
 import InProgressInfo from '../inProgress/inProgressInfo';
 import DoneInfo from '../done/doneInfo';
-import TaskContainer from '../task/taskContainer';
-import RevenueContainer from '../revenue/revenueContainer';
 
 class Project extends Component{
 
@@ -43,15 +41,7 @@ class Project extends Component{
                     <ProjectDetail projectId={this.state.id}></ProjectDetail>                    
                     <BacklogInfo tasks={this.state.backlogTasks} ></BacklogInfo>
                     <InProgressInfo tasks={this.state.inProgressTasks}></InProgressInfo>
-                    <DoneInfo tasks={this.state.doneTasks}></DoneInfo>
-                    
-                    {/*  /*The following elements will be updated progressively to match the Wireframe               
-                    {                       
-                        this.props.location.state.item === 'tasks' ?
-                        <TaskContainer projectId={this.state.id}></TaskContainer> :
-                        <RevenueContainer projectId={this.state.id}></RevenueContainer>
-                    }
-                    */}
+                    <DoneInfo tasks={this.state.doneTasks}></DoneInfo>                   
                 </section>
             </React.Fragment>            
         )
