@@ -33,11 +33,13 @@ class Project extends Component{
         }       
     }
 
+    onSearchEvent = (text) => console.log('TODO: Search task', text);
+
     render(){
         return(
             <React.Fragment>                
                 <section className='projectContainer'>
-                    <Search placeholder='Search tasks...'></Search>
+                    <Search placeholder='Search tasks...' onSearchEvent={this.onSearchEvent}></Search>
                     <ProjectDetail projectId={this.state.id}></ProjectDetail>                    
                     <BacklogInfo tasks={this.state.backlogTasks} ></BacklogInfo>
                     <InProgressInfo tasks={this.state.inProgressTasks}></InProgressInfo>
