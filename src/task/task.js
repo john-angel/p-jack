@@ -10,7 +10,7 @@ class Task extends Component{
         this.state = {
             id:this.props.data.id,
             name:this.props.data.name,
-            status:getTextFromStatus(this.props.data.status),
+            status:this.props.data.status,
             dueDate:this.props.data.dueDate,
             revenue:this.parseRevenue(this.props.data.revenue),
             assigned:this.props.data.assigned,
