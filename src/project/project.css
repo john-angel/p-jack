@@ -367,6 +367,11 @@
         'projectTaskComments projectTaskComments projectTaskComments projectTaskComments';
 }
 
+.projectTaskContainer:hover{
+    --text-default-color:white;
+    filter:brightness(1.25);
+}
+
 .projectTaskTitle{
     grid-area: projectTaskTitle;
     font-weight: normal;
