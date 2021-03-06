@@ -232,16 +232,68 @@
     font-size: 0.8em;
 }
 
-
 .projectInProgressContainer{
     grid-area: projectInProgressContainer;
+    display: flex;
+    flex-direction: column;
+}
+ 
+.projectInProgressSummary{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-areas: 
+        'projectInProgressInfoTitle projectInProgressInfoTitle'
+        'projectInProgressInfoTasksAtRiskValue projectInProgressInfoForecastValue'
+        'projectInProgressInfoTasksAtRiskName projectInProgressInfoForecastName';
+}
+
+.projectInProgressInfoTitle{
+    grid-area: projectInProgressInfoTitle;
+    font-size: 1.2em;
+    margin-top: 0.8em;
+    margin-left: 0.8em;
+}
+
+.projectInProgressInfoTasksAtRiskValue{
+    grid-area: projectInProgressInfoTasksAtRiskValue;
+    color: var(--atRisk-color);
+}
+
+.projectInProgressInfoForecastValue{
+    grid-area: projectInProgressInfoForecastValue;
+    color: var(--info-Color);
+}
+
+.projectInProgressInfoTasksAtRiskName{
+    grid-area: projectInProgressInfoTasksAtRiskName;
+    
+}
+
+.projectInProgressInfoForecastName{
+    grid-area: projectInProgressInfoForecastName;    
+}
+
+.projectInProgressInfoTasksAtRiskValue, .projectInProgressInfoForecastValue,
+.projectInProgressInfoTasksAtRiskName, .projectInProgressInfoForecastName{
+    align-self: center;
+    justify-self: center;
+}   
+
+.projectInProgressInfoTasksAtRiskValue, .projectInProgressInfoForecastValue{
+    font-size: 1.8em;
+    margin-top: 0.2em;
+}
+
+.projectInProgressInfoTasksAtRiskName, .projectInProgressInfoForecastName{
+    font-size: 0.8em;
 }
 
 .projectDoneContainer{
     grid-area: projectDoneContainer;    
 }
 
-.projectBacklogSummary, .projectInProgressContainer, .projectDoneContainer{
+.projectBacklogSummary, .projectInProgressSummary, .projectDoneSummary{
     border-radius: 4px;
     background-color: var(--mainComponents-background-color);
     color: var(--text-default-color);
