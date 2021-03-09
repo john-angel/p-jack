@@ -235,9 +235,9 @@
 .projectInProgressContainer{
     grid-area: projectInProgressContainer;
     display: flex;
-    flex-direction: column;
+    flex-direction: column;    
 }
- 
+
 .projectInProgressSummary{
     display: grid;
     grid-template-columns: 1fr 1fr;

@@ -47,7 +47,7 @@ class BacklogInfo extends Component {
     
     render(){
         return(
-            <section className='projectBacklogContainer' onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop}>
+            <section className='projectBacklogContainer' onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop} style={{outline: this.props.outline}}>
                 <section className='projectBacklogSummary'>
                     <p className='projectBacklogInfoTitle'>Backlog</p>
                     <p className='projectBacklogInfoTotalTasksValue'>{this.props.tasks.length}</p>

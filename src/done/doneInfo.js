@@ -51,7 +51,7 @@ class DoneInfo extends Component {
     
     render(){
         return(
-            <section className='projectDoneContainer' onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop}>
+            <section className='projectDoneContainer' onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop} style={{outline: this.props.outline}}>
                 <section className='projectDoneSummary'>
                     <p className='projectDoneInfoTitle'>Done</p>
                     <p className='projectDoneInfoTotalTasksValue'>{this.props.tasks.length}</p>

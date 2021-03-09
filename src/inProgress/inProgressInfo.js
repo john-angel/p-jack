@@ -51,7 +51,7 @@ class InProgressInfo extends Component {
         const forecast =  this.parseRevenue(revenue);
 
         return(
-            <section className='projectInProgressContainer' onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop}>
+            <section className='projectInProgressContainer' onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop} style={{outline: this.props.outline}}>
                 <section className='projectInProgressSummary'>
                     <p className='projectInProgressInfoTitle'>In progress</p>
                     <p className='projectInProgressInfoTasksAtRiskValue'>{atRisk}</p>

@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom'
 import {tasks} from '../utils/testData';
-import {backlog, inProgress, done} from '../utils/board';
+import {backlog, inProgress, done, none} from '../utils/board';
 import Search from '../search/search';
 import ProjectDetail from './projectDetail';
 import BacklogInfo from '../backlog/backlogInfo';
@@ -19,7 +19,8 @@ class Project extends Component{
             id: id,
             backlogTasks: [],
             inProgressTasks: [],
-            doneTasks: []
+            doneTasks: [],
+            outlineBoard:''
         };
 
         let taskObj = tasks[id];
@@ -37,44 +38,61 @@ class Project extends Component{
 
     onDragStart = (event,data,board) => {
         event.dataTransfer.setData('application/taskdata',data);
-        event.dataTransfer.effectAllowed = 'move';     
+        event.dataTransfer.effectAllowed = 'move';
     }
 
     onDragEnd = (event, board) => {        
         if(event.dataTransfer.dropEffect === 'move'){
-            const taskData = JSON.parse(event.dataTransfer.getData('application/taskdata'));
-            this.removeTaskFromBoard(taskData,board);            
+        //TODO: Fix data is only available in dragStart and drop events according to spec https://html.spec.whatwg.org/dev/dnd.html#concept-dnd-p
+          //  const data = event.dataTransfer.getData('application/taskdata');
+          //  const taskData = JSON.parse(event.dataTransfer.getData('application/taskdata'));
+           // this.removeTaskFromBoard(taskData,board);
         }
     }
 
-    onDragEnter = (event,board) => {
+    onDragEnter = (event,board) => {        
         if(event.dataTransfer.types.includes('application/taskdata')){
-            if(event.dataTransfer.effectAllowed === 'move'){
-                event.preventDefault();
-                event.dataTransfer.dropEffect = 'move';               
-            }
+            event.preventDefault();
+            event.dataTransfer.dropEffect = 'move';
         }
     }
 
-    onDragOver = (event,board) => {        
-        if(event.dataTransfer.types.includes('application/taskdata')){
-            if(event.dataTransfer.effectAllowed === 'move'){
-               event.preventDefault();
-            }
+    onDragOver = (event,board) => {
+        if(event.dataTransfer.types.includes('application/taskdata')){            
+            event.preventDefault();
+            event.dataTransfer.effectAllowed = 'move';            
+            this.setContainerOutline(board);            
         }
     }
 
-    
     onDrop = (event,board) => {
-        
-        if(event.dataTransfer.types.includes('application/taskdata')){
-            if(event.dataTransfer.effectAllowed === 'move'){                
-                event.preventDefault();
-                const taskData = JSON.parse(event.dataTransfer.getData('application/taskdata'));
-                event.dataTransfer.dropEffect = 'move';                
-                this.addTaskToBoard(taskData,board);            
-            }
+        if (event.dataTransfer.types.includes('application/taskdata')) {
+            event.preventDefault();
+            const taskData = JSON.parse(event.dataTransfer.getData('application/taskdata'));
+            event.dataTransfer.dropEffect = 'move';
+            this.clearContainerOutline(board);
+            this.addTaskToBoard(taskData, board);
         }
+    }
+
+    setContainerOutline =(board) => {
+        switch(board){
+            case backlog:
+                this.setState({outlineBoard: backlog});
+                break;
+            case inProgress:
+                this.setState({outlineBoard: inProgress});
+                break;
+            case done:
+                this.setState({outlineBoard: done});
+                break;
+            default:
+                break;
+        }
+    }
+
+    clearContainerOutline =(board) => {        
+        this.setState({outlineBoard: none});       
     }
 
     removeTaskFromBoard = (task,board) => {
@@ -117,9 +135,15 @@ class Project extends Component{
                 <section className='projectContainer'>
                     <Search placeholder='Search tasks...' onSearchEvent={this.onSearchEvent}></Search>
                     <ProjectDetail projectId={this.state.id}></ProjectDetail>                    
-                    <BacklogInfo tasks={this.state.backlogTasks} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd} onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop}></BacklogInfo>
-                    <InProgressInfo tasks={this.state.inProgressTasks} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd} onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop}></InProgressInfo>
-                    <DoneInfo tasks={this.state.doneTasks} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd} onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop}></DoneInfo>                   
+                    <BacklogInfo tasks={this.state.backlogTasks} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd} onDragEnter={this.onDragEnter} 
+                        onDragOver={this.onDragOver} onDrop={this.onDrop} outline={this.state.outlineBoard === backlog ? '1px solid white' : 'none'}>
+                    </BacklogInfo>
+                    <InProgressInfo tasks={this.state.inProgressTasks} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd} onDragEnter={this.onDragEnter} 
+                        onDragOver={this.onDragOver} onDrop={this.onDrop} outline={this.state.outlineBoard === inProgress ? '1px solid white' : 'none'}>
+                    </InProgressInfo>
+                    <DoneInfo tasks={this.state.doneTasks} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd} onDragEnter={this.onDragEnter} 
+                        onDragOver={this.onDragOver} onDrop={this.onDrop} outline={this.state.outlineBoard === done ? '1px solid white' : 'none'}>
+                    </DoneInfo>
                 </section>
             </React.Fragment>            
         )
