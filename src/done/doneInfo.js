@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {done} from '../utils/board';
 import Task from '../task/task';
 
 class DoneInfo extends Component {
@@ -27,10 +28,30 @@ class DoneInfo extends Component {
   
         return revenue;
     }
+
+    onDragStart = (event,data) => {
+        this.props.onDragStart(event,data,done);     
+    }
+
+    onDragEnd = (event) => {
+        this.props.onDragEnd(event,done);
+    }
+
+    onDragEnter = (event) => {
+        this.props.onDragEnter(event,done);        
+    }
+
+    onDragOver = (event) => {
+        this.props.onDragOver(event,done);    
+    }
+    
+    onDrop = (event) => {
+        this.props.onDrop(event,done);        
+    }
     
     render(){
         return(
-            <section className='projectDoneContainer'>
+            <section className='projectDoneContainer' onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop}>
                 <section className='projectDoneSummary'>
                     <p className='projectDoneInfoTitle'>Done</p>
                     <p className='projectDoneInfoTotalTasksValue'>{this.props.tasks.length}</p>
@@ -39,7 +60,7 @@ class DoneInfo extends Component {
                     <p className='projectDoneInfoInvoicedName'>Invoiced</p>                    
                 </section>
                 {
-                    this.props.tasks.map(task => <Task key={task.id} data={task}></Task>)
+                    this.props.tasks.map(task => <Task key={task.id} data={task} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}></Task>)
                 }                
             </section>
         )

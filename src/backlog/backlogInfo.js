@@ -28,10 +28,26 @@ class BacklogInfo extends Component {
     onDragEnd = (event) => {
         this.props.onDragEnd(event,backlog);
     }
+
+    onDragEnd = (event) => {
+        this.props.onDragEnd(event,backlog);
+    }
+
+    onDragEnter = (event) => {
+        this.props.onDragEnter(event,backlog);        
+    }
+
+    onDragOver = (event) => {
+        this.props.onDragOver(event,backlog);    
+    }
+    
+    onDrop = (event) => {
+        this.props.onDrop(event,backlog);        
+    }
     
     render(){
         return(
-            <section className='projectBacklogContainer'>
+            <section className='projectBacklogContainer' onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop}>
                 <section className='projectBacklogSummary'>
                     <p className='projectBacklogInfoTitle'>Backlog</p>
                     <p className='projectBacklogInfoTotalTasksValue'>{this.props.tasks.length}</p>

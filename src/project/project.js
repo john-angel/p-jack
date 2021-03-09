@@ -43,8 +43,16 @@ class Project extends Component{
     onDragEnd = (event, board) => {        
         if(event.dataTransfer.dropEffect === 'move'){
             const taskData = JSON.parse(event.dataTransfer.getData('application/taskdata'));
-            console.info(`onDragEnd from board ${board}. Data moved: ${JSON.stringify(taskData)}`);
-            console.info('Backlog tasks:', this.state.backlogTasks);
+            this.removeTaskFromBoard(taskData,board);            
+        }
+    }
+
+    onDragEnter = (event,board) => {
+        if(event.dataTransfer.types.includes('application/taskdata')){
+            if(event.dataTransfer.effectAllowed === 'move'){
+                event.preventDefault();
+                event.dataTransfer.dropEffect = 'move';               
+            }
         }
     }
 
@@ -56,30 +64,36 @@ class Project extends Component{
         }
     }
 
-    onDragEnter = (event,board) => {
-        
-        if(event.dataTransfer.types.includes('application/taskdata')){
-            if(event.dataTransfer.effectAllowed === 'move'){
-               event.dataTransfer.dropEffect = 'move';
-                event.preventDefault();
-            }
-        }
-    }
-
+    
     onDrop = (event,board) => {
         
         if(event.dataTransfer.types.includes('application/taskdata')){
             if(event.dataTransfer.effectAllowed === 'move'){                
-                const taskData = JSON.parse(event.dataTransfer.getData('application/taskdata'));
-                console.info(`Task dropped to board ${board}. Data: ${JSON.stringify(taskData)}`);
-                event.dataTransfer.dropEffect = 'move';
                 event.preventDefault();
-                this.updateBoardTasks(taskData,board);            
+                const taskData = JSON.parse(event.dataTransfer.getData('application/taskdata'));
+                event.dataTransfer.dropEffect = 'move';                
+                this.addTaskToBoard(taskData,board);            
             }
         }
     }
 
-    updateBoardTasks =(task,board) => {
+    removeTaskFromBoard = (task,board) => {
+        switch (board) {
+            case backlog:
+                this.setState(prevState => ({backlogTasks: prevState.backlogTasks.filter(taskItem => taskItem.id !== task.id)}));
+                break;
+            case inProgress:
+                this.setState(prevState => ({inProgressTasks: prevState.inProgressTasks.filter(taskItem => taskItem.id !== task.id)}));
+                break;
+            case done:
+                this.setState(prevState => ({doneTasks: prevState.doneTasks.filter(taskItem => taskItem.id !== task.id)}));
+                break;
+            default:
+                break;
+        }
+    }
+    
+    addTaskToBoard = (task,board) => {
         switch (board) {
             case backlog:
                 this.setState(prevState => ({backlogTasks: prevState.backlogTasks.concat([task])}));
@@ -97,14 +111,15 @@ class Project extends Component{
 
 
     render(){
+        
         return(
             <React.Fragment>                
                 <section className='projectContainer'>
                     <Search placeholder='Search tasks...' onSearchEvent={this.onSearchEvent}></Search>
                     <ProjectDetail projectId={this.state.id}></ProjectDetail>                    
-                    <BacklogInfo tasks={this.state.backlogTasks} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}></BacklogInfo>
-                    <InProgressInfo tasks={this.state.inProgressTasks} onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop}></InProgressInfo>
-                    <DoneInfo tasks={this.state.doneTasks}></DoneInfo>                   
+                    <BacklogInfo tasks={this.state.backlogTasks} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd} onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop}></BacklogInfo>
+                    <InProgressInfo tasks={this.state.inProgressTasks} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd} onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop}></InProgressInfo>
+                    <DoneInfo tasks={this.state.doneTasks} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd} onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop}></DoneInfo>                   
                 </section>
             </React.Fragment>            
         )

@@ -17,6 +17,14 @@ class InProgressInfo extends Component {
         return revenue;
     }
 
+    onDragStart = (event,data) => {
+        this.props.onDragStart(event,data,inProgress);     
+    }
+
+    onDragEnd = (event) => {
+        this.props.onDragEnd(event,inProgress);
+    }
+
     onDragEnter = (event) => {
         this.props.onDragEnter(event,inProgress);        
     }
@@ -52,7 +60,7 @@ class InProgressInfo extends Component {
                     <p className='projectInProgressInfoForecastName'>Forecasted</p>                    
                 </section>
                 {
-                    this.props.tasks.map(task => <Task key={task.id} data={task}></Task>)
+                    this.props.tasks.map(task => <Task key={task.id} data={task} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}></Task>)
                 }                
             </section>
         )
