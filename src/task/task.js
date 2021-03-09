@@ -7,12 +7,14 @@ class Task extends Component{
     constructor(props){
         super(props);
 
+        this.containerRef = React.createRef();
+
         this.state = {
             id:this.props.data.id,
             name:this.props.data.name,
             status:this.props.data.status,
             dueDate:this.props.data.dueDate,
-            revenue:this.parseRevenue(this.props.data.revenue),
+            revenue:this.props.data.revenue,//TODO: Parse revenue 
             assigned:this.props.data.assigned,
             comments:this.props.data.comments,
             statusColor:getColorFromStatus(this.props.data.status)
@@ -29,7 +31,15 @@ class Task extends Component{
         }).format(value);
   
         return revenue;
-      }
+    }
+
+    onDragStart = (event) => {
+        this.props.onDragStart(event,JSON.stringify(this.state));
+    }
+
+    onDragEnd = (event) => {
+        this.props.onDragEnd(event);
+    }
 
     onStatusChange = (event) => {
         event.persist();
@@ -46,12 +56,12 @@ class Task extends Component{
 
     onRevenueChange = (event) => {
         event.persist();
-        this.setState({revenue:event.target.value})
+        this.setState({revenue:event.target.value});//TODO: Parse revenue before updating the state
     }
 
     onAssignedChange = (event) => {
         event.persist();
-        this.setState({assigned:event.target.value})
+        this.setState({assigned:event.target.value});
     }
 
     onCommentsChange = (event) => {
@@ -61,7 +71,7 @@ class Task extends Component{
 
     render(){
         return(
-            <section className='projectTaskContainer'>
+            <section className='projectTaskContainer' ref={this.containerRef} draggable='true' onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}>
                 <h3 className='projectTaskTitle'>{this.state.name}</h3>
                 <label className='projectTaskStatusLabel' htmlFor={'projectTaskStatusValue' + this.state.id}>Status:</label>
                 <select id={'projectTaskStatusValue' + this.state.id} value={this.state.status} style={{ color: this.state.statusColor }} onChange={this.onStatusChange}>

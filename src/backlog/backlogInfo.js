@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {atRiskStatus} from '../utils/status';
+import {backlog} from '../utils/board';
 import Task from '../task/task';
 
 class BacklogInfo extends Component {
@@ -19,6 +20,14 @@ class BacklogInfo extends Component {
             tasksAtRisk:atRisk
         }
     }
+
+    onDragStart = (event,data) => {
+        this.props.onDragStart(event,data,backlog);     
+    }
+
+    onDragEnd = (event) => {
+        this.props.onDragEnd(event,backlog);
+    }
     
     render(){
         return(
@@ -31,7 +40,7 @@ class BacklogInfo extends Component {
                     <p className='projectBacklogInfoTasksAtRiskName'>At risk</p>
                 </section>
                 {
-                    this.props.tasks.map(task => <Task key={task.id} data={task}></Task>)
+                    this.props.tasks.map(task => <Task key={task.id} data={task} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}></Task>)
                 }                
             </section>
         )
