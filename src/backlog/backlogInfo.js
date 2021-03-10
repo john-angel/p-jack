@@ -25,12 +25,8 @@ class BacklogInfo extends Component {
         this.props.onDragStart(event,data,backlog);     
     }
 
-    onDragEnd = (event) => {
-        this.props.onDragEnd(event,backlog);
-    }
-
-    onDragEnd = (event) => {
-        this.props.onDragEnd(event,backlog);
+    onDragEnd = (event,taskId) => {
+        this.props.onDragEnd(event,taskId,backlog);
     }
 
     onDragEnter = (event) => {

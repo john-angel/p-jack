@@ -41,12 +41,11 @@ class Project extends Component{
         event.dataTransfer.effectAllowed = 'move';
     }
 
-    onDragEnd = (event, board) => {        
+    onDragEnd = (event, taskId, board) => {
         if(event.dataTransfer.dropEffect === 'move'){
-        //TODO: Fix data is only available in dragStart and drop events according to spec https://html.spec.whatwg.org/dev/dnd.html#concept-dnd-p
-          //  const data = event.dataTransfer.getData('application/taskdata');
-          //  const taskData = JSON.parse(event.dataTransfer.getData('application/taskdata'));
-           // this.removeTaskFromBoard(taskData,board);
+        //Data is only available in dragStart and drop events according to spec https://html.spec.whatwg.org/dev/dnd.html#concept-dnd-p
+        //That is why the taskId has to be used to identify the task to remove          
+           this.removeTaskFromBoard(taskId,board);
         }
     }
 
@@ -95,16 +94,16 @@ class Project extends Component{
         this.setState({outlineBoard: none});       
     }
 
-    removeTaskFromBoard = (task,board) => {
+    removeTaskFromBoard = (taskId,board) => {
         switch (board) {
             case backlog:
-                this.setState(prevState => ({backlogTasks: prevState.backlogTasks.filter(taskItem => taskItem.id !== task.id)}));
+                this.setState(prevState => ({backlogTasks: prevState.backlogTasks.filter(taskItem => taskItem.id !== taskId)}));
                 break;
             case inProgress:
-                this.setState(prevState => ({inProgressTasks: prevState.inProgressTasks.filter(taskItem => taskItem.id !== task.id)}));
+                this.setState(prevState => ({inProgressTasks: prevState.inProgressTasks.filter(taskItem => taskItem.id !== taskId)}));
                 break;
             case done:
-                this.setState(prevState => ({doneTasks: prevState.doneTasks.filter(taskItem => taskItem.id !== task.id)}));
+                this.setState(prevState => ({doneTasks: prevState.doneTasks.filter(taskItem => taskItem.id !== taskId)}));
                 break;
             default:
                 break;

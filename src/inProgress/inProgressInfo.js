@@ -21,9 +21,9 @@ class InProgressInfo extends Component {
         this.props.onDragStart(event,data,inProgress);     
     }
 
-    onDragEnd = (event) => {
-        this.props.onDragEnd(event,inProgress);
-    }
+    onDragEnd = (event,taskId) => {
+        this.props.onDragEnd(event,taskId,inProgress);
+    }    
 
     onDragEnter = (event) => {
         this.props.onDragEnter(event,inProgress);        

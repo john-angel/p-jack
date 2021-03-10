@@ -33,8 +33,8 @@ class DoneInfo extends Component {
         this.props.onDragStart(event,data,done);     
     }
 
-    onDragEnd = (event) => {
-        this.props.onDragEnd(event,done);
+    onDragEnd = (event,taskId) => {
+        this.props.onDragEnd(event,taskId,done);
     }
 
     onDragEnter = (event) => {

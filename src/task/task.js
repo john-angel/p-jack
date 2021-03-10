@@ -38,7 +38,7 @@ class Task extends Component{
     }
 
     onDragEnd = (event) => {
-        this.props.onDragEnd(event);
+        this.props.onDragEnd(event,this.state.id);
     }
 
     onStatusChange = (event) => {
