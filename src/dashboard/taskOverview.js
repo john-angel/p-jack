@@ -71,7 +71,6 @@ class TaskOverview extends Component{
     }
     
     render(){
-        this.queue.print();
         const firstTask = this.queue.at(0);
         const firstTaskName = typeof firstTask === 'undefined' ? 'No tasks defined' : firstTask.name;
         const firstTaskIcon = this.getIcon(firstTask);
