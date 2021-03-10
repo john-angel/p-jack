@@ -21,18 +21,6 @@ class Task extends Component{
         }
     }
 
-    parseRevenue = (value) => {
-        const revenue = new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD',
-          notation:'compact',                                        
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        }).format(value);
-  
-        return revenue;
-    }
-
     onDragStart = (event) => {
         this.props.onDragStart(event,JSON.stringify(this.state));
     }

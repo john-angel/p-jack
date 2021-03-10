@@ -1,22 +1,11 @@
 import React, {Component} from 'react';
+import parseRevenue from '../utils/revenue';
 import {atRiskStatus} from '../utils/status';
 import {inProgress} from '../utils/board';
 import Task from '../task/task';
 
 class InProgressInfo extends Component {
    
-    parseRevenue = (value) => {
-        const revenue = new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD',
-          notation:'compact',                                        
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        }).format(value);
-  
-        return revenue;
-    }
-
     onDragStart = (event,data) => {
         this.props.onDragStart(event,data,inProgress);     
     }
@@ -48,7 +37,7 @@ class InProgressInfo extends Component {
             revenue+= task.revenue;
         });
 
-        const forecast =  this.parseRevenue(revenue);
+        const forecast =  parseRevenue(revenue);
 
         return(
             <section className='projectInProgressContainer' onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop} style={{outline: this.props.outline}}>

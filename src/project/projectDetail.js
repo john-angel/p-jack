@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import parseRevenue from '../utils/revenue';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faProjectDiagram } from '@fortawesome/free-solid-svg-icons'
 import {projects} from '../utils/testData'
@@ -15,23 +16,11 @@ class ProjectDetail extends Component{
             description: projects[this.props.projectId].description,
             start: projects[this.props.projectId].startDate,
             finish: projects[this.props.projectId].finishDate,           
-            revenue: this.parseRevenue(projects[this.props.projectId].revenue),
+            revenue: parseRevenue(projects[this.props.projectId].revenue),
             status: projects[this.props.projectId].status,
             statusColor: getColorFromStatus(projects[this.props.projectId].status)
         };
     }
-
-    parseRevenue = (value) => {
-        const revenue = new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD',
-          notation:'compact',                                        
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        }).format(value);
-  
-        return revenue;
-      }
 
     onChange = (event) => {
         event.persist();

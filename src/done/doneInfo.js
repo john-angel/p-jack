@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {done} from '../utils/board';
 import Task from '../task/task';
+import parseRevenue from '../utils/revenue';
 
 class DoneInfo extends Component {
     constructor(props){
@@ -13,20 +14,8 @@ class DoneInfo extends Component {
         });
 
         this.state = {     
-            invoiced: this.parseRevenue(revenue)
+            invoiced: parseRevenue(revenue)
         }
-    }
-
-    parseRevenue = (value) => {
-        const revenue = new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD',
-          notation:'compact',                                        
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        }).format(value);
-  
-        return revenue;
     }
 
     onDragStart = (event,data) => {

@@ -8,6 +8,7 @@ import {getTextFromStatus} from '../utils/status';
 import RevenueChart from './revenueChart';
 import ProgressChart from './progressChart';
 import {projects,tasks,revenue} from '../utils/testData';
+import parseRevenue from '../utils/revenue';
 import TaskOverview from './taskOverview';
 import Search from '../search/search';
 
@@ -21,18 +22,6 @@ class Dashboard extends Component{
         searchText:''
       }
     }  
-
-    parseRevenue = (project) => {
-      const revenue = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-        notation:'compact',                                        
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2,
-      }).format(project.revenue);
-
-      return revenue;
-    }
 
     parseFinishDate = (project) => {
 
@@ -73,7 +62,7 @@ class Dashboard extends Component{
                 (
                   <DashboardItem key={project.id} title={project.name} onClickEvent={() => this.onClick(project.id)}>
                     <p className='dashboardProjectStatus'>Status: {getTextFromStatus(project.status)}</p>
-                    <p className='dashboardProjectRevenue'>Revenue: {this.parseRevenue(project)}</p>
+                    <p className='dashboardProjectRevenue'>Revenue: {parseRevenue(project.revenue)}</p>
                     <p className='dashboardProjectFinishDate'>Finish date: {this.parseFinishDate(project)}</p>
                     <TaskOverview tasks={tasks[project.id]}></TaskOverview>
                     <RevenueChart divId={'revenueChart' + project.id} projectId={project.id} revenue={revenue[project.id]}></RevenueChart>

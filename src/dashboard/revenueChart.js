@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {mainComponentsBackgroundColor,textDefaultColor,getColorFromStatus, infoColor} from '../utils/colors';
+import parseRevenue from '../utils/revenue';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfo} from '@fortawesome/free-solid-svg-icons';
 
@@ -56,25 +57,12 @@ class RevenueChart extends Component{
         const revenueArray = Object.keys(this.props.revenue).map(projectId => this.props.revenue[projectId]);
 
         revenueArray.forEach(period => {
-            dataTable.addRow([period.date,period.amount,this.parseRevenue(period.amount),`color:${getColorFromStatus(period.status)}`]);    
+            dataTable.addRow([period.date,period.amount,parseRevenue(period.amount),`color:${getColorFromStatus(period.status)}`]);    
         });
 
         return dataTable;
-        
     }
 
-    parseRevenue = (amount) => {
-        const revenue = new Intl.NumberFormat('en-US', {
-          style: 'currency',
-          currency: 'USD',
-          notation:'compact',                                        
-          minimumFractionDigits: 0,
-          maximumFractionDigits: 1,
-        }).format(amount);
-  
-        return revenue;
-    }    
-    
     render(){        
         return(
             <div className='dashboardProjectRevenueChart'>
