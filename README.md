@@ -3,7 +3,7 @@ Jack is a Project Management tool being built to provide:
 * Visibility of all your projects in one place
 * Automatic notification of next steps
 
-Jack is still work in progress and lives [here] (https://jackbyjohn.netlify.app/).
+Jack is still work in progress and lives [here](https://jackbyjohn.netlify.app/).
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
