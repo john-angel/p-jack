@@ -1,21 +1,21 @@
-import React, {Component} from 'react';
+import React, {useEffect} from 'react';
 import {mainComponentsBackgroundColor,textDefaultColor,getColorFromStatus, infoColor} from '../utils/colors';
 import parseRevenue from '../utils/revenue';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInfo} from '@fortawesome/free-solid-svg-icons';
 
 
-class RevenueChart extends Component{
+function RevenueChart(props){
     
-    componentDidMount(){
-        if(typeof this.props.revenue !== 'undefined'){
-            window.google.charts.setOnLoadCallback(this.drawChart);
-        }        
-    }
+    useEffect(()=>{
+        if(typeof props.revenue !== 'undefined'){
+            window.google.charts.setOnLoadCallback(drawChart);
+        }
+    })
 
-    drawChart = () => {
+    const drawChart = () => {
 
-        const dataTable = this.createDataTable();
+        const dataTable = createDataTable();
 
         let options = {
             backgroundColor: mainComponentsBackgroundColor,            
@@ -41,11 +41,11 @@ class RevenueChart extends Component{
 
         formatter.format(dataTable, 1);//Apply format to 2nd column
         
-        let chart = new window.google.visualization.ColumnChart(document.getElementById(this.props.divId));
+        let chart = new window.google.visualization.ColumnChart(document.getElementById(props.divId));
         chart.draw(dataTable, options);       
     }
 
-    createDataTable = () => {
+    const createDataTable = () => {
        
         let dataTable = new window.google.visualization.DataTable();
 
@@ -54,7 +54,7 @@ class RevenueChart extends Component{
         dataTable.addColumn({type:'string',role:'annotation'});
         dataTable.addColumn({type:'string',role:'style'});
 
-        const revenueArray = Object.keys(this.props.revenue).map(projectId => this.props.revenue[projectId]);
+        const revenueArray = Object.keys(props.revenue).map(projectId => props.revenue[projectId]);
 
         revenueArray.forEach(period => {
             dataTable.addRow([period.date,period.amount,parseRevenue(period.amount),`color:${getColorFromStatus(period.status)}`]);    
@@ -63,21 +63,21 @@ class RevenueChart extends Component{
         return dataTable;
     }
 
-    render(){        
-        return(
-            <div className='dashboardProjectRevenueChart'>
+
+    return (
+        <div className='dashboardProjectRevenueChart'>
             {
-                typeof this.props.revenue === 'undefined' ?
+                typeof props.revenue === 'undefined' ?
                     <div className='dashboardRevenueNotForecasted'>
-                        <FontAwesomeIcon icon={faInfo} style={{color:infoColor}}></FontAwesomeIcon>
+                        <FontAwesomeIcon icon={faInfo} style={{ color: infoColor }}></FontAwesomeIcon>
                         <p>No revenue forecasted</p>
                     </div>
-                    :                    
-                    <div id={this.props.divId}></div>
+                    :
+                    <div id={props.divId}></div>
             }
-            </div>
-        )
-    }
+        </div>
+    )
+
 }
 
 export default RevenueChart;
