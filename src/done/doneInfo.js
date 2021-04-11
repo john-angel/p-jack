@@ -1,59 +1,50 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {done} from '../utils/board';
 import Task from '../task/task';
 import parseRevenue from '../utils/revenue';
 
-class DoneInfo extends Component {
-    constructor(props){
-        super(props);
+function DoneInfo(props){
+    let revenue = 0;
 
-        let revenue = 0;
+    props.tasks.forEach(task => {
+        revenue += task.revenue;
+    });
 
-        this.props.tasks.forEach(task => {
-            revenue+= task.revenue;
-        });
-
-        this.state = {     
-            invoiced: parseRevenue(revenue)
-        }
+    const onDragStart = (event,data) => {
+        props.onDragStart(event,data,done);     
     }
 
-    onDragStart = (event,data) => {
-        this.props.onDragStart(event,data,done);     
+    const onDragEnd = (event,taskId) => {
+        props.onDragEnd(event,taskId,done);
     }
 
-    onDragEnd = (event,taskId) => {
-        this.props.onDragEnd(event,taskId,done);
+    const onDragEnter = (event) => {
+        props.onDragEnter(event,done);        
     }
 
-    onDragEnter = (event) => {
-        this.props.onDragEnter(event,done);        
-    }
-
-    onDragOver = (event) => {
-        this.props.onDragOver(event,done);    
+    const onDragOver = (event) => {
+        props.onDragOver(event,done);    
     }
     
-    onDrop = (event) => {
-        this.props.onDrop(event,done);        
+    const onDrop = (event) => {
+        props.onDrop(event,done);        
     }
     
-    render(){
-        return(
-            <section className='projectDoneContainer' onDragEnter={this.onDragEnter} onDragOver={this.onDragOver} onDrop={this.onDrop} style={{outline: this.props.outline}}>
-                <section className='projectDoneSummary'>
-                    <p className='projectDoneInfoTitle'>Done</p>
-                    <p className='projectDoneInfoTotalTasksValue'>{this.props.tasks.length}</p>
-                    <p className='projectDoneInfoTotalTasksName'>Tasks</p>
-                    <p className='projectDoneInfoInvoicedValue'>{this.state.invoiced}</p>
-                    <p className='projectDoneInfoInvoicedName'>Invoiced</p>                    
-                </section>
-                {
-                    this.props.tasks.map(task => <Task key={task.id} data={task} onDragStart={this.onDragStart} onDragEnd={this.onDragEnd}></Task>)
-                }                
+    return (
+        <section className='projectDoneContainer' onDragEnter={onDragEnter} onDragOver={onDragOver} onDrop={onDrop} style={{ outline: props.outline }}>
+            <section className='projectDoneSummary'>
+                <p className='projectDoneInfoTitle'>Done</p>
+                <p className='projectDoneInfoTotalTasksValue'>{props.tasks.length}</p>
+                <p className='projectDoneInfoTotalTasksName'>Tasks</p>
+                <p className='projectDoneInfoInvoicedValue'>{parseRevenue(revenue)}</p>
+                <p className='projectDoneInfoInvoicedName'>Invoiced</p>
             </section>
-        )
-    }
+            {
+                props.tasks.map(task => <Task key={task.id} data={task} onDragStart={onDragStart} onDragEnd={onDragEnd}></Task>)
+            }
+        </section>
+    )
+
 }
 
 export default DoneInfo;
